@@ -1,0 +1,124 @@
+package com.fax.passyourpmpexam.ui
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.fax.passyourpmpexam.feature.daily.DailyScreen
+import com.fax.passyourpmpexam.feature.home.HomeScreen
+import com.fax.passyourpmpexam.feature.free.FreeScreen
+import com.fax.passyourpmpexam.feature.settings.SettingsScreen
+import com.fax.passyourpmpexam.feature.quiz.QuizScreen
+import kotlinx.serialization.Serializable
+import kotlin.reflect.KClass
+
+@Serializable
+object HomeRoute
+
+@Serializable
+object PracticeRoute
+
+@Serializable
+object SettingsRoute
+
+// Destinations reachable from the Home hub (not top-level tabs).
+@Serializable
+object DailyRoute
+
+@Serializable
+object QuizRoute
+
+@Serializable
+object FreeRoute
+
+private data class TopLevelDestination(
+    val route: Any,
+    val routeClass: KClass<*>,
+    val label: String,
+    val icon: ImageVector,
+)
+
+private val topLevelDestinations = listOf(
+    TopLevelDestination(HomeRoute, HomeRoute::class, "Home", Icons.Filled.Home),
+    TopLevelDestination(PracticeRoute, PracticeRoute::class, "Practice", Icons.Filled.PlayArrow),
+    TopLevelDestination(SettingsRoute, SettingsRoute::class, "Settings", Icons.Filled.Settings),
+)
+
+@Composable
+fun PmpApp() {
+    val navController = rememberNavController()
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        bottomBar = {
+            NavigationBar {
+                val backStackEntry by navController.currentBackStackEntryAsState()
+                val currentDestination = backStackEntry?.destination
+                topLevelDestinations.forEach { destination ->
+                    val selected = currentDestination?.hierarchy?.any {
+                        it.hasRoute(destination.routeClass)
+                    } == true
+                    NavigationBarItem(
+                        selected = selected,
+                        onClick = {
+                            navController.navigate(destination.route) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        },
+                        icon = { Icon(destination.icon, contentDescription = destination.label) },
+                        label = { Text(destination.label) },
+                    )
+                }
+            }
+        },
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = HomeRoute,
+            modifier = Modifier.padding(innerPadding),
+        ) {
+            composable<HomeRoute> {
+                HomeScreen(
+                    onStartDaily = { navController.navigate(DailyRoute) },
+                    onStartQuiz = { navController.navigate(QuizRoute) },
+                    onStartFree = { navController.navigate(FreeRoute) },
+                )
+            }
+            composable<DailyRoute> { DailyScreen(onBack = { navController.popBackStack() }) }
+            composable<QuizRoute> { QuizScreen(onBack = { navController.popBackStack() }) }
+            composable<FreeRoute> { FreeScreen(onBack = { navController.popBackStack() }) }
+            composable<PracticeRoute> { PlaceholderScreen("Practice") }
+            composable<SettingsRoute> { SettingsScreen() }
+        }
+    }
+}
+
+@Composable
+private fun PlaceholderScreen(name: String) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text(name)
+    }
+}

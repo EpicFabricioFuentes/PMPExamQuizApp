@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PMP Exam Prep - Daily Question</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1a1c1f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#a43a00",
+                    "primary-fixed-dim": "#c8bfff",
+                    "surface-variant": "#e2e2e7",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ededf2",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb599",
+                    "surface-bright": "#f9f9fe",
+                    "on-primary-fixed": "#1a0064",
+                    "on-secondary-container": "#00731e",
+                    "on-tertiary-fixed-variant": "#7f2b00",
+                    "background": "#f9f9fe",
+                    "on-background": "#1a1c1f",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#ffcbb8",
+                    "surface-container-highest": "#e2e2e7",
+                    "surface-tint": "#5b33f5",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002204",
+                    "secondary": "#006e1c",
+                    "surface-container-low": "#f3f3f8",
+                    "on-primary-container": "#d9d1ff",
+                    "outline": "#787588",
+                    "inverse-on-surface": "#f0f0f5",
+                    "on-tertiary-fixed": "#370e00",
+                    "primary-fixed": "#e5deff",
+                    "surface": "#f9f9fe",
+                    "inverse-surface": "#2e3034",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d9dade",
+                    "primary": "#4200d6",
+                    "secondary-container": "#91f78e",
+                    "on-surface-variant": "#484556",
+                    "tertiary": "#7d2a00",
+                    "secondary-fixed": "#94f990",
+                    "surface-container-high": "#e8e8ed",
+                    "outline-variant": "#c9c4d9",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-primary": "#c8bfff",
+                    "primary-container": "#5a31f4",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#4300da"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "safe_margin": "16px",
+                    "base_padding": "24px",
+                    "item_gap": "12px",
+                    "touch_target_min": "48px",
+                    "grid_unit": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "section-header": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "section-header": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.5px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .answer-card-shadow {
+            box-shadow: 0 4px 0 0 rgba(226, 226, 231, 1);
+        }
+        .answer-card-shadow-active {
+            box-shadow: 0 4px 0 0 rgba(90, 49, 244, 1);
+        }
+        .answer-card:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 rgba(226, 226, 231, 1);
+        }
+        .answer-card-active:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 rgba(90, 49, 244, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Header / Progress Area -->
+<header class="w-full pt-12 pb-6 px-safe_margin flex items-center gap-4">
+<button aria-label="Close" class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="flex-grow bg-surface-variant h-4 rounded-full overflow-hidden">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" class="bg-primary h-full w-2/3 rounded-full transition-all duration-500 ease-out" role="progressbar"></div>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-bold text-lg">5</span>
+</div>
+</header>
+<!-- Main Content / Question Area -->
+<main class="flex-grow px-safe_margin flex flex-col max-w-2xl mx-auto w-full">
+<!-- Viewing Area (One UI 30-40%) -->
+<section class="py-8 md:py-12">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-primary-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A friendly, stylized professional mentor avatar with a warm smile, wearing business casual attire. The illustration is clean, modern, and high-quality, rendered in a 3D claymorphism style with soft shadows and a bright, corporate-friendly color palette of blues and purples. The background is a clean, neutral gray gradient." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2s_KcaZESB9rqF1OVu24Y99QFboVYCdkjeX8S5uIRFt3eW4awJ4Qubz29_PFzMzJpzmS1yyYuFoaC1nHS7rTykc90pNJAn5kkMKwYOBkraGjXhHrxjXRvteTrfcHXtMWzEbL5qSl4omScpKteWEqIwvAobN0mzz3-YXorM8KWvA3DM_4i9PiePATkFGXUL-pDTnCHfzvHVSOr80E4tQPBCMpbzx0x4AJukHWUgL-bKVejTAgD2xR2"/>
+</div>
+<div class="relative bg-surface-container-low p-4 rounded-2xl rounded-tl-none border border-outline-variant">
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md leading-tight text-on-surface">
+                        Which process group involves formalizing acceptance of the project?
+                    </h1>
+</div>
+</div>
+</section>
+<!-- Interaction Area (One UI 60-70%) -->
+<section class="flex-grow space-y-4 pb-32">
+<!-- Answer Card 1 -->
+<button class="answer-card w-full p-4 min-h-[64px] bg-surface-container-lowest border-2 border-surface-variant rounded-xl flex items-center gap-4 text-left transition-all answer-card-shadow hover:border-primary-container/30 group">
+<div class="w-10 h-10 rounded-lg border-2 border-surface-variant flex items-center justify-center font-bold text-on-surface-variant group-hover:border-primary-container/30 transition-colors">1</div>
+<span class="font-body-md text-body-md text-on-surface">Initiation</span>
+</button>
+<!-- Answer Card 2 -->
+<button class="answer-card w-full p-4 min-h-[64px] bg-surface-container-lowest border-2 border-surface-variant rounded-xl flex items-center gap-4 text-left transition-all answer-card-shadow hover:border-primary-container/30 group">
+<div class="w-10 h-10 rounded-lg border-2 border-surface-variant flex items-center justify-center font-bold text-on-surface-variant group-hover:border-primary-container/30 transition-colors">2</div>
+<span class="font-body-md text-body-md text-on-surface">Planning</span>
+</button>
+<!-- Answer Card 3 -->
+<button class="answer-card w-full p-4 min-h-[64px] bg-surface-container-lowest border-2 border-surface-variant rounded-xl flex items-center gap-4 text-left transition-all answer-card-shadow hover:border-primary-container/30 group">
+<div class="w-10 h-10 rounded-lg border-2 border-surface-variant flex items-center justify-center font-bold text-on-surface-variant group-hover:border-primary-container/30 transition-colors">3</div>
+<span class="font-body-md text-body-md text-on-surface">Monitoring &amp; Controlling</span>
+</button>
+<!-- Answer Card 4 (SELECTED) -->
+<button class="answer-card-active w-full p-4 min-h-[64px] bg-primary-container/10 border-2 border-primary rounded-xl flex items-center gap-4 text-left transition-all answer-card-shadow-active ring-2 ring-primary/20 ring-inset">
+<div class="w-10 h-10 rounded-lg border-2 border-primary bg-primary text-on-primary flex items-center justify-center font-bold">4</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-semibold">Closing</span>
+</button>
+</section>
+</main>
+<!-- Fixed Bottom Action -->
+<footer class="fixed bottom-0 left-0 w-full bg-background border-t border-surface-variant p-safe_margin pb-10 flex justify-center">
+<div class="max-w-2xl w-full">
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl text-lg uppercase tracking-wide hover:bg-primary-container transition-all active:scale-95 shadow-lg">
+                Check
+            </button>
+</div>
+</footer>
+<!-- Atmosphere Micro-interaction Layer -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-50 overflow-hidden">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]"></div>
+</div>
+<script>
+        // Simple selection toggle logic for demo purposes
+        document.querySelectorAll('.answer-card, .answer-card-active').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active classes from all
+                document.querySelectorAll('.answer-card, .answer-card-active').forEach(c => {
+                    c.classList.remove('answer-card-active', 'bg-primary-container/10', 'border-primary', 'answer-card-shadow-active', 'ring-2', 'ring-primary/20', 'ring-inset');
+                    c.classList.add('answer-card', 'bg-surface-container-lowest', 'border-surface-variant', 'answer-card-shadow');
+                    const badge = c.querySelector('div');
+                    badge.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                    badge.classList.add('border-surface-variant', 'text-on-surface-variant');
+                });
+                
+                // Add active classes to current
+                this.classList.remove('answer-card', 'bg-surface-container-lowest', 'border-surface-variant', 'answer-card-shadow');
+                this.classList.add('answer-card-active', 'bg-primary-container/10', 'border-primary', 'answer-card-shadow-active', 'ring-2', 'ring-primary/20', 'ring-inset');
+                const badge = this.querySelector('div');
+                badge.classList.remove('border-surface-variant', 'text-on-surface-variant');
+                badge.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+            });
+        });
+    </script>
+</body></html>

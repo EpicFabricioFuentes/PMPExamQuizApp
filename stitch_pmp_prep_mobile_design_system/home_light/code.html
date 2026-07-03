@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PMP Exam Prep - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1a1c1f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#a43a00",
+                    "primary-fixed-dim": "#c8bfff",
+                    "surface-variant": "#e2e2e7",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ededf2",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb599",
+                    "surface-bright": "#f9f9fe",
+                    "on-primary-fixed": "#1a0064",
+                    "on-secondary-container": "#00731e",
+                    "on-tertiary-fixed-variant": "#7f2b00",
+                    "background": "#f9f9fe",
+                    "on-background": "#1a1c1f",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#ffcbb8",
+                    "surface-container-highest": "#e2e2e7",
+                    "surface-tint": "#5b33f5",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002204",
+                    "secondary": "#006e1c",
+                    "surface-container-low": "#f3f3f8",
+                    "on-primary-container": "#d9d1ff",
+                    "outline": "#787588",
+                    "inverse-on-surface": "#f0f0f5",
+                    "on-tertiary-fixed": "#370e00",
+                    "primary-fixed": "#e5deff",
+                    "surface": "#f9f9fe",
+                    "inverse-surface": "#2e3034",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d9dade",
+                    "primary": "#4200d6",
+                    "secondary-container": "#91f78e",
+                    "on-surface-variant": "#484556",
+                    "tertiary": "#7d2a00",
+                    "secondary-fixed": "#94f990",
+                    "surface-container-high": "#e8e8ed",
+                    "outline-variant": "#c9c4d9",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-primary": "#c8bfff",
+                    "primary-container": "#5a31f4",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#4300da"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "safe_margin": "16px",
+                    "base_padding": "24px",
+                    "item_gap": "12px",
+                    "touch_target_min": "48px",
+                    "grid_unit": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "section-header": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "section-header": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.5px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .one-ui-header-collapse {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top App Bar -->
+<header class="flex flex-col px-4 w-full pt-12 pb-6 sticky top-0 z-40 bg-background/80 backdrop-blur-md">
+<div class="flex justify-between items-center mb-4">
+<img alt="PMP Prep" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvOEcxGdqO337fuL6Q_G_xVVqPzpQKe23uUHnh8CdUfPJ2QrwOTIubrKZu4GP3BcSxShEI4sBTkK9AwjCbrUS7Ivy5yRsgfwVbCAYuEaMSelFDx5mo-WC1KtohhvKIjb2mUv8nLBtrS7K4fCJDoc_n-4T5ciX7RBj1_5KgfE2F91z3-r9BR-FRVmBJan-t-b-JdNWuNhsMDhhK_VTyj7Ditl8HvZeVPU7wTkEjy1ZE3iYwkuxJPmaTeIQ"/>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</div>
+<!-- One UI Style Large Header -->
+<div class="one-ui-header-collapse mt-4">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">Good Morning</h1>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">Ready to crush your PMP goal today?</p>
+</div>
+</header>
+<main class="px-4 pb-32 space-y-6">
+<!-- Status Row (Streak & Daily Goal) -->
+<div class="flex gap-4">
+<!-- Streak Card -->
+<div class="flex-1 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between h-32">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Current</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">5 day streak</div>
+<div class="w-full bg-surface-variant h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full w-[70%]"></div>
+</div>
+</div>
+</div>
+<!-- Daily Question Status -->
+<div class="flex-1 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between h-32">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">quiz</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Daily Goal</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">0/1 Done</div>
+<div class="w-full bg-surface-variant h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full w-0"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Title -->
+<div class="flex items-center justify-between px-1">
+<h2 class="font-section-header text-section-header text-on-surface uppercase tracking-wider">Learning Modes</h2>
+<button class="text-primary font-label-sm text-label-sm">View Stats</button>
+</div>
+<!-- Vertical Entry Cards (Large & Rounded) -->
+<div class="space-y-4">
+<!-- Daily Question -->
+<button class="w-full group relative overflow-hidden rounded-[32px] bg-primary text-on-primary p-8 text-left transition-all active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div class="space-y-2 max-w-[60%]">
+<span class="bg-on-primary/20 px-3 py-1 rounded-full font-label-sm text-label-sm">EASY WIN</span>
+<h3 class="font-headline-md text-headline-md">Daily Question</h3>
+<p class="font-body-md text-body-md text-on-primary/80">One focused question to keep your momentum alive.</p>
+</div>
+<div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300;">calendar_today</span>
+</div>
+</div>
+<div class="mt-8 flex items-center font-label-sm text-label-sm gap-2">
+<span>Start now</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+<!-- Quiz Mode -->
+<button class="w-full group relative overflow-hidden rounded-[32px] bg-surface-container-high text-on-surface p-8 text-left transition-all active:scale-[0.98] duration-300 border border-outline-variant/20">
+<div class="flex justify-between items-start">
+<div class="space-y-2 max-w-[60%]">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">INTENSIVE</span>
+<h3 class="font-headline-md text-headline-md">Quiz Mode</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Simulate real exam conditions with timed sessions.</p>
+</div>
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+</div>
+<div class="mt-8 flex items-center font-label-sm text-label-sm gap-2 text-primary font-semibold">
+<span>180 Questions available</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+<!-- Free Mode -->
+<button class="w-full group relative overflow-hidden rounded-[32px] bg-surface-container-high text-on-surface p-8 text-left transition-all active:scale-[0.98] duration-300 border border-outline-variant/20">
+<div class="flex justify-between items-start">
+<div class="space-y-2 max-w-[60%]">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full font-label-sm text-label-sm">ADAPTIVE</span>
+<h3 class="font-headline-md text-headline-md">Free Mode</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Practice at your own pace without time pressure.</p>
+</div>
+<div class="w-16 h-16 rounded-2xl bg-tertiary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-tertiary">psychology</span>
+</div>
+</div>
+<div class="mt-8 flex items-center font-label-sm text-label-sm gap-2 text-tertiary font-semibold">
+<span>Topic based practice</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+</div>
+<!-- Banner Ad -->
+<div class="w-full p-4 rounded-2xl bg-surface-container-highest flex items-center gap-4 border border-outline-variant/30">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-outline">ad_units</span>
+</div>
+<div class="flex-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold text-[10px] tracking-widest">Sponsored</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Upgrade to Premium for No Ads</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant text-xl">close</button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-8 bg-surface-container rounded-t-xl">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-2 w-12 h-12 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<!-- Quiz -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-12 h-12 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">quiz</span>
+</a>
+<!-- Analytics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-12 h-12 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 w-12 h-12 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+<script>
+        // Simple One UI style header collapse logic on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.one-ui-header-collapse');
+            const scrollPos = window.scrollY;
+            
+            if (scrollPos > 40) {
+                header.style.opacity = '0';
+                header.style.transform = 'translateY(-10px)';
+                header.style.pointerEvents = 'none';
+            } else {
+                header.style.opacity = '1';
+                header.style.transform = 'translateY(0)';
+                header.style.pointerEvents = 'auto';
+            }
+        });
+
+        // Button micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.style.opacity = '0.7';
+            });
+            el.addEventListener('touchend', () => {
+                el.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

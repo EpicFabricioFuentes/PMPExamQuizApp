@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reminder_channel_name">Daily reminder</string>
+    <string name="reminder_channel_description">Reminds you to answer the daily PMP question.</string>
+    <string name="reminder_title">Keep your streak alive</string>
+    <string name="reminder_body">Answer today\'s PMP question to stay on track.</string>
+</resources>

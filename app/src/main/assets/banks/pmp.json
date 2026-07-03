@@ -1,0 +1,123 @@
+{
+  "bankVersion": 1,
+  "certificationId": "PMP",
+  "questions": [
+    {
+      "id": "pmp-people-0001",
+      "domain": "PEOPLE",
+      "text": "Two senior team members disagree loudly about the technical approach, and the tension is spreading to the rest of the team. What should the project manager do first?",
+      "options": [
+        "Escalate the disagreement to the project sponsor for a decision",
+        "Bring both members together to understand each viewpoint and facilitate a collaborative resolution",
+        "Choose the approach favored by the more experienced member to save time",
+        "Assign the two members to separate tasks so they no longer interact"
+      ],
+      "correctIndex": 1,
+      "explanation": "Collaborating/problem-solving addresses the root cause and typically yields the most durable resolution. The PM should facilitate direct dialogue before escalating or forcing a decision."
+    },
+    {
+      "id": "pmp-people-0002",
+      "domain": "PEOPLE",
+      "text": "A newly formed team is unsure of roles and looks to the project manager for direction on nearly every task. Which servant-leadership action best fits this stage?",
+      "options": [
+        "Step back and let the team self-organize without guidance",
+        "Provide clear direction and remove impediments while the team builds shared norms",
+        "Replace team members who ask too many questions",
+        "Delay all decisions until the team reaches consensus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Early (forming) teams need more direction and support. A servant leader provides clarity and removes impediments, gradually shifting to coaching as the team matures."
+    },
+    {
+      "id": "pmp-people-0003",
+      "domain": "PEOPLE",
+      "text": "A key stakeholder is consistently unavailable for planned engagement activities. What is the best first step?",
+      "options": [
+        "Remove the stakeholder from the stakeholder register",
+        "Proceed without their input to avoid delays",
+        "Understand their communication preferences and adjust the engagement approach",
+        "Report them to the sponsor as non-cooperative"
+      ],
+      "correctIndex": 2,
+      "explanation": "Effective stakeholder engagement adapts to each stakeholder's needs and preferences. Understanding why they are unavailable lets the PM tailor the approach rather than exclude them."
+    },
+    {
+      "id": "pmp-process-0001",
+      "domain": "PROCESS",
+      "text": "Midway through execution, the customer requests a change that would expand the deliverable's scope. What should the project manager do first?",
+      "options": [
+        "Implement the change immediately to keep the customer satisfied",
+        "Reject the change because the baseline is already approved",
+        "Evaluate the change through the integrated change control process",
+        "Add the work quietly and absorb it within the current budget"
+      ],
+      "correctIndex": 2,
+      "explanation": "All changes to a baseline must go through integrated change control so their impact on scope, schedule, cost, and risk is assessed before approval."
+    },
+    {
+      "id": "pmp-process-0002",
+      "domain": "PROCESS",
+      "text": "An activity has an early start of day 4 and a late start of day 9. What is the total float of this activity?",
+      "options": [
+        "0 days",
+        "4 days",
+        "5 days",
+        "9 days"
+      ],
+      "correctIndex": 2,
+      "explanation": "Total float = late start − early start = 9 − 4 = 5 days. The activity can slip up to 5 days without delaying the project finish."
+    },
+    {
+      "id": "pmp-process-0003",
+      "domain": "PROCESS",
+      "text": "A project reports EV = 800, PV = 1000, and AC = 900. How is the project performing?",
+      "options": [
+        "Ahead of schedule and under budget",
+        "Behind schedule and over budget",
+        "On schedule and on budget",
+        "Ahead of schedule and over budget"
+      ],
+      "correctIndex": 1,
+      "explanation": "SV = EV − PV = 800 − 1000 = −200 (behind schedule); CV = EV − AC = 800 − 900 = −100 (over budget). Both variances are negative."
+    },
+    {
+      "id": "pmp-business-0001",
+      "domain": "BUSINESS_ENVIRONMENT",
+      "text": "New regulations in the industry will affect the project's compliance requirements mid-way through delivery. What should the project manager do?",
+      "options": [
+        "Ignore the regulations until the project is complete",
+        "Assess the impact on the project and update plans, risks, and the business case as needed",
+        "Cancel the project because requirements changed",
+        "Wait for the sponsor to raise the issue before acting"
+      ],
+      "correctIndex": 1,
+      "explanation": "The PM must monitor the external business environment for compliance and regulatory changes, assess their impact, and adapt the project accordingly to keep it aligned with organizational value."
+    },
+    {
+      "id": "pmp-business-0002",
+      "domain": "BUSINESS_ENVIRONMENT",
+      "text": "During delivery, the organization's strategic priorities shift and the project's expected benefits are now questionable. What is the best action?",
+      "options": [
+        "Continue as planned because the charter was already approved",
+        "Review the business case and benefits with the sponsor to confirm the project is still justified",
+        "Immediately terminate the project",
+        "Reduce the team size to cut costs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Projects exist to deliver business value. When strategy shifts, the PM should revisit the business case and benefits realization with the sponsor to confirm continued alignment."
+    },
+    {
+      "id": "pmp-business-0003",
+      "domain": "BUSINESS_ENVIRONMENT",
+      "text": "A project delivers its scope on time and on budget, but the intended business benefits are not being realized after handover. This is primarily a gap in what?",
+      "options": [
+        "Schedule management",
+        "Cost management",
+        "Benefits realization and organizational change readiness",
+        "Procurement management"
+      ],
+      "correctIndex": 2,
+      "explanation": "Delivering scope is not the same as realizing value. Sustained benefits depend on benefits realization management and the organization's readiness to adopt the change."
+    }
+  ]
+}
