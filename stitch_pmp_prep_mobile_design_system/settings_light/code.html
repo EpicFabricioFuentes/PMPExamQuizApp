@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PMP Prep - Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f8",
+                        "surface-container-high": "#e8e8ed",
+                        "inverse-on-surface": "#f0f0f5",
+                        "on-surface": "#1a1c1f",
+                        "surface-container-highest": "#e2e2e7",
+                        "on-background": "#1a1c1f",
+                        "on-secondary-container": "#00731e",
+                        "surface-container": "#ededf2",
+                        "secondary-container": "#91f78e",
+                        "on-surface-variant": "#484556",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#002204",
+                        "outline": "#787588",
+                        "on-tertiary-fixed-variant": "#7f2b00",
+                        "on-primary-fixed-variant": "#4300da",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9fe",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9fe",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e7",
+                        "surface-tint": "#5b33f5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1a0064",
+                        "secondary-fixed": "#94f990",
+                        "inverse-surface": "#2e3034",
+                        "tertiary-fixed-dim": "#ffb599",
+                        "on-tertiary-container": "#ffcbb8",
+                        "primary-fixed": "#e5deff",
+                        "primary-fixed-dim": "#c8bfff",
+                        "tertiary": "#7d2a00",
+                        "background": "#f9f9fe",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdbce",
+                        "tertiary-container": "#a43a00",
+                        "secondary-fixed-dim": "#78dc77",
+                        "inverse-primary": "#c8bfff",
+                        "on-tertiary-fixed": "#370e00",
+                        "secondary": "#006e1c",
+                        "primary": "#4200d6",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-primary-container": "#d9d1ff",
+                        "outline-variant": "#c9c4d9",
+                        "primary-container": "#5a31f4",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dade"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "16px",
+                        "3xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch_target_min": "48px",
+                        "safe_margin": "16px",
+                        "item_gap": "12px",
+                        "grid_unit": "4px",
+                        "base_padding": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "section-header": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "section-header": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "display-lg": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.5px", "fontWeight": "700"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; }
+        
+        /* One UI Collapsing Header Effect */
+        #main-scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        
+        .header-collapse {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-switch {
+            width: 52px;
+            height: 32px;
+            background-color: #c9c4d9;
+            border-radius: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .toggle-switch.active {
+            background-color: #5a31f4;
+        }
+        .toggle-knob {
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-switch.active .toggle-knob {
+            transform: translateX(20px);
+        }
+
+        .bento-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            transition: background-color 0.15s ease;
+        }
+
+        .radio-item:active {
+            background-color: #f3f3f8;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background">
+<div class="relative" id="main-scroll-container">
+<!-- Top App Bar (Sticky Small Header) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-200" id="sticky-header">
+<div class="flex items-center px-safe_margin h-16 max-w-screen-xl mx-auto">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h2 class="ml-4 font-headline-md text-headline-md text-on-surface">Settings</h2>
+</div>
+</header>
+<!-- Large One UI Viewing Area (Title) -->
+<div class="pt-24 pb-12 px-safe_margin max-w-screen-xl mx-auto header-collapse" id="large-header">
+<div class="flex flex-col">
+<button class="mb-6 w-10 h-10 flex items-center justify-center -ml-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Settings</h1>
+</div>
+</div>
+<!-- Interaction Area (Main Content) -->
+<main class="px-safe_margin pb-32 max-w-screen-xl mx-auto space-y-8">
+<!-- Appearance Section -->
+<section>
+<h3 class="px-4 mb-3 font-section-header text-section-header text-primary uppercase tracking-wider">Appearance</h3>
+<div class="bento-card border border-outline-variant/30 overflow-hidden">
+<div class="flex flex-col">
+<!-- Option: System -->
+<label class="radio-item flex items-center justify-between p-5 cursor-pointer border-b border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface">System Default</span>
+</div>
+<div class="relative flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary-container">
+<input checked="" class="sr-only peer" name="appearance" type="radio" value="system"/>
+<div class="w-3 h-3 rounded-full bg-primary-container scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Option: Light -->
+<label class="radio-item flex items-center justify-between p-5 cursor-pointer border-b border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface">Light</span>
+</div>
+<div class="relative flex items-center justify-center w-6 h-6 rounded-full border-2 border-outline">
+<input class="sr-only peer" name="appearance" type="radio" value="light"/>
+<div class="w-3 h-3 rounded-full bg-primary-container scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Option: Dark -->
+<label class="radio-item flex items-center justify-between p-5 cursor-pointer">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface">Dark</span>
+</div>
+<div class="relative flex items-center justify-center w-6 h-6 rounded-full border-2 border-outline">
+<input class="sr-only peer" name="appearance" type="radio" value="dark"/>
+<div class="w-3 h-3 rounded-full bg-primary-container scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Study Goal Section -->
+<section>
+<h3 class="px-4 mb-3 font-section-header text-section-header text-primary uppercase tracking-wider">Study Goal</h3>
+<div class="bento-card border border-outline-variant/30 p-5 flex items-center justify-between">
+<div class="flex flex-col space-y-1">
+<span class="font-body-lg text-body-lg text-on-surface">Questions per day</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Counts across all modes</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container rounded-full p-1">
+<button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm active:scale-95 transition-transform" id="decrement-goal">
+<span class="material-symbols-outlined text-primary">remove</span>
+</button>
+<span class="w-12 text-center font-headline-md text-headline-md text-on-surface" id="goal-value">30</span>
+<button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm active:scale-95 transition-transform" id="increment-goal">
+<span class="material-symbols-outlined text-primary">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Daily Reminder Section -->
+<section>
+<h3 class="px-4 mb-3 font-section-header text-section-header text-primary uppercase tracking-wider">Daily reminder</h3>
+<div class="bento-card border border-outline-variant/30 p-5 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface">Remind me to study</span>
+</div>
+<div class="toggle-switch active" id="reminder-switch" onclick="this.classList.toggle('active')">
+<div class="toggle-knob"></div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section>
+<h3 class="px-4 mb-3 font-section-header text-section-header text-primary uppercase tracking-wider">About</h3>
+<div class="bento-card border border-outline-variant/30 p-5 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface">PMP Prep</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">v1.0</span>
+</div>
+</section>
+<!-- Bottom Links -->
+<footer class="pt-8 pb-12 flex flex-col items-center">
+<a class="text-primary font-section-header text-section-header hover:underline underline-offset-4 decoration-2" href="#">Privacy Policy</a>
+<p class="mt-4 text-outline text-label-sm font-label-sm">© 2024 PMP Prep Inc.</p>
+</footer>
+</main>
+</div>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
+
+</div>
+<script>
+        // Collapsing Header Logic
+        const container = document.getElementById('main-scroll-container');
+        const largeHeader = document.getElementById('large-header');
+        const stickyHeader = document.getElementById('sticky-header');
+        
+        container.addEventListener('scroll', () => {
+            const scrollY = container.scrollTop;
+            
+            // Opacity and Visibility of small sticky header
+            if (scrollY > 120) {
+                stickyHeader.style.opacity = '1';
+                stickyHeader.style.pointerEvents = 'auto';
+            } else {
+                stickyHeader.style.opacity = '0';
+                stickyHeader.style.pointerEvents = 'none';
+            }
+
+            // Shrinking effect for large title
+            const scale = Math.max(0.7, 1 - (scrollY / 400));
+            const opacity = Math.max(0, 1 - (scrollY / 150));
+            largeHeader.style.transform = `scale(${scale})`;
+            largeHeader.style.opacity = opacity;
+        });
+
+        // Counter Logic
+        const goalValue = document.getElementById('goal-value');
+        let currentGoal = 30;
+
+        document.getElementById('increment-goal').addEventListener('click', () => {
+            currentGoal += 5;
+            goalValue.innerText = currentGoal;
+        });
+
+        document.getElementById('decrement-goal').addEventListener('click', () => {
+            if (currentGoal > 5) {
+                currentGoal -= 5;
+                goalValue.innerText = currentGoal;
+            }
+        });
+
+        // Radio Styling Sync
+        const radios = document.querySelectorAll('input[name="appearance"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // Remove visual selection from all containers first
+                document.querySelectorAll('.radio-item div[class*="border-2"]').forEach(div => {
+                    div.classList.remove('border-primary-container');
+                    div.classList.add('border-outline');
+                });
+                // Highlight current
+                if (e.target.checked) {
+                    const container = e.target.closest('div');
+                    container.classList.add('border-primary-container');
+                    container.classList.remove('border-outline');
+                }
+            });
+        });
+    </script>
+</body></html>
