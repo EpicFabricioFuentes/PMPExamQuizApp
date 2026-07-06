@@ -47,6 +47,7 @@ fun WelcomeScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
             .padding(horizontal = PmpSpacing.basePadding),
     ) {
         Column(
