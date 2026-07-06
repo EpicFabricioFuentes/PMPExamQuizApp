@@ -23,6 +23,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.fax.passyourpmpexam.feature.daily.DailyScreen
 import com.fax.passyourpmpexam.feature.home.HomeScreen
@@ -31,6 +32,11 @@ import com.fax.passyourpmpexam.feature.settings.SettingsScreen
 import com.fax.passyourpmpexam.feature.quiz.QuizScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
+
+// The Home tab is a nested graph so its sub-screens (Quiz/Daily/Free) keep the Home tab
+// selected and route Home taps back to the dashboard instead of round-tripping.
+@Serializable
+object HomeBaseRoute
 
 @Serializable
 object HomeRoute
@@ -59,7 +65,7 @@ private data class TopLevelDestination(
 )
 
 private val topLevelDestinations = listOf(
-    TopLevelDestination(HomeRoute, HomeRoute::class, "Home", Icons.Filled.Home),
+    TopLevelDestination(HomeBaseRoute, HomeBaseRoute::class, "Home", Icons.Filled.Home),
     TopLevelDestination(PracticeRoute, PracticeRoute::class, "Practice", Icons.Filled.PlayArrow),
     TopLevelDestination(SettingsRoute, SettingsRoute::class, "Settings", Icons.Filled.Settings),
 )
@@ -97,19 +103,21 @@ fun PmpApp() {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = HomeRoute,
+            startDestination = HomeBaseRoute,
             modifier = Modifier.padding(innerPadding),
         ) {
-            composable<HomeRoute> {
-                HomeScreen(
-                    onStartDaily = { navController.navigate(DailyRoute) },
-                    onStartQuiz = { navController.navigate(QuizRoute) },
-                    onStartFree = { navController.navigate(FreeRoute) },
-                )
+            navigation<HomeBaseRoute>(startDestination = HomeRoute) {
+                composable<HomeRoute> {
+                    HomeScreen(
+                        onStartDaily = { navController.navigate(DailyRoute) },
+                        onStartQuiz = { navController.navigate(QuizRoute) },
+                        onStartFree = { navController.navigate(FreeRoute) },
+                    )
+                }
+                composable<DailyRoute> { DailyScreen(onBack = { navController.popBackStack() }) }
+                composable<QuizRoute> { QuizScreen(onBack = { navController.popBackStack() }) }
+                composable<FreeRoute> { FreeScreen(onBack = { navController.popBackStack() }) }
             }
-            composable<DailyRoute> { DailyScreen(onBack = { navController.popBackStack() }) }
-            composable<QuizRoute> { QuizScreen(onBack = { navController.popBackStack() }) }
-            composable<FreeRoute> { FreeScreen(onBack = { navController.popBackStack() }) }
             composable<PracticeRoute> { PlaceholderScreen("Practice") }
             composable<SettingsRoute> { SettingsScreen() }
         }
