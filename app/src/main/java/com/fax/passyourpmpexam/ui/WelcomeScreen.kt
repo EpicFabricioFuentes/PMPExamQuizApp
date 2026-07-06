@@ -62,6 +62,7 @@ fun WelcomeScreen(
                 Text(
                     text = "Master the PMP",
                     style = MaterialTheme.typography.displayLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = "Build exam readiness a little every day — no account needed, fully offline.",
@@ -123,7 +124,11 @@ private fun OnboardingCard(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit),
         ) {
-            Text(text = title, style = MaterialTheme.typography.headlineMedium)
+            Text(
+                text = title,
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
