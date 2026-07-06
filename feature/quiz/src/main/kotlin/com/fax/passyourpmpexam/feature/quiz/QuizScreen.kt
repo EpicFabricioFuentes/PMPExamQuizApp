@@ -71,13 +71,6 @@ import com.fax.passyourpmpexam.core.domain.model.SessionQuestion
 import com.fax.passyourpmpexam.core.domain.scoring.Scorer
 import org.koin.androidx.compose.koinViewModel
 
-private val QUIZ_TYPES = listOf(
-    QuizType.SHORT_10 to "10 Questions",
-    QuizType.SHORT_25 to "25 Questions",
-    QuizType.SHORT_50 to "50 Questions",
-    QuizType.MOCK_180 to "Full Mock (180)",
-)
-
 @Composable
 fun QuizScreen(
     onBack: () -> Unit,
@@ -129,7 +122,9 @@ fun QuizScreen(
         )
     }
     Column(modifier = modifier.fillMaxSize()) {
-        PmpTopBar(title = "Quiz", onBack = handleBack)
+        // The setup screen has its own large "Quiz Mode" header, so the bar shows only the back arrow.
+        val topBarTitle = if (state is QuizUiState.Setup) "" else "Quiz"
+        PmpTopBar(title = topBarTitle, onBack = handleBack)
         Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
             when (val s = state) {
                 QuizUiState.Loading -> LoadingState(label = "Loading quiz…")
@@ -169,35 +164,6 @@ private fun ResumePromptContent(
             onClick = { onIntent(QuizIntent.DiscardSaved) },
             modifier = Modifier.fillMaxWidth(),
         ) { Text("Discard and start over") }
-    }
-}
-
-@Composable
-private fun SetupContent(
-    state: QuizUiState.Setup,
-    onIntent: (QuizIntent) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(PmpSpacing.basePadding),
-        verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
-    ) {
-        Text("Start a quiz", style = MaterialTheme.typography.headlineMedium)
-        QUIZ_TYPES.forEach { (type, label) ->
-            val selected = type == state.selectedType
-            if (selected) {
-                Button(onClick = { onIntent(QuizIntent.SelectType(type)) }, modifier = Modifier.fillMaxWidth()) {
-                    Text(label)
-                }
-            } else {
-                OutlinedButton(onClick = { onIntent(QuizIntent.SelectType(type)) }, modifier = Modifier.fillMaxWidth()) {
-                    Text(label)
-                }
-            }
-        }
-        PrimaryButton(text = "Start", onClick = { onIntent(QuizIntent.Start) })
     }
 }
 
