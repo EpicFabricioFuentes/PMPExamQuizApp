@@ -31,8 +31,9 @@ An **offline-first** Android app for studying toward the **PMP® (Project Manage
 ### Quality-of-life
 - **Theme** — System / Light / Dark (fixed violet brand palette, primary `#4200D6`).
 - **Daily reminder** — optional local notification at a chosen time (default 20:00), rescheduled across reboots. Requests `POST_NOTIFICATIONS` on Android 13+.
-- **Onboarding** — a one-time welcome screen on first launch.
+- **Onboarding** — a one-time, theme-aware welcome screen on first launch, with a top-weighted header and three feature cards (Daily Question / Quiz Mode / Free Mode).
 - **Ads** — a single anchored adaptive banner on the Home screen, shown only after UMP consent.
+- **Trademark disclaimer** — the Settings screen footer carries the PMP/PMI independence notice.
 
 ---
 
@@ -73,7 +74,7 @@ Multi-module, clean-architecture project following an **MVI** pattern in the pre
 :feature:daily           — daily question
 :feature:quiz            — quiz setup / in-progress / results / resume
 :feature:free            — free practice
-:feature:settings        — theme, reminder, daily goal, about
+:feature:settings        — theme, reminder, daily goal, about, PMP/PMI disclaimer
 ```
 
 **Dependency rule:** features and `:core:data` depend on `:core:domain` (interfaces + models); domain logic is pure and framework-free. The app is offline — the only network use is ads/consent.
