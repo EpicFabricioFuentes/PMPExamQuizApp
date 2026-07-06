@@ -42,6 +42,13 @@ class SettingsRepositoryImpl(
         dataStore.edit { it[PmpPreferencesKeys.INSTALLED_BANK_VERSION] = version }
     }
 
+    override fun observeHasCompletedFirstRun(): Flow<Boolean> =
+        dataStore.data.map { it[PmpPreferencesKeys.HAS_COMPLETED_FIRST_RUN] ?: false }
+
+    override suspend fun setFirstRunCompleted() {
+        dataStore.edit { it[PmpPreferencesKeys.HAS_COMPLETED_FIRST_RUN] = true }
+    }
+
     override suspend fun getDailyLastAnsweredEpochDay(): Long =
         dataStore.data.map { it[PmpPreferencesKeys.DAILY_LAST_ANSWERED_EPOCH_DAY] ?: NO_DAY }.first()
 

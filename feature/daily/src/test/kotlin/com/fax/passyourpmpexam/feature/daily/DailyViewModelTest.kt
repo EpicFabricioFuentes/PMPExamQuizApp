@@ -188,6 +188,8 @@ private class FakeSettingsRepository : SettingsRepository {
     override suspend fun setInstalledBankVersion(version: Int) {
         installedBankVersion = version
     }
+    override fun observeHasCompletedFirstRun(): Flow<Boolean> = flowOf(true)
+    override suspend fun setFirstRunCompleted() = Unit
     override suspend fun getDailyLastAnsweredEpochDay(): Long = dailyLastAnswered
     override suspend fun setDailyLastAnsweredEpochDay(epochDay: Long) {
         dailyLastAnswered = epochDay
