@@ -1,6 +1,8 @@
 package com.fax.passyourpmpexam.feature.settings
 
 import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -31,10 +34,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import org.koin.androidx.compose.koinViewModel
+
+// TODO: replace with the live hosted URL once docs/privacy-policy.md is published (see that file's header).
+private const val PRIVACY_POLICY_URL = "https://example.com/privacy-policy"
 
 @Composable
 fun SettingsScreen(
@@ -110,6 +117,27 @@ private fun SettingsContent(
 
         SectionHeader("About")
         Text("PMP Prep · v1.0", style = MaterialTheme.typography.bodyMedium)
+        PrivacyPolicyRow()
+    }
+}
+
+@Composable
+private fun PrivacyPolicyRow() {
+    val context = LocalContext.current
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = PmpSpacing.touchTargetMin)
+            .clickable {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL)))
+            },
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = "Privacy Policy",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
     }
 }
 
