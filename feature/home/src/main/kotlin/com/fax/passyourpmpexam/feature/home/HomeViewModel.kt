@@ -3,6 +3,7 @@ package com.fax.passyourpmpexam.feature.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fax.passyourpmpexam.core.common.TimeProvider
+import com.fax.passyourpmpexam.core.domain.repository.QuestionRepository
 import com.fax.passyourpmpexam.core.domain.repository.SettingsRepository
 import com.fax.passyourpmpexam.core.domain.repository.StreakRepository
 import com.fax.passyourpmpexam.core.domain.streak.StreakCalculator
@@ -14,6 +15,7 @@ import kotlinx.coroutines.flow.stateIn
 class HomeViewModel(
     private val streakRepository: StreakRepository,
     private val settingsRepository: SettingsRepository,
+    private val questionRepository: QuestionRepository,
     private val timeProvider: TimeProvider,
 ) : ViewModel() {
 
@@ -23,6 +25,7 @@ class HomeViewModel(
             HomeUiState(
                 streakCount = StreakCalculator.displayStreak(streakState, today),
                 dailyCompletedToday = settingsRepository.getDailyLastAnsweredEpochDay() == today,
+                questionCount = questionRepository.count(),
             )
         }
         .stateIn(
