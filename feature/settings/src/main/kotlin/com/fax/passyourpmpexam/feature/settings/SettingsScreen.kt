@@ -2,7 +2,6 @@ package com.fax.passyourpmpexam.feature.settings
 
 import android.Manifest
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -56,6 +55,7 @@ import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
 import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import org.koin.androidx.compose.koinViewModel
+import androidx.core.net.toUri
 
 // TODO: replace with the live hosted URL once docs/privacy-policy.md is published (see that file's header).
 private const val PRIVACY_POLICY_URL = "https://example.com/privacy-policy"
@@ -336,7 +336,7 @@ private fun PrivacyPolicyRow() {
     val context = LocalContext.current
     RowItem(
         modifier = Modifier.clickable {
-            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL)))
+            context.startActivity(Intent(Intent.ACTION_VIEW, PRIVACY_POLICY_URL.toUri()))
         },
     ) {
         Text(
@@ -354,7 +354,16 @@ private fun Footer() {
             .fillMaxWidth()
             .padding(top = PmpSpacing.basePadding),
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
     ) {
+        // Trademark fine print: this is an independent study aid, not affiliated with PMI.
+        Text(
+            text = "PMP® is a registered mark of the Project Management Institute, Inc. " +
+                    "This project is an independent study aid and is not affiliated with or endorsed by PMI®.",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.outline,
+            textAlign = TextAlign.Center,
+        )
         Text(
             text = "Made with ❤️ by Fax Development Studios",
             style = MaterialTheme.typography.labelSmall,
