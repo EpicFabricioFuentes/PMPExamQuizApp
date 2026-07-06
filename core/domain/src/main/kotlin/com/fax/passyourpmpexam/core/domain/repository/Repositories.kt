@@ -63,6 +63,10 @@ interface SettingsRepository {
     suspend fun getInstalledBankVersion(): Int
     suspend fun setInstalledBankVersion(version: Int)
 
+    /** Whether the one-time first-run welcome has been dismissed; gates the welcome screen. */
+    fun observeHasCompletedFirstRun(): Flow<Boolean>
+    suspend fun setFirstRunCompleted()
+
     /** Daily-question bookkeeping so it stays stable for the day and streak isn't double-counted. */
     suspend fun getDailyLastAnsweredEpochDay(): Long
     suspend fun setDailyLastAnsweredEpochDay(epochDay: Long)

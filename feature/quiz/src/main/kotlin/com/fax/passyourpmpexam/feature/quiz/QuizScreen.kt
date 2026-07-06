@@ -1,5 +1,6 @@
 package com.fax.passyourpmpexam.feature.quiz
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -172,8 +173,12 @@ private fun InProgressContent(
                 Text(text = formatTime(it), style = MaterialTheme.typography.titleSmall)
             }
         }
+        val progress by animateFloatAsState(
+            targetValue = (state.currentIndex + 1).toFloat() / state.total,
+            label = "quizProgress",
+        )
         LinearProgressIndicator(
-            progress = { (state.currentIndex + 1).toFloat() / state.total },
+            progress = { progress },
             modifier = Modifier.fillMaxWidth(),
         )
 
@@ -263,8 +268,12 @@ private fun DomainScoreBar(domain: Domain, correct: Int, total: Int, percent: In
             text = "${domain.displayName}: $correct / $total",
             style = MaterialTheme.typography.bodyMedium,
         )
+        val fraction by animateFloatAsState(
+            targetValue = percent / 100f,
+            label = "domainScore",
+        )
         LinearProgressIndicator(
-            progress = { percent / 100f },
+            progress = { fraction },
             modifier = Modifier.fillMaxWidth(),
         )
     }

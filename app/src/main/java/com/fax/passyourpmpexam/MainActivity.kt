@@ -7,11 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import com.fax.passyourpmpexam.core.ads.ConsentManager
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import com.fax.passyourpmpexam.core.domain.repository.SettingsRepository
 import com.fax.passyourpmpexam.ui.PmpApp
+import com.fax.passyourpmpexam.ui.WelcomeScreen
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.compose.koinInject
 
@@ -34,7 +37,18 @@ class MainActivity : ComponentActivity() {
                 ThemeMode.DARK -> true
             }
             PmpTheme(darkTheme = darkTheme) {
-                PmpApp()
+                // Gate on the first-run flag. `null` = DataStore read pending, so we render nothing
+                // briefly rather than flash the welcome screen at returning users.
+                val hasCompletedFirstRun by settingsRepository.observeHasCompletedFirstRun()
+                    .collectAsState(initial = null)
+                val scope = rememberCoroutineScope()
+                when (hasCompletedFirstRun) {
+                    null -> Unit
+                    false -> WelcomeScreen(
+                        onGetStarted = { scope.launch { settingsRepository.setFirstRunCompleted() } },
+                    )
+                    true -> PmpApp()
+                }
             }
         }
     }
