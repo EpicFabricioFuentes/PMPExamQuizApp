@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 object PmpPreferencesKeys {
     val REMINDER_ENABLED = booleanPreferencesKey("reminder_enabled")
     val REMINDER_MINUTE_OF_DAY = intPreferencesKey("reminder_minute_of_day")
+    val DAILY_GOAL = intPreferencesKey("daily_goal")
     val CURRENT_STREAK = intPreferencesKey("current_streak")
     val LONGEST_STREAK = intPreferencesKey("longest_streak")
     val LAST_ACTIVITY_EPOCH_DAY = longPreferencesKey("last_activity_epoch_day")

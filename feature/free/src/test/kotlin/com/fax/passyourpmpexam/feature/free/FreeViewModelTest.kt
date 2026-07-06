@@ -134,6 +134,8 @@ private class FakeAttemptRepository : AttemptRepository {
     override fun observeAll(): Flow<List<Attempt>> = flowOf(recorded.toList())
     override suspend fun totalCount(): Int = recorded.size
     override suspend fun correctCount(): Int = recorded.count { it.isCorrect }
+    override fun observeAnsweredCountBetween(startMillis: Long, endMillis: Long): Flow<Int> =
+        flowOf(recorded.count { it.answeredAt in startMillis until endMillis })
 }
 
 private class FakeStreakRepository : StreakRepository {

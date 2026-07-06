@@ -23,4 +23,7 @@ class AttemptRepositoryImpl(
     override suspend fun totalCount(): Int = dao.totalCount()
 
     override suspend fun correctCount(): Int = dao.correctCount()
+
+    override fun observeAnsweredCountBetween(startMillis: Long, endMillis: Long): Flow<Int> =
+        dao.observeCountBetween(startMillis, endMillis)
 }

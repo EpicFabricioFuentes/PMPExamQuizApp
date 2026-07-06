@@ -14,12 +14,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -36,7 +38,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
+import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import org.koin.androidx.compose.koinViewModel
 
@@ -93,6 +97,12 @@ private fun SettingsContent(
             )
         }
 
+        SectionHeader("Study goal")
+        DailyGoalRow(
+            goal = state.dailyGoal,
+            onGoalChange = { onIntent(SettingsIntent.SetDailyGoal(it)) },
+        )
+
         SectionHeader("Daily reminder")
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -138,6 +148,49 @@ private fun PrivacyPolicyRow() {
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.primary,
         )
+    }
+}
+
+@Composable
+private fun DailyGoalRow(goal: Int, onGoalChange: (Int) -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = PmpSpacing.touchTargetMin),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text("Questions per day", style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = "Counts across all modes",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit),
+        ) {
+            OutlinedIconButton(
+                onClick = { onGoalChange(goal - 1) },
+                enabled = goal > DailyGoal.MIN,
+            ) {
+                Text("−", style = MaterialTheme.typography.titleLarge)
+            }
+            Text(
+                text = goal.toString(),
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.widthIn(min = 24.dp),
+            )
+            OutlinedIconButton(
+                onClick = { onGoalChange(goal + 1) },
+                enabled = goal < DailyGoal.MAX,
+            ) {
+                Text("+", style = MaterialTheme.typography.titleLarge)
+            }
+        }
     }
 }
 

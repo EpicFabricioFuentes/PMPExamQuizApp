@@ -123,8 +123,8 @@ private fun StatusRow(state: HomeUiState) {
             icon = Icons.Filled.Quiz,
             iconTint = MaterialTheme.colorScheme.primary,
             label = "Daily Goal",
-            value = if (state.dailyCompletedToday) "1/1 Done" else "0/1 Done",
-            progress = if (state.dailyCompletedToday) 1f else 0f,
+            value = "${state.answeredToday}/${state.dailyGoal} Done",
+            progress = if (state.dailyGoal <= 0) 0f else state.answeredToday / state.dailyGoal.toFloat(),
             progressColor = MaterialTheme.colorScheme.primary,
             modifier = Modifier.weight(1f),
         )

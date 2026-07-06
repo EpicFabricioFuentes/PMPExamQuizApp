@@ -3,6 +3,7 @@ package com.fax.passyourpmpexam.feature.daily
 import com.fax.passyourpmpexam.core.common.IdGenerator
 import com.fax.passyourpmpexam.core.common.TimeProvider
 import com.fax.passyourpmpexam.core.domain.model.Attempt
+import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.Domain
 import com.fax.passyourpmpexam.core.domain.model.Question
 import com.fax.passyourpmpexam.core.domain.model.StreakState
@@ -163,6 +164,8 @@ private class FakeAttemptRepository : AttemptRepository {
     override fun observeAll(): Flow<List<Attempt>> = flowOf(recorded.toList())
     override suspend fun totalCount(): Int = recorded.size
     override suspend fun correctCount(): Int = recorded.count { it.isCorrect }
+    override fun observeAnsweredCountBetween(startMillis: Long, endMillis: Long): Flow<Int> =
+        flowOf(recorded.count { it.answeredAt in startMillis until endMillis })
 }
 
 private class FakeStreakRepository : StreakRepository {
@@ -184,6 +187,8 @@ private class FakeSettingsRepository : SettingsRepository {
     override suspend fun setReminderEnabled(enabled: Boolean) = Unit
     override fun observeReminderMinuteOfDay(): Flow<Int> = flowOf(0)
     override suspend fun setReminderMinuteOfDay(minuteOfDay: Int) = Unit
+    override fun observeDailyGoal(): Flow<Int> = flowOf(DailyGoal.DEFAULT)
+    override suspend fun setDailyGoal(goal: Int) = Unit
     override suspend fun getInstalledBankVersion(): Int = installedBankVersion
     override suspend fun setInstalledBankVersion(version: Int) {
         installedBankVersion = version
