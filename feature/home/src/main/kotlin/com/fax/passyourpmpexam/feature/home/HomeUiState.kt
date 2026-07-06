@@ -4,4 +4,5 @@ package com.fax.passyourpmpexam.feature.home
 data class HomeUiState(
     val streakCount: Int = 0,
     val dailyCompletedToday: Boolean = false,
+    val questionCount: Int = 0,
 )

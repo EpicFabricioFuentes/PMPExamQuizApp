@@ -2,26 +2,30 @@ package com.fax.passyourpmpexam.feature.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CalendarToday
+import androidx.compose.material.icons.filled.Psychology
+import androidx.compose.material.icons.filled.Quiz
+import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material.icons.filled.Whatshot
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.graphics.Color
 import com.fax.passyourpmpexam.core.ads.HomeBannerAd
-import com.fax.passyourpmpexam.core.designsystem.component.PrimaryButton
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import org.koin.androidx.compose.koinViewModel
 import java.time.LocalTime
@@ -53,16 +57,16 @@ private fun HomeContent(
     onStartFree: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    // Collapsing "Good Morning" header: the greeting shrinks into the top bar as content scrolls up.
-    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
-        modifier = modifier
-            .fillMaxSize()
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            LargeTopAppBar(
-                title = { Text(greeting()) },
-                scrollBehavior = scrollBehavior,
+            // Pinned brand bar; the greeting below it scrolls away (One UI style).
+            TopAppBar(
+                title = { Wordmark() },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background,
+                ),
             )
         },
     ) { innerPadding ->
@@ -71,53 +75,139 @@ private fun HomeContent(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = PmpSpacing.basePadding, vertical = PmpSpacing.itemGap),
-            verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
+                .padding(horizontal = PmpSpacing.safeMargin)
+                .padding(bottom = PmpSpacing.basePadding),
+            verticalArrangement = Arrangement.spacedBy(PmpSpacing.safeMargin),
         ) {
-            StreakCard(streakCount = state.streakCount, dailyCompletedToday = state.dailyCompletedToday)
-
-            PrimaryButton(
-                text = if (state.dailyCompletedToday) "Review today's question" else "Daily Question",
-                onClick = onStartDaily,
+            GreetingBlock()
+            StatusRow(state)
+            Text(
+                text = "LEARNING MODES",
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(top = PmpSpacing.gridUnit),
             )
-            OutlinedButton(onClick = onStartQuiz, modifier = Modifier.fillMaxWidth()) {
-                Text("Quiz")
-            }
-            OutlinedButton(onClick = onStartFree, modifier = Modifier.fillMaxWidth()) {
-                Text("Free Practice")
-            }
-
+            DailyModeCard(onStartDaily)
+            QuizModeCard(questionCount = state.questionCount, onClick = onStartQuiz)
+            FreeModeCard(onStartFree)
             HomeBannerAd(modifier = Modifier.fillMaxWidth())
         }
     }
 }
 
 @Composable
-private fun StreakCard(streakCount: Int, dailyCompletedToday: Boolean) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.padding(PmpSpacing.basePadding),
-            verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit),
-        ) {
-            Text(
-                text = if (streakCount > 0) "🔥 $streakCount-day streak" else "Start your streak today",
-                style = MaterialTheme.typography.headlineMedium,
-            )
-            Text(
-                text = if (dailyCompletedToday) {
-                    "Today's question: done ✓"
-                } else {
-                    "Today's question is waiting"
-                },
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        }
+private fun GreetingBlock() {
+    Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit)) {
+        Text(text = greeting(), style = MaterialTheme.typography.displayLarge)
+        Text(
+            text = "Ready to crush your PMP goal today?",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
+@Composable
+private fun StatusRow(state: HomeUiState) {
+    Row(horizontalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap)) {
+        StatusCard(
+            icon = Icons.Filled.Whatshot,
+            iconTint = MaterialTheme.colorScheme.tertiary,
+            label = "Current",
+            value = "${state.streakCount} day streak",
+            progress = weeklyStreakProgress(state.streakCount),
+            progressColor = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.weight(1f),
+        )
+        StatusCard(
+            icon = Icons.Filled.Quiz,
+            iconTint = MaterialTheme.colorScheme.primary,
+            label = "Daily Goal",
+            value = if (state.dailyCompletedToday) "1/1 Done" else "0/1 Done",
+            progress = if (state.dailyCompletedToday) 1f else 0f,
+            progressColor = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.weight(1f),
+        )
+    }
+}
+
+@Composable
+private fun DailyModeCard(onClick: () -> Unit) {
+    val cs = MaterialTheme.colorScheme
+    ModeCard(
+        chipText = "EASY WIN",
+        title = "Daily Question",
+        body = "One focused question to keep your momentum alive.",
+        icon = Icons.Filled.CalendarToday,
+        ctaText = "Start now",
+        // Always-violet hero with white foreground, consistent across light/dark themes.
+        style = ModeCardStyle(
+            containerColor = cs.primaryContainer,
+            contentColor = Color.White,
+            bodyColor = Color.White.copy(alpha = 0.85f),
+            chipContainer = Color.White.copy(alpha = 0.2f),
+            chipContent = Color.White,
+            iconTint = Color.White,
+            iconTileColor = Color.White.copy(alpha = 0.15f),
+            ctaColor = Color.White,
+        ),
+        onClick = onClick,
+    )
+}
+
+@Composable
+private fun QuizModeCard(questionCount: Int, onClick: () -> Unit) {
+    val cs = MaterialTheme.colorScheme
+    ModeCard(
+        chipText = "INTENSIVE",
+        title = "Quiz Mode",
+        body = "Simulate real exam conditions with timed sessions.",
+        icon = Icons.Filled.Timer,
+        ctaText = if (questionCount > 0) "$questionCount Questions available" else "Timed practice sessions",
+        style = ModeCardStyle(
+            containerColor = cs.surfaceContainerHigh,
+            contentColor = cs.onSurface,
+            bodyColor = cs.onSurfaceVariant,
+            chipContainer = cs.secondaryContainer,
+            chipContent = cs.onSecondaryContainer,
+            iconTint = cs.primary,
+            iconTileColor = cs.primary.copy(alpha = 0.08f),
+            ctaColor = cs.primary,
+        ),
+        onClick = onClick,
+    )
+}
+
+@Composable
+private fun FreeModeCard(onClick: () -> Unit) {
+    val cs = MaterialTheme.colorScheme
+    ModeCard(
+        chipText = "ADAPTIVE",
+        title = "Free Mode",
+        body = "Practice at your own pace without time pressure.",
+        icon = Icons.Filled.Psychology,
+        ctaText = "Topic based practice",
+        style = ModeCardStyle(
+            containerColor = cs.surfaceContainerHigh,
+            contentColor = cs.onSurface,
+            bodyColor = cs.onSurfaceVariant,
+            chipContainer = cs.tertiaryContainer,
+            chipContent = cs.onTertiaryContainer,
+            iconTint = cs.tertiary,
+            iconTileColor = cs.tertiary.copy(alpha = 0.08f),
+            ctaColor = cs.tertiary,
+        ),
+        onClick = onClick,
+    )
+}
+
+/** Streak fill toward a rolling 7-day milestone (a full bar every 7th day). */
+private fun weeklyStreakProgress(streak: Int): Float =
+    if (streak <= 0) 0f else ((streak - 1) % 7 + 1) / 7f
+
 private fun greeting(): String = when (LocalTime.now().hour) {
-    in 5..11 -> "Good morning"
-    in 12..16 -> "Good afternoon"
-    in 17..21 -> "Good evening"
-    else -> "Good night"
+    in 5..11 -> "Good Morning"
+    in 12..16 -> "Good Afternoon"
+    in 17..21 -> "Good Evening"
+    else -> "Good Night"
 }
