@@ -8,16 +8,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerFeedbackHaptics
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerOptionUi
+import com.fax.passyourpmpexam.core.designsystem.component.AnswerResultSheet
 import com.fax.passyourpmpexam.core.designsystem.component.EmptyState
-import com.fax.passyourpmpexam.core.designsystem.component.ExplanationReveal
 import com.fax.passyourpmpexam.core.designsystem.component.LoadingState
 import com.fax.passyourpmpexam.core.designsystem.component.OptionState
 import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
@@ -38,6 +36,7 @@ fun DailyScreen(
             DailyContent(
                 state = state,
                 onOptionSelected = { viewModel.onIntent(DailyIntent.SelectOption(it)) },
+                onDone = onBack,
             )
         }
     }
@@ -47,6 +46,7 @@ fun DailyScreen(
 private fun DailyContent(
     state: DailyUiState,
     onOptionSelected: (Int) -> Unit,
+    onDone: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when (state) {
@@ -55,7 +55,7 @@ private fun DailyContent(
             title = "No question yet",
             message = "Your question bank is still being set up. Check back in a moment.",
         )
-        is DailyUiState.Ready -> ReadyContent(state, onOptionSelected, modifier)
+        is DailyUiState.Ready -> ReadyContent(state, onOptionSelected, onDone, modifier)
     }
 }
 
@@ -63,6 +63,7 @@ private fun DailyContent(
 private fun ReadyContent(
     state: DailyUiState.Ready,
     onOptionSelected: (Int) -> Unit,
+    onDone: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val question = state.question
@@ -91,30 +92,21 @@ private fun ReadyContent(
             optionsEnabled = !state.answered,
         )
 
-        ExplanationReveal(visible = state.answered) {
-            ExplanationBlock(
-                headline = feedbackHeadline(state),
+        if (state.answered) {
+            // A previously-completed question that the user is only reviewing has no fresh grade,
+            // so present it neutrally rather than as a correct/incorrect result.
+            val reviewing = state.alreadyCompletedToday && state.selectedIndex == null
+            AnswerResultSheet(
+                isCorrect = if (reviewing) null else state.isCorrect,
                 explanation = question.explanation,
+                onContinue = onDone,
+                continueLabel = "Done",
             )
         }
     }
 
     // Buzz once when a fresh answer is graded (null on load / already-completed → silent).
     AnswerFeedbackHaptics(isCorrect = state.isCorrect)
-}
-
-@Composable
-private fun ExplanationBlock(headline: String, explanation: String) {
-    Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit)) {
-        Text(text = headline, style = MaterialTheme.typography.titleSmall)
-        Text(text = explanation, style = MaterialTheme.typography.bodyMedium)
-    }
-}
-
-private fun feedbackHeadline(state: DailyUiState.Ready): String = when {
-    state.alreadyCompletedToday && state.selectedIndex == null -> "You've already completed today's question."
-    state.isCorrect == true -> "Correct!"
-    else -> "Not quite — here's why."
 }
 
 private fun optionStateFor(
