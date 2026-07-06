@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import com.fax.passyourpmpexam.core.data.datastore.PmpPreferencesKeys
+import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import com.fax.passyourpmpexam.core.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.Flow
@@ -33,6 +34,13 @@ class SettingsRepositoryImpl(
 
     override suspend fun setReminderMinuteOfDay(minuteOfDay: Int) {
         dataStore.edit { it[PmpPreferencesKeys.REMINDER_MINUTE_OF_DAY] = minuteOfDay }
+    }
+
+    override fun observeDailyGoal(): Flow<Int> =
+        dataStore.data.map { DailyGoal.coerce(it[PmpPreferencesKeys.DAILY_GOAL] ?: DailyGoal.DEFAULT) }
+
+    override suspend fun setDailyGoal(goal: Int) {
+        dataStore.edit { it[PmpPreferencesKeys.DAILY_GOAL] = DailyGoal.coerce(goal) }
     }
 
     override suspend fun getInstalledBankVersion(): Int =

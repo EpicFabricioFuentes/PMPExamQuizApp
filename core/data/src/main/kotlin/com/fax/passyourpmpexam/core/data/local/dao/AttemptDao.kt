@@ -23,4 +23,7 @@ interface AttemptDao {
 
     @Query("SELECT COUNT(*) FROM attempts")
     suspend fun totalCount(): Int
+
+    @Query("SELECT COUNT(*) FROM attempts WHERE answeredAt >= :startMillis AND answeredAt < :endMillis")
+    fun observeCountBetween(startMillis: Long, endMillis: Long): Flow<Int>
 }

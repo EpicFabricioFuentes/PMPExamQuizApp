@@ -6,4 +6,5 @@ sealed interface SettingsIntent {
     data class SetTheme(val mode: ThemeMode) : SettingsIntent
     data class SetReminderEnabled(val enabled: Boolean) : SettingsIntent
     data class SetReminderTime(val minuteOfDay: Int) : SettingsIntent
+    data class SetDailyGoal(val goal: Int) : SettingsIntent
 }

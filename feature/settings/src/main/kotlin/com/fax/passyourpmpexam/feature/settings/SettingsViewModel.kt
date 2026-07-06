@@ -2,6 +2,7 @@ package com.fax.passyourpmpexam.feature.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.repository.SettingsRepository
 import com.fax.passyourpmpexam.core.domain.scheduler.ReminderScheduler
 import kotlinx.coroutines.flow.SharingStarted
@@ -19,11 +20,13 @@ class SettingsViewModel(
         settingsRepository.observeThemeMode(),
         settingsRepository.observeReminderEnabled(),
         settingsRepository.observeReminderMinuteOfDay(),
-    ) { theme, reminderEnabled, reminderMinute ->
+        settingsRepository.observeDailyGoal(),
+    ) { theme, reminderEnabled, reminderMinute, dailyGoal ->
         SettingsUiState(
             themeMode = theme,
             reminderEnabled = reminderEnabled,
             reminderMinuteOfDay = reminderMinute,
+            dailyGoal = dailyGoal,
         )
     }.stateIn(
         scope = viewModelScope,
@@ -51,6 +54,9 @@ class SettingsViewModel(
                         reminderScheduler.schedule(intent.minuteOfDay)
                     }
                 }
+
+                is SettingsIntent.SetDailyGoal ->
+                    settingsRepository.setDailyGoal(DailyGoal.coerce(intent.goal))
             }
         }
     }

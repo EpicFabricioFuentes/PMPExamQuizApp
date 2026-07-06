@@ -31,6 +31,9 @@ interface AttemptRepository {
     fun observeAll(): Flow<List<Attempt>>
     suspend fun totalCount(): Int
     suspend fun correctCount(): Int
+
+    /** Reactive count of attempts whose `answeredAt` (epoch millis) is in `[startMillis, endMillis)`. */
+    fun observeAnsweredCountBetween(startMillis: Long, endMillis: Long): Flow<Int>
 }
 
 /** Persisted quiz sessions — powers process-death resume and the results review list. */
@@ -59,6 +62,10 @@ interface SettingsRepository {
 
     fun observeReminderMinuteOfDay(): Flow<Int>
     suspend fun setReminderMinuteOfDay(minuteOfDay: Int)
+
+    /** The cross-mode daily target (questions/day); coerced into [DailyGoal]'s range. */
+    fun observeDailyGoal(): Flow<Int>
+    suspend fun setDailyGoal(goal: Int)
 
     suspend fun getInstalledBankVersion(): Int
     suspend fun setInstalledBankVersion(version: Int)

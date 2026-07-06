@@ -1,5 +1,6 @@
 package com.fax.passyourpmpexam.feature.settings
 
+import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import com.fax.passyourpmpexam.core.domain.repository.SettingsRepository
 import com.fax.passyourpmpexam.core.domain.scheduler.ReminderScheduler
@@ -113,6 +114,23 @@ class SettingsViewModelTest {
     }
 
     @Test
+    fun settingDailyGoalPersistsAndCoercesToRange() = runTest(dispatcher) {
+        val vm = SettingsViewModel(settings, scheduler)
+        val collector = launch { vm.state.collect {} }
+
+        vm.onIntent(SettingsIntent.SetDailyGoal(5))
+        advanceUntilIdle()
+        assertEquals(5, settings.dailyGoalFlow.value)
+        assertEquals(5, vm.state.value.dailyGoal)
+
+        vm.onIntent(SettingsIntent.SetDailyGoal(DailyGoal.MAX + 100))
+        advanceUntilIdle()
+        assertEquals(DailyGoal.MAX, settings.dailyGoalFlow.value)
+
+        collector.cancel()
+    }
+
+    @Test
     fun changingTimeWhileDisabledDoesNotSchedule() = runTest(dispatcher) {
         settings.enabledFlow.value = false
         val vm = SettingsViewModel(settings, scheduler)
@@ -143,6 +161,7 @@ private class FakeSettingsRepository : SettingsRepository {
     val themeFlow = MutableStateFlow(ThemeMode.SYSTEM)
     val enabledFlow = MutableStateFlow(false)
     val minuteFlow = MutableStateFlow(20 * 60)
+    val dailyGoalFlow = MutableStateFlow(DailyGoal.DEFAULT)
 
     override fun observeThemeMode(): Flow<ThemeMode> = themeFlow
     override suspend fun setThemeMode(mode: ThemeMode) {
@@ -157,6 +176,11 @@ private class FakeSettingsRepository : SettingsRepository {
     override fun observeReminderMinuteOfDay(): Flow<Int> = minuteFlow
     override suspend fun setReminderMinuteOfDay(minuteOfDay: Int) {
         minuteFlow.value = minuteOfDay
+    }
+
+    override fun observeDailyGoal(): Flow<Int> = dailyGoalFlow
+    override suspend fun setDailyGoal(goal: Int) {
+        dailyGoalFlow.value = goal
     }
 
     override suspend fun getInstalledBankVersion(): Int = 0
