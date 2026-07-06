@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -19,12 +18,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerFeedbackHaptics
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerOptionUi
+import com.fax.passyourpmpexam.core.designsystem.component.AnswerResultSheet
 import com.fax.passyourpmpexam.core.designsystem.component.EmptyState
-import com.fax.passyourpmpexam.core.designsystem.component.ExplanationReveal
 import com.fax.passyourpmpexam.core.designsystem.component.LoadingState
 import com.fax.passyourpmpexam.core.designsystem.component.OptionState
 import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
-import com.fax.passyourpmpexam.core.designsystem.component.PrimaryButton
 import com.fax.passyourpmpexam.core.designsystem.component.QuestionCard
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import com.fax.passyourpmpexam.core.domain.model.Domain
@@ -89,15 +87,12 @@ private fun FreeContent(
                     onOptionSelected = { onIntent(FreeIntent.SelectOption(it)) },
                     optionsEnabled = !state.answered,
                 )
-                ExplanationReveal(visible = state.answered) {
-                    Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit)) {
-                        Text(
-                            text = if (state.isCorrect == true) "Correct!" else "Not quite — here's why.",
-                            style = MaterialTheme.typography.titleSmall,
-                        )
-                        Text(text = question.explanation, style = MaterialTheme.typography.bodyMedium)
-                        PrimaryButton(text = "Next question", onClick = { onIntent(FreeIntent.Next) })
-                    }
+                if (state.answered) {
+                    AnswerResultSheet(
+                        isCorrect = state.isCorrect,
+                        explanation = question.explanation,
+                        onContinue = { onIntent(FreeIntent.Next) },
+                    )
                 }
             }
         }

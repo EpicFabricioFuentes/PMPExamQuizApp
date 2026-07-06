@@ -42,6 +42,7 @@ fun QuestionCard(
             options.forEachIndexed { index, option ->
                 AnswerOption(
                     text = option.text,
+                    label = ('A' + index).toString(),
                     state = option.state,
                     enabled = optionsEnabled,
                     onClick = { onOptionSelected(index) },
@@ -51,12 +52,33 @@ fun QuestionCard(
     }
 }
 
-@Preview
+private const val PREVIEW_STEM =
+    "What should the project manager do first when two team members disagree?"
+
+@Preview(name = "Unanswered")
 @Composable
-private fun QuestionCardPreview() {
+private fun QuestionCardUnansweredPreview() {
     PmpTheme {
         QuestionCard(
-            questionText = "What should the project manager do first when two team members disagree?",
+            questionText = PREVIEW_STEM,
+            options = listOf(
+                AnswerOptionUi("Escalate to the sponsor", OptionState.DEFAULT),
+                AnswerOptionUi("Facilitate a collaborative resolution", OptionState.SELECTED),
+                AnswerOptionUi("Pick the senior member's approach", OptionState.DEFAULT),
+                AnswerOptionUi("Separate them onto different tasks", OptionState.DEFAULT),
+            ),
+            onOptionSelected = {},
+            optionsEnabled = true,
+        )
+    }
+}
+
+@Preview(name = "Graded")
+@Composable
+private fun QuestionCardGradedPreview() {
+    PmpTheme {
+        QuestionCard(
+            questionText = PREVIEW_STEM,
             options = listOf(
                 AnswerOptionUi("Escalate to the sponsor", OptionState.DEFAULT),
                 AnswerOptionUi("Facilitate a collaborative resolution", OptionState.CORRECT),
