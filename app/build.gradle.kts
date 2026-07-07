@@ -13,9 +13,9 @@ android {
     defaultConfig {
         applicationId = "com.fax.passyourpmpexam"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
-        versionName = "1.0"
+        versionName = "2026.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
