@@ -54,7 +54,7 @@ An **offline-first** Android app for studying toward the **PMP® (Project Manage
 | Crash/analytics | Firebase (Crashlytics + Analytics) — declared |
 | Testing | `kotlin-test` (JUnit4), coroutines-test, Turbine |
 
-**SDK levels:** `minSdk 26`, `targetSdk 36`, `compileSdk 37`.
+**SDK levels:** `minSdk 26`, `targetSdk 37`, `compileSdk 37`.
 
 ---
 
@@ -80,7 +80,7 @@ Multi-module, clean-architecture project following an **MVI** pattern in the pre
 **Dependency rule:** features and `:core:data` depend on `:core:domain` (interfaces + models); domain logic is pure and framework-free. The app is offline — the only network use is ads/consent.
 
 ### Domain model highlights (`:core:domain`)
-- `Domain` — `PEOPLE (42%)`, `PROCESS (50%)`, `BUSINESS_ENVIRONMENT (8%)`.
+- `Domain` — `PEOPLE (33%)`, `PROCESS (41%)`, `BUSINESS_ENVIRONMENT (26%)`.
 - `Question` — enforces exactly 4 options and an in-range `correctIndex`; carries `domain`, `explanation`, `bankVersion`.
 - `QuizSession` / `SessionQuestion` — a session's questions, current index, status, and foreground-only elapsed time.
 - `Attempt` — the single source of truth for aggregated stats, tagged by `QuizMode { DAILY, QUIZ, FREE }`.
