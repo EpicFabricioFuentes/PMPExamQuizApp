@@ -156,7 +156,7 @@ private fun SettingsContent(
                 RowItem {
                     Text("PMP Prep", style = MaterialTheme.typography.bodyLarge)
                     Text(
-                        text = "v1.0",
+                        text = "v${rememberVersionName()}",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -328,6 +328,17 @@ private fun ReminderTimeRow(minuteOfDay: Int, onTimeSelected: (Int) -> Unit) {
             },
             onDismiss = { showDialog = false },
         )
+    }
+}
+
+/** The installed app's versionName (from the app module's manifest), empty if it can't be read. */
+@Composable
+private fun rememberVersionName(): String {
+    val context = LocalContext.current
+    return remember(context) {
+        runCatching {
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        }.getOrNull().orEmpty()
     }
 }
 
