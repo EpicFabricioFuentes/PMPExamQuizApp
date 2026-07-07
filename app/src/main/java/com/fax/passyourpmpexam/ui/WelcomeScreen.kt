@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,57 +45,61 @@ fun WelcomeScreen(
     onGetStarted: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .padding(horizontal = PmpSpacing.basePadding),
-    ) {
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.background,
+    ) { innerPadding ->
         Column(
             modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(PmpSpacing.safeMargin),
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(horizontal = PmpSpacing.safeMargin),
         ) {
-            Spacer(modifier = Modifier.height(PmpSpacing.gridUnit * 8))
-            Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit * 2)) {
-                Text(
-                    text = "Master the PMP",
-                    style = MaterialTheme.typography.displayLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(PmpSpacing.safeMargin),
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.gridUnit * 2)) {
+                    Text(
+                        text = "Master the PMP",
+                        style = MaterialTheme.typography.displayLarge,
+                        color = MaterialTheme.colorScheme.onSurface,
+                    )
+                    Text(
+                        text = "Build exam readiness a little every day — no account needed, fully offline.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Spacer(modifier = Modifier.height(PmpSpacing.gridUnit * 2))
+                OnboardingCard(
+                    icon = Icons.Filled.CalendarToday,
+                    title = "Daily Question",
+                    description = "One fresh question a day keeps your streak alive.",
                 )
-                Text(
-                    text = "Build exam readiness a little every day — no account needed, fully offline.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                OnboardingCard(
+                    icon = Icons.Filled.Timer,
+                    title = "Quiz Mode",
+                    description = "Short sets or a full 180-question mock with per-domain scoring.",
+                )
+                OnboardingCard(
+                    icon = Icons.Filled.FilterList,
+                    title = "Free Mode",
+                    description = "Unlimited questions, filterable by domain, with instant explanations.",
                 )
             }
-            Spacer(modifier = Modifier.height(PmpSpacing.gridUnit * 2))
-            OnboardingCard(
-                icon = Icons.Filled.CalendarToday,
-                title = "Daily Question",
-                description = "One fresh question a day keeps your streak alive.",
-            )
-            OnboardingCard(
-                icon = Icons.Filled.Timer,
-                title = "Quiz Mode",
-                description = "Short sets or a full 180-question mock with per-domain scoring.",
-            )
-            OnboardingCard(
-                icon = Icons.Filled.FilterList,
-                title = "Free Mode",
-                description = "Unlimited questions, filterable by domain, with instant explanations.",
+            PrimaryButton(
+                text = "Get Started",
+                onClick = onGetStarted,
+                trailingIcon = Icons.AutoMirrored.Filled.ArrowForward,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = PmpSpacing.itemGap, bottom = PmpSpacing.safeMargin),
             )
         }
-        PrimaryButton(
-            text = "Get Started",
-            onClick = onGetStarted,
-            trailingIcon = Icons.AutoMirrored.Filled.ArrowForward,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = PmpSpacing.itemGap, bottom = PmpSpacing.safeMargin),
-        )
     }
 }
 

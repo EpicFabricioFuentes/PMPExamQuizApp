@@ -1,5 +1,6 @@
 package com.fax.passyourpmpexam.ui
 
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -99,7 +100,12 @@ fun PmpApp() {
         NavHost(
             navController = navController,
             startDestination = HomeBaseRoute,
-            modifier = Modifier.padding(innerPadding),
+            // Consume the insets already applied via innerPadding so the per-tab Scaffolds
+            // don't re-add them (nested Scaffolds otherwise double-count the system-bar
+            // insets, leaving a dead band above the bottom NavigationBar).
+            modifier = Modifier
+                .padding(innerPadding)
+                .consumeWindowInsets(innerPadding),
         ) {
             navigation<HomeBaseRoute>(startDestination = HomeRoute) {
                 composable<HomeRoute> {
