@@ -12,8 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 /**
- * App bar for pushed mode screens (Daily / Quiz / Free). Shows [title] and a back arrow that calls
- * [onBack] — a discoverable alternative to the system back gesture.
+ * App bar for mode screens. Shows [title], plus a back arrow that calls [onBack] when one is
+ * provided — a discoverable alternative to the system back gesture. Pass a null [onBack] (the
+ * default) for top-level tab destinations that have no back target, yielding a title-only bar.
  *
  * Window insets are zeroed on purpose: the app's outer [androidx.compose.material3.Scaffold] has no
  * top bar, so its content padding already accounts for the status bar. A default [TopAppBar] would
@@ -23,17 +24,19 @@ import androidx.compose.ui.Modifier
 @Composable
 fun PmpTopBar(
     title: String,
-    onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null,
 ) {
     TopAppBar(
         title = { Text(title) },
         navigationIcon = {
-            IconButton(onClick = onBack) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
-                )
+            if (onBack != null) {
+                IconButton(onClick = onBack) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back",
+                    )
+                }
             }
         },
         windowInsets = WindowInsets(0, 0, 0, 0),
