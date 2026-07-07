@@ -2,13 +2,18 @@ package com.fax.passyourpmpexam.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.fax.passyourpmpexam.core.designsystem.R
 
-// TODO: The SSOT specifies Inter. Drop Inter .ttf files into res/font and swap this
-// FontFamily once the font assets are provided. Using the platform default until then.
-private val AppFontFamily = FontFamily.Default
+private val AppFontFamily = FontFamily(
+    Font(R.font.inter_regular, FontWeight.Normal),
+    Font(R.font.inter_medium, FontWeight.Medium),
+    Font(R.font.inter_semibold, FontWeight.SemiBold),
+    Font(R.font.inter_bold, FontWeight.Bold),
+)
 
 /**
  * Type scale mapped from the SSOT tokens:
