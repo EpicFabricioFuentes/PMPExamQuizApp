@@ -1,6 +1,5 @@
 package com.fax.passyourpmpexam.ui
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -14,7 +13,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination.Companion.hasRoute
@@ -53,9 +51,6 @@ object DailyRoute
 
 @Serializable
 object QuizRoute
-
-@Serializable
-object FreeRoute
 
 private data class TopLevelDestination(
     val route: Any,
@@ -111,22 +106,24 @@ fun PmpApp() {
                     HomeScreen(
                         onStartDaily = { navController.navigate(DailyRoute) },
                         onStartQuiz = { navController.navigate(QuizRoute) },
-                        onStartFree = { navController.navigate(FreeRoute) },
+                        // Free Mode lives on the Practice tab; switch to it like a bottom-nav tap
+                        // so tab selection and saved state stay consistent.
+                        onStartFree = {
+                            navController.navigate(PracticeRoute) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        },
                     )
                 }
                 composable<DailyRoute> { DailyScreen(onBack = { navController.popBackStack() }) }
                 composable<QuizRoute> { QuizScreen(onBack = { navController.popBackStack() }) }
-                composable<FreeRoute> { FreeScreen(onBack = { navController.popBackStack() }) }
             }
-            composable<PracticeRoute> { PlaceholderScreen("Practice") }
+            composable<PracticeRoute> { FreeScreen() }
             composable<SettingsRoute> { SettingsScreen() }
         }
-    }
-}
-
-@Composable
-private fun PlaceholderScreen(name: String) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(name)
     }
 }
