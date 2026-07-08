@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.net.toUri
 import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
@@ -71,6 +70,20 @@ fun AboutScreen(
                 ContactRow()
                 BentoDivider()
                 PrivacyPolicyRow()
+            }
+
+            SettingsSection("Acknowledgments") {
+                AboutParagraph(
+                    "Sincere thanks to David McLachlan, whose PMP practice questions " +
+                        "helped shape this question bank. Check out his YouTube channel for more " +
+                        "PMP exam preparation.",
+                )
+                BentoDivider()
+                AboutParagraph(
+                    "PMP® is a registered mark of the Project Management Institute, Inc. " +
+                        "This project is an independent study aid and is not affiliated with or " +
+                        "endorsed by PMI®.",
+                )
             }
 
             Footer()
@@ -129,6 +142,19 @@ private fun PrivacyPolicyRow() {
     }
 }
 
+/** A wrapping paragraph inside a bento card, padded to match [RowItem]. */
+@Composable
+private fun AboutParagraph(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = PmpSpacing.basePadding, vertical = PmpSpacing.safeMargin),
+    )
+}
+
 /** A tappable row: a label plus a trailing "›" glyph (text glyph avoids an icon-font dependency). */
 @Composable
 private fun ActionRow(label: String, onClick: () -> Unit) {
@@ -151,14 +177,6 @@ private fun Footer() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
     ) {
-        // Trademark fine print: this is an independent study aid, not affiliated with PMI.
-        Text(
-            text = "PMP® is a registered mark of the Project Management Institute, Inc. " +
-                    "This project is an independent study aid and is not affiliated with or endorsed by PMI®.",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.outline,
-            textAlign = TextAlign.Center,
-        )
         Text(
             text = "Made with ❤️ by Fax Development Studios",
             style = MaterialTheme.typography.labelSmall,
