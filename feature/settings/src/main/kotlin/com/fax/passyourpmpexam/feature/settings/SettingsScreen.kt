@@ -1,19 +1,15 @@
 package com.fax.passyourpmpexam.feature.settings
 
 import android.Manifest
-import android.content.Intent
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -26,7 +22,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -46,7 +41,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -55,13 +49,10 @@ import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
 import com.fax.passyourpmpexam.core.domain.model.DailyGoal
 import com.fax.passyourpmpexam.core.domain.model.ThemeMode
 import org.koin.androidx.compose.koinViewModel
-import androidx.core.net.toUri
-
-// TODO: replace with the live hosted URL once docs/privacy-policy.md is published (see that file's header).
-private const val PRIVACY_POLICY_URL = "https://example.com/privacy-policy"
 
 @Composable
 fun SettingsScreen(
+    onOpenAbout: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = koinViewModel(),
 ) {
@@ -81,6 +72,7 @@ fun SettingsScreen(
             }
             viewModel.onIntent(SettingsIntent.SetReminderEnabled(true))
         },
+        onOpenAbout = onOpenAbout,
         modifier = modifier,
     )
 }
@@ -91,6 +83,7 @@ private fun SettingsContent(
     state: SettingsUiState,
     onIntent: (SettingsIntent) -> Unit,
     onEnableReminder: () -> Unit,
+    onOpenAbout: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -153,81 +146,17 @@ private fun SettingsContent(
             }
 
             SettingsSection("About") {
-                RowItem {
-                    Text("PMP Prep", style = MaterialTheme.typography.bodyLarge)
+                RowItem(modifier = Modifier.clickable(onClick = onOpenAbout)) {
+                    Text("About the app", style = MaterialTheme.typography.bodyLarge)
                     Text(
-                        text = "v${rememberVersionName()}",
-                        style = MaterialTheme.typography.bodyMedium,
+                        text = "›",
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                BentoDivider()
-                PrivacyPolicyRow()
             }
-
-            Footer()
         }
     }
-}
-
-/** A section: an uppercase primary header, then a [BentoCard] wrapping [content]. */
-@Composable
-private fun SettingsSection(
-    title: String,
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap)) {
-        Text(
-            text = title.uppercase(),
-            style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(horizontal = PmpSpacing.gridUnit),
-        )
-        BentoCard(content = content)
-    }
-}
-
-/** White rounded 24dp "bento" card with a subtle 1px border and no elevation (tonal depth only). */
-@Composable
-private fun BentoCard(
-    modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(MaterialTheme.shapes.extraLarge)
-            .background(MaterialTheme.colorScheme.surfaceContainerLowest)
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
-                shape = MaterialTheme.shapes.extraLarge,
-            ),
-        content = content,
-    )
-}
-
-/** A hairline divider between rows inside a [BentoCard]. */
-@Composable
-private fun BentoDivider() {
-    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.2f))
-}
-
-/** A standard row inside a bento card: full-width, comfortable padding, content spaced apart. */
-@Composable
-private fun RowItem(
-    modifier: Modifier = Modifier,
-    content: @Composable RowScope.() -> Unit,
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = PmpSpacing.touchTargetMin)
-            .padding(horizontal = PmpSpacing.basePadding, vertical = PmpSpacing.safeMargin),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-        content = content,
-    )
 }
 
 @Composable
@@ -331,58 +260,6 @@ private fun ReminderTimeRow(minuteOfDay: Int, onTimeSelected: (Int) -> Unit) {
     }
 }
 
-/** The installed app's versionName (from the app module's manifest), empty if it can't be read. */
-@Composable
-private fun rememberVersionName(): String {
-    val context = LocalContext.current
-    return remember(context) {
-        runCatching {
-            context.packageManager.getPackageInfo(context.packageName, 0).versionName
-        }.getOrNull().orEmpty()
-    }
-}
-
-@Composable
-private fun PrivacyPolicyRow() {
-    val context = LocalContext.current
-    RowItem(
-        modifier = Modifier.clickable {
-            context.startActivity(Intent(Intent.ACTION_VIEW, PRIVACY_POLICY_URL.toUri()))
-        },
-    ) {
-        Text(
-            text = "Privacy Policy",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.primary,
-        )
-    }
-}
-
-@Composable
-private fun Footer() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = PmpSpacing.basePadding),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
-    ) {
-        // Trademark fine print: this is an independent study aid, not affiliated with PMI.
-        Text(
-            text = "PMP® is a registered mark of the Project Management Institute, Inc. " +
-                    "This project is an independent study aid and is not affiliated with or endorsed by PMI®.",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.outline,
-            textAlign = TextAlign.Center,
-        )
-        Text(
-            text = "Made with ❤️ by Fax Development Studios",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.outline,
-        )
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun TimePickerDialog(
@@ -435,6 +312,7 @@ private fun SettingsContentPreview() {
             ),
             onIntent = {},
             onEnableReminder = {},
+            onOpenAbout = {},
         )
     }
 }
