@@ -86,7 +86,7 @@ fun AnswerOption(
             OptionBadge(label = label, state = state)
             Text(
                 text = text,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(start = PmpSpacing.itemGap),
             )
         }

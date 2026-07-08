@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
@@ -38,7 +39,7 @@ fun QuestionCard(
                 .padding(PmpSpacing.basePadding),
             verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
         ) {
-            Text(text = questionText, style = MaterialTheme.typography.headlineMedium)
+            Text(text = questionText, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
             options.forEachIndexed { index, option ->
                 AnswerOption(
                     text = option.text,
