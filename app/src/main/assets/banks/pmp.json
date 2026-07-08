@@ -1,5 +1,5 @@
 {
-  "bankVersion": 1,
+  "bankVersion": 3,
   "certificationId": "PMP",
   "questions": [
     {
@@ -118,6 +118,396 @@
       ],
       "correctIndex": 2,
       "explanation": "Delivering scope is not the same as realizing value. Sustained benefits depend on benefits realization management and the organization's readiness to adopt the change."
+    },
+    {
+      "id": "YT-0001",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are working at Stratus Innovations, where leadership proposes the delivery of a new customer platform that will impact multiple teams. They need it to be released before October next year, and multiple experts from other systems or teams may be involved. Leadership asks how this initiative should be managed. What will you tell them?",
+      "options": [
+        "Manage it as operations",
+        "Manage it as a program",
+        "Manage it as a project",
+        "Manage it as a portfolio"
+      ],
+      "correctIndex": 2,
+      "explanation": "Projects are initiated to create value by producing tangible and/or intangible deliverables such as products, services, or other results. Unlike ongoing operations, projects are temporary and have a defined beginning and end. Programs combine multiple projects, and Portfolios combine Programs and Operations. The Standard for Project Management, Page 12, 'Portfolios, Programs, Projects'."
+    },
+    {
+      "id": "YT-0002",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Daniel is the project manager at FinTrust Solutions, preparing the business case for a new mobile banking platform. As part of the document he identifies expected outcomes, including increased transaction revenue and improved customer satisfaction and brand reputation. How should Daniel Categorize these benefits in the business case?",
+      "options": [
+        "Both are tangible benefits",
+        "Both are intangible benefits",
+        "Revenue increase is intangible, while customer satisfaction is tangible.",
+        "Revenue increase is tangible, while customer satisfaction is intangible."
+      ],
+      "correctIndex": 3,
+      "explanation": "Tangible benefits are benefits that can be measured in financial terms, such as profitability, stockholder equity, and market share. Intangible benefits are benefits that are difficult to measure in financial terms, such as brand recognition, customer satisfaction, and employee well-being. The Standard for Project Management, Page 14, 'Examples of Business Value'."
+    },
+    {
+      "id": "YT-0003",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are the project manager at Secure Bank Corp, implementing a new online banking platform. While developing the project management plan, you identify items like regulations, organizational culture, and IT infrastructure that may influence the project. How should you account for these factors in your project management plan?",
+      "options": [
+        "Document them as enterprise environmental factors.",
+        "Treat them as project deliverables",
+        "Include them as part of the scope baseline.",
+        "Convert them into project risks only."
+      ],
+      "correctIndex": 0,
+      "explanation": "Enterprise environmental factors refer to conditions not directly influenced by the project team that impact, constrain or direct the project. The Standard for Project Management, Page 18, 'Enterprise Environmental Factors'."
+    },
+    {
+      "id": "YT-0004",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Rose is the project manager at TCS, implementing a new internal reporting system. The PMO required her to use a standard project management plan template and follow established procedures from previous projects. She reviews these templates and guidelines to ensure consistency with organizational practices. How should Rose classify these templates and procedures?",
+      "options": [
+        "Project Deliverables",
+        "Enterprise Environmental Factors (EEFs)",
+        "Organizational Process Assets (OPAs)",
+        "Project Assumptions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Organizational process assets, depending on the industry, organization and working model, may include the plans, processes, documents, templates, and knowledge repositories specific to and used by the performing organization. These assets influence the management of the project. The Standard for Project Management, Page 19, 'Organizational Process Assets'."
+    },
+    {
+      "id": "YT-0005",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are the project manager at BuildMax Engineering, working on a large infrastructure project. The organization assigns you as the project manager, provides dedicated project resources, and gives you full authority over the project budget and decision-making. What type of organizational structure are you working in?",
+      "options": [
+        "Functional organization",
+        "Weak-matrix organization",
+        "Project-Oriented organization",
+        "Balanced-matrix organization"
+      ],
+      "correctIndex": 2,
+      "explanation": "Project-oriented organizations are those in which the project manager has a high level of authority and control over the project, including authority over the project team and resources. The Standard for Project Management, Page 22, 'Influences of Organizational Structures on Projects'."
+    },
+    {
+      "id": "YT-0006",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Liam works as a manager in the sales department at Prime Manufacturing and would like to start a process improvement initiative. Any project team members are already within his team, but Liam has no additional budget or authority. What type of organizational structure is Liam working in?",
+      "options": [
+        "Project-oriented organization",
+        "Functional organization",
+        "Balanced-matrix organization",
+        "Weak-matrix organization"
+      ],
+      "correctIndex": 1,
+      "explanation": "Functional organizations are those in which the project is done as part of an existing functional team - there is no designated project coordinator, additional budget or resources. The Standard for Project Management, Page 22, 'Influences of Organizational Structures on Projects'."
+    },
+    {
+      "id": "YT-0007",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Sophia is the project manager at Tech Bridge Solutions, leading a system implementation project. During planning, she performs activities such as coordination, collaboration, applying expertise, and providing support for the delivered product. Which function is NOT associated with projects?",
+      "options": [
+        "Providing oversight and coordination",
+        "Facilitating and supporting",
+        "Applying expertise",
+        "Performing ongoing operational support."
+      ],
+      "correctIndex": 3,
+      "explanation": "Functions associated with projects include providing oversight and coordination, soliciting and managing feedback, facilitating and supporting, performing work, applying expertise, providing organizational direction and insight, and providing resources. The Standard for Project Management, Pages 24-26, 'Functions Associated with Projects'."
+    },
+    {
+      "id": "YT-0008",
+      "domain": "STANDARD_FOR_PM",
+      "text": "An employee in the organization secures funding for the project, provides strategic direction, and helps remove organizational obstacles to ensure project success. What role is this person performing in the project?",
+      "options": [
+        "Product Owner",
+        "Project Sponsor",
+        "Project Customer",
+        "Project Manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "A sponsor is an individual or a group that provides resources and support for the portfolio, program, or project, and is accountable for enabling success. A Guide to the Project Management Body of Knowledge, 8th Ed. Page 274, 'Sponsor'."
+    },
+    {
+      "id": "YT-0009",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Roy is part of the project management team at Transglobal Logistics, working on a system upgrade project. The team collaborates with stakeholders and managers to align with organizational objectives and secure resources, while other activities are also being considered. Which of the following is something the project management team would do?",
+      "options": [
+        "Provide duration and cost estimates on the deliverables.",
+        "Coordinate with functional managers for demands on critical resources.",
+        "Verify that deliverables meet their quality requirements.",
+        "Approve the final product on behalf of the customer"
+      ],
+      "correctIndex": 1,
+      "explanation": "The project management team proactively interacts and negotiates with other project management teams, portfolio managers, project managers, and functional managers for demands on critical resources, priorities on project funding, receipt or distribution of deliverables, and in aligning project goals and objectives with those of the organization. The Standard for Project Management, Page 29, 'Interaction Between the Project Management Team and Project Aspects'."
+    },
+    {
+      "id": "YT-0010",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are working with a project sponsor in the early stages of a cloud platform implementation at CSI. As you work with the project sponsor to put together the business case, they ask when the project will begin delivering value. What will you tell them?",
+      "options": [
+        "The project value will be realized after the project is fully complete.",
+        "The project benefits can be realized during project execution phases.",
+        "Project value will be realized once benefits are formally measured.",
+        "Value can be realized throughout the project, at the end of the project or following project completion."
+      ],
+      "correctIndex": 3,
+      "explanation": "Value can be realized throughout the project, at the end of the project, or following project completion. The Standard for Project Management, page 41, 'Focus on value'."
+    },
+    {
+      "id": "YT-0011",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are a project manager working on a chip fabrication project at NG Micro Devices. A functional manager raises concerns about the quality of deliverables being passed to their department and want assurance that standards will be consistently met. How will you manage this on your project?",
+      "options": [
+        "Quality should be verified through final inspection before delivery.",
+        "Quality should be integrated into processes to consistently achieve target quality thresholds.",
+        "Quality should be managed separately from project processes to ensure independence.",
+        "Quality should focus on correcting defects after they are identified."
+      ],
+      "correctIndex": 1,
+      "explanation": "Embed quality into processes and deliverables to maintain a consistent focus on achieving target quality thresholds. This emphasis on quality helps to ensure outcomes that meet project objectives and align with the needs, requirements, and acceptance criteria set by relevant stakeholders. The Standard for Project Management, Page 43, 'Embed Quality Into Processes and Deliverables'."
+    },
+    {
+      "id": "YT-0012",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Rafael is managing a government megaproject at SGI involving multiple vendors. A conflict arises between vendor teams over shift rotations, creating tension and affecting productivity. Now the issue is starting to affect project deliverables. How should Rafael address this situation?",
+      "options": [
+        "Force the vendors to follow the agreed contract terms",
+        "Let the vendors resolve the issue on their own",
+        "Facilitate discussions to identify root causes and agree on a solution",
+        "Assign your best team member to manage the conflict"
+      ],
+      "correctIndex": 2,
+      "explanation": "The collaborative approach not only resolves the conflict but also removes friction that could undermine quality and productivity, fostering a more cohesive and motivated project team. The Standard for Project Management, Page 48, 'Be an Accountable Leader: Principle in Action'."
+    },
+    {
+      "id": "YT-0013",
+      "domain": "STANDARD_FOR_PM",
+      "text": "You are in the planning phase of a refinery expansion project at PetraCore Energy Ld. An executive manager raises concerns about increasing staffing costs and several identified risks early in the project. What will you tell them about the cost and risk on the project?",
+      "options": [
+        "Cost and staffing are highest at the beginning, while risk and uncertainty increase toward project completion.",
+        "Cost and staffing gradually decrease throughout the project, while risk and uncertainty remain constant.",
+        "Cost and staffing increase as work progresses and drop near completion, while risk and uncertainty decrease over time.",
+        "Cost and staffing remain stable throughout the project, while risk and uncertainty fluctuate unpredictably."
+      ],
+      "correctIndex": 2,
+      "explanation": "In many predictive project scenarios, cost and staffing levels are low at the start, increase as work is carried out, and then drop rapidly as the project or phase comes to an end. Regardless of the project life cycle, risk and uncertainty are typically highest at the start of the project or phase and decrease over time as decisions are made and deliverables are accepted. The Standard for Project Management, Page 59, 'Impact of Variables Over Time'."
+    },
+    {
+      "id": "YT-0014",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Dr. Mitchell is managing a drug development project at EB Inc. The project operates in a highly regulated environment with phase gate approvals. Scope, schedule, cost, and risks are defined early, and strict change control with extensive upfront planning is required. Which development approach is being used?",
+      "options": [
+        "Adaptive approach",
+        "Hybrid approach",
+        "Incremental approach",
+        "Predictive approach"
+      ],
+      "correctIndex": 3,
+      "explanation": "A predictive approach may be optimal when the project scope can be stabilized early in the project. A predictive approach may also be referred to as a waterfall, plan-driven, or traditional approach. The scope, schedule, cost, resource needs, quality requirements, and risks can be well defined in the early phases of the project life cycle and are expected to remain relatively stable. The Standard for Project Management, Page 61, 'Predictive Approaches'."
+    },
+    {
+      "id": "YT-0015",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Jason is leading a mobile application project at Blue Peak Digital Solutions. The team works in short iterations, delivering features regularly and refining their approach based on feedback. One person is responsible for the approved scope and its value to the organization. Which development approach is being used?",
+      "options": [
+        "Adaptive approach",
+        "Predictive approach",
+        "Hybrid approach",
+        "Incremental approach"
+      ],
+      "correctIndex": 0,
+      "explanation": "Adaptive approaches, also referred to as change-driven or agile approaches, are useful when a project's requirements and technical solution are highly uncertain, volatile, and likely to change. A clear vision is established early, and known requirements are progressively elaborated, changed or replaced based on stakeholder feedback, the environment, or unexpected events. The Standard for Project Management, Page 63, 'Adaptive Approaches'."
+    },
+    {
+      "id": "YT-0016",
+      "domain": "STANDARD_FOR_PM",
+      "text": "Ethan is working on a project at West Gate Group that will deliver a new enterprise platform. The software component has constantly evolving requirements, while the data center infrastructure is built using upfront planning and a formal change control approach, with the two brought together in a final Sprint at the end. Which development approach should Ethan use?",
+      "options": [
+        "Predictive approach",
+        "Hybrid approach",
+        "Incremental approach",
+        "Adaptive approach"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Hybrid development approach combines adaptive and predictive approaches, incorporating elements from both. For example, a project may have two main deliverables, where one is developed using an adaptive approach and the other using a predictive approach. The Standard for Project Management, Page 65, 'Hybrid Approaches'."
+    },
+    {
+      "id": "YT-0017",
+      "domain": "PROCESS",
+      "text": "You have just taken over as project manager for the Orion CRM upgrade project, where many stakeholders are not available, others are disengaged and the success criteria is unclear. This is an example of:",
+      "options": [
+        "Project constraints",
+        "Lagging indicators",
+        "Leading indicators",
+        "Issues to be managed"
+      ],
+      "correctIndex": 2,
+      "explanation": "Leading indicators indicate upcoming changes or reveal trends in the project. The lack of a risk management process, stakeholders who are not available or engaged, or poorly defined project success criteria are all examples of leading indicators that project performance may be at risk. PMBOK Guide, 8th Ed. Page 14, 'Leading Indicators'."
+    },
+    {
+      "id": "YT-0018",
+      "domain": "PROCESS",
+      "text": "You have been assigned to lead a new patient record system project at CHS. The business case has been approved, and key stakeholders are identified. Senior leadership wants the project to start immediately and without delay. What will you do next?",
+      "options": [
+        "Develop the project management plan to define how the project will be executed",
+        "Perform a kick-off meeting with the project team",
+        "Work with the project sponsor to approve the project charter",
+        "Perform a make-or-buy analysis to determine the resources to be used."
+      ],
+      "correctIndex": 2,
+      "explanation": "The Initiate Project or Phase process officially authorizes the start of a project and grants the project manager the authority to allocate organizational resources to project activities by creating a project charter or similar document. PMBOK Guide, 8th Ed. Page 17, 'Initiate Project or Phase'."
+    },
+    {
+      "id": "YT-0019",
+      "domain": "PROCESS",
+      "text": "You have been hired to manage a retail expansion initiative. As planning begins, the cost of some materials rises significantly. Senior stakeholders raise concerns about the cost versus the delivered value of the project, and whether it will be worthwhile. What will you do next?",
+      "options": [
+        "Review the Project Management Plan",
+        "Review the Financial Management Plan",
+        "Review the Project Charter",
+        "Review the Business Case"
+      ],
+      "correctIndex": 3,
+      "explanation": "A business case is a documented economic feasibility study used to establish validity of the benefits to be delivered by a portfolio component, program or project. PMBOK Guide, 8th Ed. Page 17, 'Initiate Project or Phase' and Page 116, 'Business Case'."
+    },
+    {
+      "id": "YT-0020",
+      "domain": "PROCESS",
+      "text": "Elijah is initiating a data center expansion project at QGS. Early planning relies on uncertain factors such as utility availability and the accuracy of the vendor timelines. As Elijah documents these initial estimates for cost and duration, what will he NOT do?",
+      "options": [
+        "Add the factors to the Assumption Log",
+        "Add the factors to the Risk Register",
+        "Add the factors to the Basis of Estimates",
+        "Add the factors to the Issue Log"
+      ],
+      "correctIndex": 3,
+      "explanation": "An assumption log records all project assumptions and constraints throughout the life cycle, including updates and status changes. High-level constraints originate in the business case and flow into the charter, while lower-level assumptions are identified during planning and execution activities. The Risk Register records uncertainties. The Issue Log records impacts to the project that have occurred. PMBOK Guide 8th Ed, Page 17, 'Initiate Project or Phase', and Page 114 'Assumption Log'."
+    },
+    {
+      "id": "YT-0021",
+      "domain": "PROCESS",
+      "text": "You are managing a large infrastructure project at Granite Works Engineering. You have conducted a kick-off meeting with the project team and multiple team leads have provided their high-level strategies. You want to put these in a document that you can change and configure over time. What will you do next?",
+      "options": [
+        "Create the configuration management plan",
+        "Create the project management plan",
+        "Create the project charter",
+        "Create the change management plan"
+      ],
+      "correctIndex": 1,
+      "explanation": "The project management plan specifies how the project will be executed, monitored, controlled and closed. Its content varies depending on the project's application context and complexity. The plan can be either high level or detailed, tailored to the project's specific needs. PMBOK Guide, 8th Ed. Pages 18-19, 'Integrate and Align Project Plans'."
+    },
+    {
+      "id": "YT-0022",
+      "domain": "PROCESS",
+      "text": "A project team at Redwood Industrial Systems is preparing to acquire specialized component. They are defining evaluation criteria, contract types, and deciding whether to build internally or outsource the work. No vendors have been contacted yet. What should the project manager do next?",
+      "options": [
+        "Issue procurement documents and request proposals from vendors",
+        "Evaluate vendor proposals and select the best supplier",
+        "Develop the sourcing strategy including make-or-buy decisions",
+        "Advertise the opportunity to gather additional vendors."
+      ],
+      "correctIndex": 2,
+      "explanation": "The Plan Sourcing Strategy process entails documenting project sourcing decisions, specifying the source selection approach, determining the scope of work for external sourcing, and selecting the appropriate contracts and sources for delivering the work. These include make-or-buy decisions. PMBOK Guide 8th Ed. Pages 19-20, 'Plan Sourcing Strategy'."
+    },
+    {
+      "id": "YT-0023",
+      "domain": "PROCESS",
+      "text": "A project requires outsourcing specialized engineering work. Multiple vendors have expressed their interest in submitting a proposal, but each have different ideas on what the project is about. What should the project manager do?",
+      "options": [
+        "Conduct a bidder conference",
+        "Use advertising for the proposal",
+        "Perform a make-or-buy analysis",
+        "Clarify the source selection criteria"
+      ],
+      "correctIndex": 0,
+      "explanation": "A bidder conference ensures all prospective sellers receive the same information and clarifications, promoting fairness and a shared understanding of requirements without giving any vendor an advantage. PMBOK Guide, 8th Ed. Pages 19-20, 'Plan Sourcing Strategy' and Page 265 'Bidder Conference'."
+    },
+    {
+      "id": "YT-0024",
+      "domain": "PROCESS",
+      "text": "Irene is preparing a large infrastructure project at West Core Development. Different teams propose conflicting approaches for acquiring materials and services, causing delays in procurement planning. Irene needs to align the overall approach, including contract types and supplier selection methods. What should she do?",
+      "options": [
+        "Develop the statement of work",
+        "Perform the make-or-buy analysis",
+        "Develop the project bid documents.",
+        "Develop a sourcing strategy plan"
+      ],
+      "correctIndex": 3,
+      "explanation": "Plan Sourcing Strategy documents sourcing decisions, defines the source selection approach, and determines work for external sourcing. The sourcing strategy plan describes what will be insourced or outsourced, including rationale, selection criteria, and considerations such as value, schedule, risk, and financial impact. PMBOK Guide, 8th Ed. Page 20 'Plan Sourcing Strategy' and page 141 'Sourcing strategy plan'."
+    },
+    {
+      "id": "YT-0025",
+      "domain": "PROCESS",
+      "text": "Rick is planning a manufacturing project at Trade Corp. A critical component can be produced internally or sourced from a specialized supplier. There is pressure from internal stakeholders to begin work as quickly as possible, and there is limited budget for additional items. What will Rick do next?",
+      "options": [
+        "Develop the procurement management plan",
+        "Conduct a cost-benefit analysis",
+        "Perform a make-or-buy analysis",
+        "Issue requests for proposal (RFP)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Make-or-buy analysis is a decision-making process that gathers and analyzes product requirements against alternatives, including internal production or external purchase. It determines whether project work should be performed by the team or acquired from outside sources based on the best option. PMBOK Guide 8th Ed. Pages 19-20 'Plan Sourcing Strategy' and page 180 'Make-or-buy analysis'."
+    },
+    {
+      "id": "YT-0026",
+      "domain": "PROCESS",
+      "text": "Aiden is managing a facilities upgrade at CM Holdings. The project requires standard electrical components with clearly defined specifications, and multiple suppliers are available at different price points causing confusion and delays in the selection process. What should he do?",
+      "options": [
+        "Conduct a bidder conference",
+        "Issue a Request For Proposal",
+        "Issue a Request For Information",
+        "Issue a Request For Quote"
+      ],
+      "correctIndex": 3,
+      "explanation": "A request for quote (RFQ) is used when price is the main deciding factor and the proposed solution is readily available. PMBOK Guide, 8th Ed. Page 20, 'Plan Sourcing Strategy', and page 248 'Request for quote'."
+    },
+    {
+      "id": "YT-0027",
+      "domain": "PROCESS",
+      "text": "Rina is executing a warehouse automation project at Grid Line Logistics. Several modifications have been requested throughout the project, and now there is confusion about what should be implemented and in what sequence. What will Rina do next?",
+      "options": [
+        "Review the Scope Statement",
+        "Review the Change Log",
+        "Review the Issue Log",
+        "Review the Risk Register"
+      ],
+      "correctIndex": 1,
+      "explanation": "Manage Project Execution involves leading and performing work defined in the plan and implementing approved changes to meet objectives, ensuring deliverables meet scope requirements. A change log records all submitted changes and their status, documenting the disposition of change requests throughout the project. PMBOK Guide, 8th Ed. Page 22, 'Manage Project Execution' and page 116 'Change log'."
+    },
+    {
+      "id": "YT-0028",
+      "domain": "PROCESS",
+      "text": "You are managing a production system upgrade at Iron Works Manufacturing. During execution, your team is delivering outputs, implementing approved changes, and tracking performance data. A stakeholder raises concerns about the consistency and reliability of the outputs being produced. What should you do?",
+      "options": [
+        "Reassess the scope and quality plans to improve output consistency",
+        "Ensure deliverables are produced according to the defined scope baseline",
+        "Raise these concerns with the steering committee",
+        "Complete a full analysis of the quality risks being raised"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Manage Project Execution process involves leading and performing the work defined in the project management plan and implementing approved changes to meet the project's objectives. At this point, quality should be focused on ensuring that deliverables are being produced according to the agreed-upon requirements set in the scope baseline. PMBOK Guide 8th Ed. Pages 22-23, 'Manage Project Execution'."
+    },
+    {
+      "id": "YT-0029",
+      "domain": "PROCESS",
+      "text": "A project team at CD Solutions is developing a customer analytics platform. Midway through execution, a security officer reports unauthorized access to sensitive project data. This could cause issues with the deliverables in the future. What should the project manager do first?",
+      "options": [
+        "Note it in the Issue Log",
+        "Note it in the risk register",
+        "Brainstorm ways to handle the security breach with the team",
+        "Escalate the breach to senior managers within the organization"
+      ],
+      "correctIndex": 0,
+      "explanation": "When a problem has already occurred, it is treated as an issue. The issue log is used to document, track and manage issues before further action is taken. PMBOK Guide, 8th Ed. Pages 22-23, 'Manage Project Execution' and page 123 'Issue Log'."
+    },
+    {
+      "id": "YT-0030",
+      "domain": "PROCESS",
+      "text": "Omar is managing a pharmaceutical packaging project at NCL. Quality inspections repeatedly identify defects caused by inconsistent procedures across shifts, leading to rework and delays. Omar wants to address the underlying cause and improve consistency moving forward. What should Omar do next?",
+      "options": [
+        "Update the team's work instructions",
+        "Implement check sheets",
+        "Assign a quality lead",
+        "Apply process analysis & improvement"
+      ],
+      "correctIndex": 3,
+      "explanation": "Manage Quality Assurance implements planned and systematic activities from the quality management plan to ensure outputs meet requirements. Process improvement focuses on analyzing and enhancing processes to increase efficiency, quality, and value by identifying improvements, reducing waste, and achieving better performance and customer satisfaction. PMBOK Guide 8th Ed. Page 23 'Manage Quality Assurance' and page 188 'Process Improvement'."
     }
   ]
 }
