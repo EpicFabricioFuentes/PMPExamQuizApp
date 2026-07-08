@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.fax.passyourpmpexam.feature.daily.DailyScreen
 import com.fax.passyourpmpexam.feature.home.HomeScreen
 import com.fax.passyourpmpexam.feature.free.FreeScreen
+import com.fax.passyourpmpexam.feature.settings.AboutScreen
 import com.fax.passyourpmpexam.feature.settings.SettingsScreen
 import com.fax.passyourpmpexam.feature.quiz.QuizScreen
 import kotlinx.serialization.Serializable
@@ -43,8 +44,16 @@ object HomeRoute
 @Serializable
 object PracticeRoute
 
+// The Settings tab is a nested graph so its sub-screens (About) keep the Settings tab
+// selected in the bottom bar, mirroring the Home graph above.
+@Serializable
+object SettingsBaseRoute
+
 @Serializable
 object SettingsRoute
+
+@Serializable
+object AboutRoute
 
 // Destinations reachable from the Home hub (not top-level tabs).
 @Serializable
@@ -63,7 +72,7 @@ private data class TopLevelDestination(
 private val topLevelDestinations = listOf(
     TopLevelDestination(HomeBaseRoute, HomeBaseRoute::class, "Home", Icons.Filled.Home),
     TopLevelDestination(PracticeRoute, PracticeRoute::class, "Practice", Icons.Filled.PlayArrow),
-    TopLevelDestination(SettingsRoute, SettingsRoute::class, "Settings", Icons.Filled.Settings),
+    TopLevelDestination(SettingsBaseRoute, SettingsBaseRoute::class, "Settings", Icons.Filled.Settings),
 )
 
 @Composable
@@ -129,7 +138,12 @@ fun PmpApp() {
                 composable<QuizRoute> { QuizScreen(onBack = { navController.popBackStack() }) }
             }
             composable<PracticeRoute> { FreeScreen() }
-            composable<SettingsRoute> { SettingsScreen() }
+            navigation<SettingsBaseRoute>(startDestination = SettingsRoute) {
+                composable<SettingsRoute> {
+                    SettingsScreen(onOpenAbout = { navController.navigate(AboutRoute) })
+                }
+                composable<AboutRoute> { AboutScreen(onBack = { navController.popBackStack() }) }
+            }
         }
     }
 }
