@@ -1,5 +1,5 @@
 {
-  "bankVersion": 3,
+  "bankVersion": 5,
   "certificationId": "PMP",
   "questions": [
     {
@@ -508,6 +508,526 @@
       ],
       "correctIndex": 3,
       "explanation": "Manage Quality Assurance implements planned and systematic activities from the quality management plan to ensure outputs meet requirements. Process improvement focuses on analyzing and enhancing processes to increase efficiency, quality, and value by identifying improvements, reducing waste, and achieving better performance and customer satisfaction. PMBOK Guide 8th Ed. Page 23 'Manage Quality Assurance' and page 188 'Process Improvement'."
+    },
+    {
+      "id": "YT-0031",
+      "domain": "PROCESS",
+      "text": "You are managing a production system project at Forge Line Industries. During execution, inconsistencies are observed in how teams follow procedures and organizational standards. Leadership want to identify gaps in processes and improve overall performance. What is the most appropriate action?",
+      "options": [
+        "Increase inspections to find defects in completed deliverables",
+        "Re-baseline the project to address process inconsistencies",
+        "Conduct additional testing to validate product performance",
+        "Perform audits to identify improvement areas"
+      ],
+      "correctIndex": 3,
+      "explanation": "The Manage Quality Assurance process implements a set of planned and systematic acts and processes defined within the project's quality management plan. This can help build confidence that a future output will be completed in a manner that meets the specified requirements and expectations through quality assurance tools and techniques such as quality audits and failure analysis. PMBOK Guide, 8th Ed. Pages 23-24, 'Manage Quality Assurance'."
+    },
+    {
+      "id": "YT-0032",
+      "domain": "PROCESS",
+      "text": "A project team is missing deadlines due to inconsistent task execution. Junior members are completing extra, unnecessary work, while senior members report inefficiencies in the way items are delivered, with defects occurring as a result. What should the project manager do?",
+      "options": [
+        "Ask the team to swarm around the issue and solve it.",
+        "Implement a general training program",
+        "Work with the team to create checklists",
+        "Reassign tasks to more experienced team members"
+      ],
+      "correctIndex": 2,
+      "explanation": "A checklist is a list of items or actions used as reminders, developed from historical information and lessons learned from similar projects to identify potential risks. Collaborating with the team ensures alignment and improves performance without immediate escalation or major restructuring. PMBOK Guide, 8th Ed. Pages 23-24 'Manage Quality Assurance' and page 151 'Checklists'."
+    },
+    {
+      "id": "YT-0033",
+      "domain": "PROCESS",
+      "text": "You are managing a digital banking platform upgrade at Southland Financial Group. Midway through execution, conflict arises between developers and compliance officers over security requirements. You facilitate a session with the team and find a solution to move forward. What will you do with this new information?",
+      "options": [
+        "Update the risk register with the identified risks and mitigation strategies",
+        "Document and maintain a lessons learned register throughout the project",
+        "Ensure all project knowledge is archived into organizational process assets at project closure",
+        "Develop a knowledge management plan to formalize information sharing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Manage Project Knowledge is the process of using existing knowledge and creating new knowledge to achieve project objectives and support organizational learning. A lessons learned register records knowledge gained during a project, phase, or iteration to improve future performance for the team and organization. PMBOK Guide, 8th Ed. Pages 24-26 'Manage Project Knowledge' and page 123 'Lessons learned register'."
+    },
+    {
+      "id": "YT-0034",
+      "domain": "PROCESS",
+      "text": "You are managing a data migration project at VLM. After completing a critical migration phase, discrepancies are discovered between expected and actual results, leading to rework and missed timelines. What should you do next?",
+      "options": [
+        "Conduct an AAR with the team",
+        "Conduct a Risk Workshop with the team",
+        "Conduct a SWOT analysis with the team",
+        "Adjust the schedule and resource assignments"
+      ],
+      "correctIndex": 0,
+      "explanation": "After-action reviews are a structured process used to analyze what happened, why it happened, and how it can be improved. They help enhance team performance by reflection on actions and outcomes and are conducted after projects or major milestones to capture lessons learned and inform future work. PMBOK Guide, 8th Ed. Pages 24-26, 'Manage Project Knowledge', and page 145, 'After-action Reviews'."
+    },
+    {
+      "id": "YT-0035",
+      "domain": "PROCESS",
+      "text": "James is managing a commercial build at Evercrest Corp. During execution he reviews cost and schedule data and notices the project is going off track. Stakeholders are starting to notice and want an update on what's going on. What should James do first to respond to this situation?",
+      "options": [
+        "Implement corrective actions to bring performance back on track",
+        "Update the project management plan to reflect the changes in cost and schedule",
+        "Analyze performance data and turn it into work performance information",
+        "Escalate the issue to the project management team to avoid further delays."
+      ],
+      "correctIndex": 2,
+      "explanation": "Monitor and Control Project Performance is the process of tracking, reviewing and reporting the overall project progress to meet the performance objectives defined in the project management plan. Work performance data is compared to create work performance information which is ultimately sent as a report to stakeholders. PMBOK Guide, 8th Ed. Pages 26-27, 'Monitor and Control Project Performance'."
+    },
+    {
+      "id": "YT-0036",
+      "domain": "PROCESS",
+      "text": "A project team is repeatedly submitting deliverables late for internal quality checks, despite clear expectations being defined earlier. This pattern is beginning to affect overall timelines. The project manager wants to prevent further occurrences. What should the project manager do?",
+      "options": [
+        "Raise a change request for the affected items",
+        "Perform Ishikawa analysis",
+        "Review the quality management plan with the team",
+        "Initiate an internal audit"
+      ],
+      "correctIndex": 1,
+      "explanation": "An Ishikawa diagram is root cause analysis, which helps identify the underlying reason for recurring issues, enabling the project manager to address the source of the problem and prevent future occurrences. PMBOK Guide 8th Ed. Page 27, 'Monitor and Control Project Performance' and page 150, 'Cause and Effect diagram'."
+    },
+    {
+      "id": "YT-0037",
+      "domain": "PROCESS",
+      "text": "Leah is managing a highway expansion project at Granite Link Infrastructure. After baselines are approved, a stakeholder proposes a design change that may impact cost and schedule. The team is ready to implement it immediately to avoid delays. How should Leah handle this situation?",
+      "options": [
+        "Submit a formal change request and assess its impacts",
+        "Review the benefits and proceed with implementation",
+        "Defer the change until sufficient performance data is available to reassess it",
+        "Update project plans to reflect the proposed change and communicate it to stakeholders"
+      ],
+      "correctIndex": 0,
+      "explanation": "Once the project has a baseline, all changes should go through a formal process to assess and implement changes. Change requests should typically include information on the estimated schedule and cost impacts before they can be approved. PMBOK Guide 8th Ed. Pages 28-29, 'Assess and Implement Changes'."
+    },
+    {
+      "id": "YT-0038",
+      "domain": "PROCESS",
+      "text": "A project at EI Solutions is in progress when several change requests are raised simultaneously. One of your developers is implementing their change immediately, while someone from the business is holding stakeholder meetings to review the project impact of their change. You are finding it hard to keep track. What will you do next?",
+      "options": [
+        "Review the change management plan with the team",
+        "Get a recommendation from the Change Control Board",
+        "Review and update the Change Log",
+        "Approve the most critical changes immediately"
+      ],
+      "correctIndex": 0,
+      "explanation": "Assess and Implement Changes occurs throughout the project, as changes may be proposed by any stakeholder and affect scope, plans, or documents. The change management plan defines how changes are managed, establishes the change control board, and outlines roles, authority and implementation of the change control system. PMBOK Guide, 8th Ed. Pages 28-29 'Assess and Implement Changes' and page 116 'Change Management Plan'."
+    },
+    {
+      "id": "YT-0039",
+      "domain": "PROCESS",
+      "text": "Marina is managing a power grid stabilization project at Grid Core Energy. A critical update must be implemented immediately to prevent system failure, but the team is divided on the best approach and time is limited. Marina needs to act quickly to move forward. What should Marina do next?",
+      "options": [
+        "Facilitate group decision-making on the best approach",
+        "Apply majority voting on the different options",
+        "Use multi-criteria decision analysis",
+        "Use autocratic decision-making"
+      ],
+      "correctIndex": 3,
+      "explanation": "Autocratic decision-making is appropriate when time is critical and a quick decision is required, allowing the project manager to act decisively without waiting for consensus. PMBOK Guide 8th Ed. Page 29, 'Assess and Implement Changes' and page 163 'Autocratic decision-making'."
+    },
+    {
+      "id": "YT-0040",
+      "domain": "PROCESS",
+      "text": "Olivia is managing a highway expansion project at WIC using a predictive approach. As the project nears completion, stakeholders push to release resources quickly. Olivia wants to ensure proper administrative closure while meeting all project objectives. What should she NOT do next?",
+      "options": [
+        "Confirm all deliverables are completed, formally accepted, and closure criteria are satisfied",
+        "Verify that all costs have been charged to the project",
+        "Reassign or release project personnel",
+        "Ensure all documents and deliverables are updated and all issues are resolved"
+      ],
+      "correctIndex": 2,
+      "explanation": "For project closure, the project manager ensures all work is completed and objectives are met by reviewing the project management plan, updating documents and deliverables, and resolving issues. Resources should not be released until all closure activities and exit criteria are confirmed as completed. PMBOK Guide 8th Ed. Pages 31-32, 'Close Project or Phase'."
+    },
+    {
+      "id": "YT-0041",
+      "domain": "PROCESS",
+      "text": "At Northbridge Utilities Group, a project component has recently been handed over to operations. However, team members are still being pulled back to support ongoing issues. The project manager wants to confirm what activities and items were completed during the project handover. What will she do next?",
+      "options": [
+        "Review the procurement agreements and organizational process assets updates",
+        "Review the quality report and lessons learned register",
+        "Review the final report and scope management plan",
+        "Review the final report and organizational process assets updates"
+      ],
+      "correctIndex": 3,
+      "explanation": "During project closure, the project manager ensures all work is completed and documented. The final report, updated documents, and organizational process assets confirm closure. The final report summarizes performance, including scope, quality, cost, schedule results, benefits achieved, and how risks and issues were addressed. PMBOK Guide, 8th Ed. Pages 31-33, 'Close Project or Phase' and page 121, 'Close Project or Phase'."
+    },
+    {
+      "id": "YT-0042",
+      "domain": "PROCESS",
+      "text": "You are a project manager at SBC, preparing for a commercial building project. Before defining detailed requirements, leadership wants the team to follow a consistent approach to ensure only value-adding work is performed. What should be the next step?",
+      "options": [
+        "Begin creating the work breakdown structure to define all project work",
+        "Develop the scope management plan",
+        "Collect detailed, value requirements from stakeholders",
+        "Validate scope with stakeholders to confirm acceptance of deliverables"
+      ],
+      "correctIndex": 1,
+      "explanation": "The objective of Plan Scope Management is to create a scope management plan. This process defines how the project will be delivered by establishing all the work required to complete the project and eliminating or removing unnecessary work that will not add value to the project. PMBOK Guide, 8th Ed. Page 40, 'Plan Scope Management'."
+    },
+    {
+      "id": "YT-0043",
+      "domain": "PROCESS",
+      "text": "A new mobile app is being initiated at Crestview Digital. Early discussion reveal differing stakeholder expectations about features and functionality. As the project manager, you are asked how the team will gather requirements to ensure the solution delivers value to the organization. What should you do?",
+      "options": [
+        "Develop a requirements traceability matrix to trace requirements to their scope",
+        "Conduct focus groups and benchmarking to collect and compare stakeholder requirements",
+        "Create a scope baseline to define approved deliverables and boundaries",
+        "Perform quality audits to ensure requirements meet organizational standards."
+      ],
+      "correctIndex": 1,
+      "explanation": "The objective of Elicit and Analyze Requirements is to define and document stakeholders' needs for features and functions to ensure quality and value delivery. Business requirements outline strategic objectives and high-level needs of the organization, ensuring alignment with broader organizational goals. Benchmarking is used as a technique. PMBOK Guide, 8th Ed. Pages 40-41, 'Elicit and Analyze Requirements'."
+    },
+    {
+      "id": "YT-0044",
+      "domain": "PROCESS",
+      "text": "Two parallel project streams at NT industries are being combined into a single initiative. One uses iterative practices, while the other follows a detailed planning approach. After integration, there is confusion about the varied stakeholder requirements and how the team will deliver them as project scope. What should the project manager do?",
+      "options": [
+        "Create a requirements traceability matrix",
+        "Integrate all requirements into a single product backlog",
+        "Develop a new work breakdown structure",
+        "Update the Requirements Management Plan"
+      ],
+      "correctIndex": 0,
+      "explanation": "A requirements traceability matrix provides a structured way to track requirements from multiple sources, ensuring alignment, visibility and completeness across the project. PMBOK Guide, 8th Ed. Pages 40-41 'Elicit and Analyze Requirements' and pages 131-132 'Requirements traceability matrix'."
+    },
+    {
+      "id": "YT-0045",
+      "domain": "PROCESS",
+      "text": "You are working with your team to gather requirements that define the organization's overall goals and intended outcomes for a new initiative. These requirements will help ensure alignment with long-term objectives. What type of requirements are these?",
+      "options": [
+        "Solution requirements",
+        "Stakeholder requirements",
+        "Business requirements",
+        "Transition requirements"
+      ],
+      "correctIndex": 2,
+      "explanation": "The objective of Elicit and Analyze Requirements is to define and document stakeholders' needs for features and functions to ensure quality and value delivery. Business requirements outline strategic objectives and high-level organizational needs, ensuring alignment with broader organizational goals. PMBOK Guide 8th Ed. Pages 40-41, 'Elicit and Analyze Requirements', and page 130, 'Business requirements'."
+    },
+    {
+      "id": "YT-0046",
+      "domain": "PROCESS",
+      "text": "You are managing a project for a new wearable device at Fitness Plus. Users report inconsistent experiences in the device, but the root cause is unclear. The team has several competing ideas for improvements, and stakeholders want a solution that truly addresses user needs rather than assumptions. What should the project manager do next?",
+      "options": [
+        "Use Affinity Diagramming with the team",
+        "Use Kano Analysis with the team",
+        "Use Design Thinking with the team",
+        "Use Pareto Analysis with the team"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prototyping and design thinking emphasize understanding user needs through iterative testing and feedback, ensuring solutions are validated in real conditions before full deployment. PMBOK Guide 8th Ed. Pages 40-41, 'Elicit and Analyze Requirements' and page 168 'Design Thinking'."
+    },
+    {
+      "id": "YT-0047",
+      "domain": "PEOPLE",
+      "text": "Stakeholders are providing conflicting inputs at VDS during requirements discussions, making it difficult to prioritize features. Meetings are being dominated by the highest paid and loudest voices in the room leading to some missed requirements, and time is running out before delivery begins. What should the project manager do?",
+      "options": [
+        "Facilitate an open brainstorming session",
+        "Conduct individual interviews",
+        "Lead and facilitate a focus group",
+        "Use the nominal group technique"
+      ],
+      "correctIndex": 3,
+      "explanation": "The nominal group technique is a structured method for group decision-making that gathers input systematically. It addresses unproductive discussions by equalizing participation, minimizing dominance of vocal members, and ensuring all ideas are considered before discussion, especially in large groups handling controversial topics. PMBOK Guide 8th Ed. Pages 40-41, 'Elicit and Analyze Requirements' and page 184, 'Nominal group'."
+    },
+    {
+      "id": "YT-0048",
+      "domain": "PROCESS",
+      "text": "Jane is gathering requirements for a customer portal at BLS. The team are working well together but have only generated a handful of ideas so far. The project sponsor would like to speed things up. What should Jane do next?",
+      "options": [
+        "Use an affinity diagram",
+        "Use brainstorming",
+        "Conduct interviews with senior users",
+        "Use the nominal group technique"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brainstorming is a technique used in group settings to generate ideas quickly, led by a facilitator. It includes idea generation and analysis, and is used to gather data, solutions or ideas from stakeholders, subject-matter experts, and team members. PMBOK Guide 8th Ed. Page 41 'Elicit and Analyze Requirements' and page 149, 'Brainstorming'."
+    },
+    {
+      "id": "YT-0049",
+      "domain": "PROCESS",
+      "text": "Sam is managing feature delivery for a mobile banking app at Crest View Digital. Only one feature can be added to the next sprint. Each option has a different value potential and development time. Sam wants to maximize value delivered within the sprint. Which feature should be selected?",
+      "options": [
+        "Feature A: $12,000 per week, 4 weeks duration",
+        "Feature B: $16,000 per week, 2 weeks duration",
+        "Feature C: $10,000 per week, 3 weeks duration",
+        "Feature D: $14,000 per week, 5 weeks duration"
+      ],
+      "correctIndex": 1,
+      "explanation": "Requirements can be prioritized based on methods such as MoSCoW, 100-point methods, cost of delay or Kano analysis. The Cost of Delay is calculated as (value potential / duration to deliver):\nA = 3,000\nB = 8,000\nC = 3,333\nD = 2,800\nFeature B provides the highest value relative to time and should be prioritized. PMBOK Guide, 8th Ed. Page 41, 'Elicit and Analyze Requirements' and page 187, 'Prioritization/Ranking'."
+    },
+    {
+      "id": "YT-0050",
+      "domain": "PROCESS",
+      "text": "A project has been launched at HR Group to improve customer satisfaction within a short timeframe. During planning, the team struggles to identify ways to improve the product. The Project Sponsor would like proven ideas based on what has worked well in similar projects or organizations. What should the project manager do next?",
+      "options": [
+        "Use benchmarking with the team",
+        "Use analogous estimating with the team",
+        "Use focus groups with the team",
+        "Review the product with the senior developer"
+      ],
+      "correctIndex": 0,
+      "explanation": "Benchmarking compares actual or planned products, processes and practices with those of comparable organizations to identify good practices and improvement opportunities. It may involve internal or external projects across different industries, allowing analogies and providing a basis for measuring performance. PMBOK Guide, 8th Ed. Page 41, 'Elicit and Analyze Requirements' and page 149, 'Benchmarking'."
+    },
+    {
+      "id": "YT-0051",
+      "domain": "PROCESS",
+      "text": "Jonah is managing a product development project at RLM. The team needs to clearly organize all deliverables and decompose the work into manageable components to support planning and execution. What should Jonah do next?",
+      "options": [
+        "Organize deliverables into a work breakdown structure",
+        "Capture requirements as user stories and refine them iteratively",
+        "Prioritize features in a backlog for incremental delivery",
+        "Validate the completed deliverables with stakeholders"
+      ],
+      "correctIndex": 0,
+      "explanation": "The objective of Define Scope is to develop a detailed or high-level description of the project, product, and value expected to be delivered, as well as a quality management plan. In predictive approaches, these deliverables should be structured in the WBS. PMBOK Guide, 8th Ed. Pages 41-42, 'Define Scope'."
+    },
+    {
+      "id": "YT-0052",
+      "domain": "PROCESS",
+      "text": "Nate is managing a manufacturing facility upgrade using a predictive approach. Nate has elicited the requirements from project stakeholders and turned them into project scope. Nate wants to add more details to the work packages to ensure clarity and alignment across the team. What will he do next?",
+      "options": [
+        "Create a responsibility assignment matrix (RAM) to define roles and responsibilities",
+        "Perform quality control and verify the work packages",
+        "Develop a clear requirements traceability matrix",
+        "Develop a detailed WBS dictionary"
+      ],
+      "correctIndex": 3,
+      "explanation": "The WBS represents a structured, hierarchical decomposition of the total scope of work into smaller, manageable work packages that can be easily assigned, tracked, and measured, ensuring that all stakeholders have a clear and shared understanding of the project deliverables. PMBOK Guide, 8th Ed. Page 42, 'Develop Scope Structure'."
+    },
+    {
+      "id": "YT-0053",
+      "domain": "PROCESS",
+      "text": "At Redwood Biologics, Diane is managing a pharmaceutical product development project. During monitoring, inconsistencies in deliverable quality are identified. Stakeholders request additional information on these issues to support improvements. What should Diane produce?",
+      "options": [
+        "Work performance Data",
+        "The scope baseline",
+        "Change requests in the change log",
+        "The quality report"
+      ],
+      "correctIndex": 3,
+      "explanation": "Monitor and Control Scope is the ongoing process of monitoring and managing changes to project scope, and measuring deliverable quality and value. It includes recording results to assess performance. A quality report documents quality issues, corrective action recommendations, and findings from quality control activities. PMBOK Guide, 8th Ed. Page 42, 'Monitor and Control Scope', and pages 129-130 'Quality Reports'."
+    },
+    {
+      "id": "YT-0054",
+      "domain": "PROCESS",
+      "text": "Marcus is overseeing a bridge construction project at BEL. Several completed components have passed internal quality checks. The client is now reviewing these outputs against agreed criteria to determine formal approval. What should Marcus obtain as an input to help the client with their decision?",
+      "options": [
+        "Work performance reports summarizing project progress and quality metrics",
+        "Validated deliverables",
+        "Verified deliverables",
+        "Change requests addressing gaps identified during stakeholder review."
+      ],
+      "correctIndex": 2,
+      "explanation": "The Validate Scope process checks processes used to achieve quality standards and formalizes acceptance of deliverables, ensuring value and quality. Verified deliverables are completed outputs confirmed for correctness through Monitor and Control Scope, which determines whether deliverables meet defined requirements. PMBOK Guide 8th Ed. Page 44, 'Validate Scope' and page 143 'Verified deliverables'."
+    },
+    {
+      "id": "YT-0055",
+      "domain": "PROCESS",
+      "text": "Priya has just taken over a nationwide fiber network project at HT Solutions, where leadership expresses their concern about how schedule decisions are being made and controlled throughout the project. They want to provide clear guidance and direction for coordinating schedule activities. What should Priya do next?",
+      "options": [
+        "Develop the project schedule to define activity durations and sequencing",
+        "Establish a schedule baseline to measure performance against planned timelines",
+        "Develop a resource management plan to align staffing with schedule needs",
+        "Create a schedule management plan and baseline this with the team"
+      ],
+      "correctIndex": 3,
+      "explanation": "Plan Schedule Management establishes policies, procedures, and documentation for developing, managing and maintaining the schedule, providing guidance on how it will be managed. The schedule management plan defines criteria and activities for developing, monitoring, and controlling the project schedule. PMBOK Guide, 8th Ed. Page 39, 'Plan Schedule Management' and 139 'Schedule management plan'."
+    },
+    {
+      "id": "YT-0056",
+      "domain": "PROCESS",
+      "text": "You are managing a project team at OP Security, where leaders in the business would like to see your plan for managing the schedule. What do you need to know before creating your schedule management plan?",
+      "options": [
+        "The sequence of project deliverables",
+        "Estimates on project activities from the team",
+        "The development approach",
+        "Methods to be used for schedule compression"
+      ],
+      "correctIndex": 2,
+      "explanation": "Plan Schedule Management establishes policies, procedures, and documentation for managing the schedule, providing guidance throughout the project. The development approach is an input to this and will impact how we manage the schedule. PMBOK Guide 8th Ed. Page 49, 'Plan Schedule Management', and page 139 'Schedule management plan'."
+    },
+    {
+      "id": "YT-0057",
+      "domain": "PROCESS",
+      "text": "Noah is managing a core banking system upgrade at Granite Peak Financial. After multiple iterations analyzing the sequence, durations, and resources, stakeholders approve the final schedule. What will Noah do next?",
+      "options": [
+        "Proceed with project delivery",
+        "Baseline the schedule",
+        "Review the impact of schedule sequence on project resources",
+        "Add the schedule to the project status report"
+      ],
+      "correctIndex": 1,
+      "explanation": "Develop Schedule is the process of analyzing sequences, durations, resource requirements, and constraints to create a schedule model for execution, monitoring, and controlling. It is iterative. The schedule baseline is the output of this process, and is the approved version used for comparison and changed only through formal change control procedures. PMBOK Guide, 8th Ed. Page 49, 'Develop Schedule', and page 138 'Schedule baseline'."
+    },
+    {
+      "id": "YT-0058",
+      "domain": "PROCESS",
+      "text": "A project at FI Group shows several critical activities requiring the same specialized engineer at overlapping times. This is creating unrealistic workload expectations and risking delays in the future. What should the project manager do?",
+      "options": [
+        "Apply resource leveling",
+        "Apply schedule fast tracking",
+        "Raise it as a risk and brainstorm responses with your team",
+        "Apply resource smoothing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Resource leveling adjusts the project schedule to address resource constraints, ensuring resources are not overallocated and that work is scheduled according to actual availability. PMBOK Guide, 8th Ed. Page 50, 'Develop Schedule' and page 193, 'Resource leveling'."
+    },
+    {
+      "id": "YT-0059",
+      "domain": "PROCESS",
+      "text": "While planning a product launch at Nexora Labs, the team struggles to finalize the schedule. Near-term requirements are clear, but work planned for later is uncertain due to evolving requirements. There is pressure from the project sponsor to begin work quickly. What should the project manager do?",
+      "options": [
+        "Immediately estimate activity durations",
+        "Develop the project schedule for approval",
+        "Use rolling wave planning with the team",
+        "Raise the future uncertainty as a risk"
+      ],
+      "correctIndex": 2,
+      "explanation": "Develop Schedule analyzes sequences, durations, resources, and constraints to create a schedule model for execution and control. It is iterative and may require revising estimates to establish a baseline. Rolling wave planning progressively elaborates near-term work in detail while future work remains at a higher level. PMBOK Guide, 8th Ed. Pages 49-50, 'Develop Schedule' and page 196 'Rolling wave planning'."
+    },
+    {
+      "id": "YT-0060",
+      "domain": "PROCESS",
+      "text": "Reina is managing a new product launch at AC Goods. Packaging design must be finalized before mass production, but labeling can begin once initial drafts are approved. Additionally, quality inspection must wait two days after production finishes. What should Reina do next?",
+      "options": [
+        "Use fast tracking",
+        "Apply leads and lags",
+        "Apply schedule crashing",
+        "Update activity duration estimates"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leads and lags adjust the timing of successor activities relative to predecessors, allowing earlier starts or intentional delays within defined dependency relationships. PMBOK Guide, 8th Ed. Page 50, 'Develop Schedule', and pages 179-180, 'Leads and Lags'."
+    },
+    {
+      "id": "YT-0061",
+      "domain": "PROCESS",
+      "text": "Elena is managing a warehouse automation project at SLG. As she monitors the project, she reviews the schedule performance and sees some differences that may require action, with a basis for interpreting the current results. What will Elena use to make the required decisions?",
+      "options": [
+        "Work performance data",
+        "Work performance reports",
+        "Work performance information",
+        "The schedule basis of estimates"
+      ],
+      "correctIndex": 2,
+      "explanation": "Monitor and Control Schedule is the process of monitoring project status to update the schedule and manage changes based on actual or forecasted performance, maintaining a realistic schedule. Work performance information is analyzed data compared with the project management plan, project documents, and other performance details. PMBOK Guide, 8th Ed. Page 53, 'Monitor and Control Schedule', and page 144, 'Work performance information'."
+    },
+    {
+      "id": "YT-0062",
+      "domain": "PROCESS",
+      "text": "At ZP Logistics, Aaron is overseeing a complex project with multiple parallel activities competing for limited scheduling options. As delays begin to emerge, different sequencing scenarios are proposed, each with trade-offs in duration and resource use. The team cannot agree on the best path forward. How should he proceed?",
+      "options": [
+        "Apply a branch and bound technique",
+        "Focus on compressing the schedule using fast tracking",
+        "Re-sequence activities based on team consensus",
+        "Add buffers to schedule estimates"
+      ],
+      "correctIndex": 0,
+      "explanation": "Monitor and Control Schedule tracks project status, updates the schedule, and manages changes based on actual or forecasted performance to maintain a realistic schedule. The branch and bound technique solves optimization problems by exploring and pruning subproblems to identify an optimal schedule that minimizes completion time. PMBOK Guide, 8th Ed. Pages 53-54, 'Monitor and Control Schedule', and page 150, 'Branch and Bound'."
+    },
+    {
+      "id": "YT-0063",
+      "domain": "PROCESS",
+      "text": "Lloyd is managing a hospital construction project at CPB. The completion date has been moved earlier, but the budget cannot be increased. Several activities could overlap, though this introduces some risk. Lloyd needs to shorten the timeline while staying within constraints. Which approach should he apply?",
+      "options": [
+        "Re-sequence tasks",
+        "Adjust activity estimates",
+        "Apply schedule crashing",
+        "Use schedule fast tracking"
+      ],
+      "correctIndex": 3,
+      "explanation": "Schedule compression shortens schedule duration without reducing scope to meet constraints. Techniques include crashing, which adds resources at increased cost, and fast-tracking which overlaps activities previously planned in sequence. Both focus on the critical path and may increase risk, cost or rework while addressing negative float conditions. PMBOK Guide, 8th Ed. Page 34, 'Monitor and Control Schedule' and pages 196-197 'Schedule compression'."
+    },
+    {
+      "id": "YT-0064",
+      "domain": "PROCESS",
+      "text": "A new investment platform project is being initiated at KC Holdings. During early planning discussions, the team raises questions about how financial activities will be handled, including acceptable estimate ranges and triggers for escalation. What will the project manager show them?",
+      "options": [
+        "The cost basis of estimates",
+        "The configuration management plan",
+        "The financial management plan",
+        "The risk management plan with triggers and response strategies"
+      ],
+      "correctIndex": 2,
+      "explanation": "Financial Management Plan defines how project revenues and expenses will be estimated, budgeted, managed, monitored, and controlled. The financial management plan is a component of the project management plan that describes how costs will be planned, structured, and controlled. PMBOK Guide 8th Ed. Page 62, 'Plan Financial Management' and pages 121-122, 'Financial management plan'."
+    },
+    {
+      "id": "YT-0065",
+      "domain": "PROCESS",
+      "text": "Maya, a project manager at Orion Axis Consulting, is working on a project to reduce carbon dioxide in the air through Direct Air Capture, with significant interest from large organizations who would benefit from these strategies. As Maya finalizes the plan to manage finances on the project, what should she do next?",
+      "options": [
+        "Note NGOs in the Funding Strategy",
+        "Send the Financial Management Plan to the Sponsor for approval",
+        "Review the Project Charter for the high-level cost",
+        "Engage experts in the business on the costs involved"
+      ],
+      "correctIndex": 0,
+      "explanation": "Plan Financial Management defines how project revenues and expenses will be estimated, budgeted, managed, monitored, and controlled, providing guidance on financial management. Funding Strategy is an output of Plan Financial Management. Non-governmental organizations (NGOs) are funding this project. PMBOK Guide 8th Ed. Pages 62-63, 'Plan Financial Management' and pages 122-123, 'Funding Strategy'."
+    },
+    {
+      "id": "YT-0066",
+      "domain": "PROCESS",
+      "text": "While planning at HN Manufacturing, Diego, the project manager, is in the early stage of a new project and needs a quick estimate to support initial planning discussions. There is limited detailed information available but a senior team member mentions having worked on a similar project in the past. What should Diego do next?",
+      "options": [
+        "Use parametric estimating",
+        "Use three-point estimating",
+        "Use bottom-up estimating",
+        "Use analogous estimating"
+      ],
+      "correctIndex": 3,
+      "explanation": "Estimate Costs develops an approximation of resource costs needed to complete project work, determining required monetary resources. Analogous estimating uses historical data from similar projects, applying parameters such as duration, budget, size or complexity as the basis for estimating costs for a future project. PMBOK Guide 8th Ed. Pages 62-63, 'Estimate Costs', and page 146, 'Analogous estimating'."
+    },
+    {
+      "id": "YT-0067",
+      "domain": "PROCESS",
+      "text": "Jordan is overseeing a consumer electronics project at ADH. After product release, several units are returned due to defects, requiring repairs and replacements. These unexpected expenses are impacting the project's profitability. Jordan wants to categorize these costs within quality-related expenses. Which type of cost is this?",
+      "options": [
+        "Appraisal costs",
+        "Failure costs",
+        "Prevention costs",
+        "Conformance costs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Failure costs are incurred when products fail to meet quality standards, including costs for rework, repairs, and returns, especially after delivery to customers. PMBOK Guide, 8th Ed. Page 63, 'Estimate Costs' and pages 158-159, 'Cost of quality'."
+    },
+    {
+      "id": "YT-0068",
+      "domain": "PROCESS",
+      "text": "Lena is estimating costs for a bridge construction project at Arc Span Engineering. During planning, the team identifies potential soil instability that may require additional foundation work. The sponsor is concerned about handling this uncertainty without inflating the overall budget unnecessarily. What should Lena do?",
+      "options": [
+        "Increase all activity cost estimates by 15% to account for the uncertainty",
+        "Add a management reserve",
+        "Include a contingency reserve",
+        "Update the cost baseline to include the additional foundation work"
+      ],
+      "correctIndex": 2,
+      "explanation": "Contingency reserves are set aside to implement a risk response or to respond to risk events should they occur. PMBOK Guide, 8th Ed. Page 63, 'Estimate Costs' and page 266 'Contingency reserve'."
+    },
+    {
+      "id": "YT-0069",
+      "domain": "PROCESS",
+      "text": "Marcus, the project manager at SBI, is working with the team to finalize the project budget. Different cost estimates have already been developed for individual activities, and now Marcus needs a single approved version of the budget to track and measure future performance. What should Marcus do first?",
+      "options": [
+        "Perform cost aggregation",
+        "Update the financial management plan",
+        "Finalize the cost baseline",
+        "Review the Business Case for the initial proposed cost"
+      ],
+      "correctIndex": 0,
+      "explanation": "Develop Budget aggregates estimated costs of activities or work packages to establish an authorized cost baseline for monitoring and control. Cost aggregation organizes estimates by work packages in the WBS and rolls them up to higher levels, such as control accounts, and ultimately the entire project. PMBOK Guide, 8th Ed. Page 64, 'Develop Budget', and page 158, 'Cost aggregation'."
+    },
+    {
+      "id": "YT-0070",
+      "domain": "PROCESS",
+      "text": "Victor is managing a solar farm project at HEC. The team has completed cost estimates for individual work packages, but senior leaders in the organization question their accuracy and are concerned about project delivery. What will Victor do next?",
+      "options": [
+        "Aggregate the estimates",
+        "Show them the basis of estimates",
+        "Show them the Financial Management Plan",
+        "Develop detailed cost estimates with the team"
+      ],
+      "correctIndex": 1,
+      "explanation": "Develop Budget is the process of aggregating estimated costs of activities or work packages to establish an authorized cost baseline, used to monitor and control performance. Inputs include the Basis of Estimates. PMBOK Guide, 8th Ed. Page 64, 'Develop Budget' and page 115, 'Basis of Estimates'."
     }
   ]
 }
