@@ -1,11 +1,15 @@
 package com.fax.passyourpmpexam.feature.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -25,6 +29,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.fax.passyourpmpexam.core.ads.HomeBannerAd
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import org.koin.androidx.compose.koinViewModel
@@ -61,9 +67,22 @@ private fun HomeContent(
         modifier = modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            // Pinned brand bar; the greeting below it scrolls away (One UI style).
+            // Pinned brand bar: logo top-left, wordmark on the right. The greeting
+            // below it scrolls away (One UI style).
             TopAppBar(
-                title = { Wordmark() },
+                title = {},
+                navigationIcon = {
+                    Image(
+                        // Decorative: the adjacent "PMP Prep" wordmark conveys the brand to TalkBack.
+                        painter = painterResource(R.drawable.pmp_logo),
+                        contentDescription = null,
+                        modifier = Modifier.size(64.dp).padding(start = 16.dp),
+                    )
+                },
+                actions = {
+                    Wordmark()
+                    Spacer(Modifier.width(PmpSpacing.safeMargin))
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),
