@@ -1052,73 +1052,456 @@ D) Develop detailed cost estimates with the team
 Answer: B
 Explanation: Develop Budget is the process of aggregating estimated costs of activities or work packages to establish an authorized cost baseline, used to monitor and control performance. Inputs include the Basis of Estimates. PMBOK Guide, 8th Ed. Page 64, 'Develop Budget' and page 115, 'Basis of Estimates'.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+id: YT-0071
+Domain: PROCESS
+Question: Nina is overseeing a metro expansion project at AU Transit. As she controls the project, she reviews budgeted work, completed work, and actual spending to evaluate performance trends and determine whether corrective action is needed. Nina is: 
+Options:
+A) Performing earned value analysis
+B) Conducting variance analysis
+C) Updating the cost baseline to reflect current financial performance
+D) Reviewing the work performance report
+Answer: A 
+Explanation: Monitor and Control Finances is the process of tracking expenditures, updating financial records, adjusting baselines and forecasts, and taking corrective actions. Earned value analysis compares actual schedule and cost performance to the performance baseline, while earned value management integrates scope, cost, and schedule baselines. PMBOK Guide, 8th Ed. Pages 64-65, 'Monitor and Control Finances' and page 169, 'Earned value analysis'.
+
+id: YT-0072
+Domain: PROCESS
+Question: Kevin is managing a warehouse automation project at Transit Flow Logistics. He is currently identifying stakeholders and analyzing their interests, influence and potential impact on the project. What is something Kevin will not do as he identifies stakeholders in the project?
+Options:
+A) Develop strategies to engage stakeholders based on their expectations
+B) Find the individuals, groups or organizations that think they're impacted by the project
+C) Analyze stakeholder interest, influence, and their potential impact
+D) Document stakeholder information in the stakeholder register
+Answer: A
+Explanation: The Identify Stakeholders process involves selecting the individuals, groups or organizations that have a stake in the project. The process includes identifying project stakeholders regularly and analyzing and documenting relevant information regarding the interest, involvement, interdependencies, influence and potential impact on project success. PMBOK Guide, 8th Ed. Page 71, 'Identify Stakeholders'.
+
+id: YT-0073
+Domain: PROCESS
+Question: Caleb is launching a costal bridge repair project at HL Infrastructure. Midway through kickoff activities, a local fishermen's association files a complaint after not being consulted, delaying permits. What should Caleb do first?
+Options: 
+A) Develop the stakeholder engagement plan
+B) Update the communications management plan
+C) Add them to the stakeholder register
+D) Conduct stakeholder analysis with the fishermen's association
+Answer: C
+Explanation: A stakeholder register is a project document containing stakeholder information, including identification details, assessment of expectations and influence, and classification. It captures data such as roles, contact details, impact and categories like internal or external, supporting effective stakeholder analysis and engagement throughout the project. PMBOK Guide, 8th Ed. Page 71, 'Identify Stakeholders' and pages 141-142, 'Stakeholder register'.
+
+id: YT-0074
+Domain: PROCESS
+Question: Clara is leading a metro rail upgrade project at ATU. Recent design changes triggered mixed reactions from regulators, local businesses, and commuters. There are many different stakeholder opinions and Clara wants to ensure she is focusing on the right ones. What should Clara do next?
+Options:
+A) Add them to the stakeholder register
+B) Perform stakeholder mapping
+C) Organize a formal requirements workshop with the stakeholders
+D) Create a stakeholder requirements document
+Answer: B
+Explanation: Stakeholder mapping categorizes stakeholders to support relationships building and engagement. Methods include power or interest grids, stakeholder cube, salience model, directions of influence, and prioritization. These approaches group stakeholders by authority, interest, influence, urgency or involvement to guide communication and engagement strategies. PMBOK Guide, 8th Ed. page 71, 'Identify Stakeholders' and pages 200-201, 'Stakeholder mapping'
+
+id: YT-0075
+Domain: PROCESS
+Question: You are currently planning for a city redevelopment project at New Horizon Inc. You review how key stakeholders are responding and determine the degree of involvement needed for project success. You then identify gaps to guide your stakeholder strategies. What will you use to represent this information?
+Options:
+A) The project risk register, listing gaps in engagement
+B) The communications management plan
+C) The stakeholder engagement assessment matrix
+D) The stakeholder register with classifications
+Answer: C
+Explanation: Plan Stakeholder Engagement develops strategies to engage stakeholders based on their needs, expectations, interests, and potential impact, providing an actionable plan for interaction. A stakeholder engagement assessment matrix compares current and desired engagement levels, classifies as unaware, resistant, neutral, supportive, or leading. PMBOK Guide, 8th Ed. Pages 71-72, 'Plan Stakeholder Engagement', and page 200 'Stakeholder engagement assessment matrix'.
+
+id: YT-0076
+Domain: PROCESS
+Question: Nadia is initiating the next phase of a hospital expansion project at CH Systems. Early in planning, Nadia receives complaints from some stakeholders that they are not being involed. Some parts of the business were not engaged for the most recent release, resulting in dissatisfied users. What will Nadia do next?
+Options:
+A) Identify stakeholders who can be more involved in the project
+B) Create and update the stakeholder register
+C) Add and update stakeholder engagement activities
+D) Create the communications management plan
+Answer: D
+Explanation: Plan Communications Management defines how to communicate with stakeholders and aligns with stakeholder engagement for consistency. The communications management plan decribes how, when and by whom information will be administered and disseminated. PMBOK Guide 8th Ed. Pages 72-73, 'Plan Communications Management', and pages 117-118, 'Communications management plan'.
+
+id: YT-0077
+Domain: PROCESS
+Question: Isabelle is planning the rollout of a digital banking project at Zenith Trust Bank. Multiple teams are receiving the benefit of the rollout and will need product information and training, but stakeholders in those areas frequently avoid updates and provide minimal feedback. What should Isabell do?
+Options:
+A) Schedule more frequent status meetings
+B) Update the stakeholder engagement plan
+C) Conduct a communication styles assessment
+D) Send formal reports to the receiving team
+Answer: C
+Explanation: A communication styles assessment evaluates preferred communication methods, formats and content for stakeholders. It is often used with unsupportive stakeholders and may follow a stakeholder engagemenet assessment to identify gaps and determine the need for tailored communications activities and artifacts. PMBOK Guide, 8th Ed. Page 73, 'Plan Communications Management', and page 155 'Communication styles assessment'.
+
+id: YT-0078
+Domain: PROCESS
+Question: You are managing an Enterprise Resource Planning (EPP) project with stakeholders in the US, India, and Germany. Communications styles differ, requirements have been missed and there are frequent misunderstandings across the team. What should the project manager do next?
+Options:
+A) Establish ground rules for meetings with consistent communication expectations
+B) Apply cultural awareness to adjust engagement approaches
+C) Use observation and conversation to better understand stakeholder concerns
+D) Increase the frequency of status reports to ensure all stakeholders receive the same information
+Answer: B
+Explanation: Manage Stakeholder Engagement involves communicating and working with stakeholders to increase support and minimize resistance. Conflixt is inevitable and may arise from scarce resources, scheduling priorities, or work styles. Ground rules can help reduce conflict, but cultural awareness is the most appropriate here. PMBOk Guide 8th Ed. page 74, 'Manage Stakeholder Engagement'
+
+id: YT-0079
+Domain: PROCESS
+Question: You are managing the Helios Energy rollout project. Several stakeholders complain they are not being updated with the latest project information, despite you sending the project report each week. What will you do next?
+Options:
+A) Add the report to the PMIS and use a Pull approach
+B) Add the report to the PMIS and use a Push approach
+C) Arrange a stakeholder meeting to ensure everyone is informed
+D) Update the stakeholder register with the information they need
+Answer: A 
+Explanation: Manage Communications ensures timely collection, creation, distribution, and management of project information to enable effective information flow withstakeholders. The Project Managment Information System (PMIS) Project Reporting, and PUsh and Pull Communication methods are Tools of this process. PMBOK Guide, 8th Ed. page 75 'Manage Communications'.
+
+id: YT-0080
+Domain: PROCESS
+Question: Javier is overseeing stakeholder involvement for a reail expansion project at Stanton Group, where stakeholder participation has continued to decline over the past few weeks. He is worried that key decisions are not being made, and will soon affect project delivery. What should Javier do next?
+Options
+A) Hold a RCA workshop with the stakeholders
+B) Update the stakeholder engagement plan
+C) Hold an AAR workshop with the stakeholders
+D) Raise the issue with each stakeholder's manager
+Answer: A
+Explanation: Monitor Stakeholder Engagement assesses the effectiveness of engagement efforts, identifies adjustments, and refines strategies to meet stakeholder needs, improving efficiency as the project evolves. Root cause analysis determines underlying reasons for variances, defects, or risks, which may have multiple contributing causes. PMBOK Guide 8th Ed. pages 73 and 76, 'Monitor Stakeholder Engagement' and 196, 'Root cause analysis'.
+
+
+id: YT-0081
+Domain: PROCESS
+Question: You are managing the Apex Financial Systems upgrade project. A confidential project update containing sensitvie budget and staffing information was accidentally distributed to broader stakeholder group than intended. What will you do next?
+Options:
+A) Update the Communications Management Plan
+B) Update the Stakeholder Engagement Plan
+C) Raise it in the Issue Log
+D) Raise a formal change request to modify project reporting deliverables
+Answer: C
+Explanation: Monitor Communications ensures project and stakeholder information needs are met, supporting optimal information flow throughout the project. Outputs of this process include updating the Issue Log and the communications management plan. As this is sensitive information it is an issue that should be addressed first. PMBOK Guide 8th Ed. page 77, 'Monitor Communications'.
+
+id: YT-0082
+Domain: PEOPLE 
+Question: You are initiating a wind farm project at Peak Energy Solutions. As the team begins working together, you notice many mistakes and a lot of rework on the deliverables. Team members blame each other for not doing their job correctly. What should you do?
+Options:
+A) Create a performance improvement plan for the core team members
+B) Workshop the Resource Management Plan with the team
+C) Workshop the team charter with the team
+D) Interview each team member to get a better understanding of their needs
+Answer: C 
+Explanation: Plan Resource Management establishes the approach and level of effor needed to manage resources based on project type and complexity. Resource planning identifies how sufficient resources will be secured. A team charter defines team values, agreements, and operating guidelines. PMBOK Guide 8th Ed. page 81, 'Plan Resource Management' and page 142, 'Team charter'.
+
+id: YT-0083
+Domain: PEOPLE
+Question: Michelle is planning a smart grid project at VEE, where the team have recently formed. Over the last two weeks several conflicts have arisen, with some team members performing tasks that other team members feel they are responsible for. The team have just missed their first deliverable due date. What should Michelle do next?
+Options:
+A) Workshop a RAM with the team
+B) Workshop an RBS with the team
+C) Review and update the project schedule
+D) Review the Tuckman Model with the team
+Answer: A 
+Explanation: A responsibility assignment matrix (RAM) shows project resources assigned to work packages, linking activities with team members. It clarifies roles, responsibilities, and authority, ensuring on eaccountable person per task. A RACI matrix is a common example used to define responsible, accountable, consulted and informed roles. PMBOK Guide 8th Ed. page 81, 'Plan Recource Management' and page 194 'Responsibility assignment matrix'.
+
+id: YT-0084
+Domain: PROCESS
+Question: Claire is leading a reporting workstream at Iron Peak Consulting. She notices that many small tasks that should only take a few hours were given weeks to complete. Now the budget is becoming strained due to unforeseen additional scope in these tasks. Claire knows she needs to limit the time available for the tasks, applying:
+Options:
+A) Schedule compression
+B) Resource leveling
+C) Parkinson's Law
+D) Fast tracking
+Answer: C
+Explanation: Organizational theory explains how people, teams, and units behave, helping improve planning efficiency and reduce time, cost and effort. It supports flexible leadership based on theam maturity and highlights how organizational structure and culture influence the project's organizational structure. PMBOK Guide, 8th Ed. Page 81, 'Plan Resource Management', and page 184, 'Organizational Theory'.
+
+id: YT-0085
+Domain: PROCESS
+Question: Richard is estimating resource needs for a nationwide telecom rollout at NorthWest Communications. Multiple combinations of crews, equipment, and timelines are possible, creating difficulty in identifying the most efficient allocation. Which technique would best address this situation?
+Options:
+A) Analogous estimating
+B) Genetic algorithms
+C) Bottom-up estimating
+D) Conduct expert judgment sessions
+Answer: B
+Explanation: Genetic algorithms are an optimization technique inspired by natural selection to solve complex problems. They iteratively explore solution combinations wihout bias and can be used in project scheduling and resource management for resolving conflicts, resource constraints, and developing optimal scheduling strategies. PMBOK Guide, 8th Ed. Page 82, 'Estimate Resources' and 171 'Genetic algorithms'.
+
+id: YT-0086
+Domain: PROCESS
+Question: At Northshore Grid Corporation, you are finalizing planning for a substation upgrade project. After defining scope and sequencing activities, you determine the types and quantities of resources required to deliver each work package. What will you do next?
+Options:
+A) Develop the responsibility assignment matrix (RAM)
+B) Update the work breakdown structure (WBS)
+C) Prepare the project resource calendar
+D) Create a resource breakdown structure
+Answer: D
+Explanation: Estimate Resources Identifies the type, quantity, and characteristics of resources required, supporting planning, allocation, and risk management. It is performed once or at predefined points. A resource breakdown structure is a hierarchical representation of resources by category and type, such as labor, materials, equipment, and supplies. PMBOK Guide, 8th Ed. page 82 'Estimate Resources', and 132 'Resource breakdown structure'.
+
+id: YT-0087
+Domain: PROCESS
+Question: At CE Group, progress stalls when two department leads argue over the release of key specialists assigned to your project. Each insists their internal deadlines take priority, creating tension and uncertainty around when the resources can actually join you team. What should be the most appropriate action for the project manager?
+Options:
+A) Adjust the project schedule baseline to reflect limited resource access.
+B) Review and use resource calendars to determine availability and negotiate a realistic allocations
+C) Request additional budget to hire external resources and avoid internal conflict
+D) Review the stakeholder engagement plan to address functional manager concerns
+Answer: B 
+Explanation: The key benefit of Acquire Resources is that it guides the selection and assignment of resources to activities. A resource calendar identifies working days, shifts, business hours, weekends, and holidays during which each resource is available and is and output of the Acquire Resources process.
+
+id: YT-0088
+Domain: PEOPLE
+Question: Midway through execution, several team members begin voicing frustration that their concerns are dismissed, and obstacles remain unresolved. Some blame other team members for underperforming as the work stalls. What should the project manager do to improve the situation?
+Options:
+A) Reassign underperforming team members to maintain delivery timelines
+B) Update the resource management plan with team assessment results
+C) Increase reporting frequency to track progress more closely
+D) Use active listening and remove impediments
+Answer: D
+Explanation: Lead the Team involves applying knowledge, skills, tools, and techniques to manage and lead the team, improving competencies, interactions, and the team environment to enhance performance. Servant leadership focuses on understanding and supporting team needs and development to enable the highest level of performance and is a technique used in leading the team. PMBOK Guide 8th Ed. Pages 84-85, 'Lead the Team' and 197, 'Servant leadership'.
+
+id: YT-0089
+Domain: PROCESS
+Question: Dylan is leading a software delivery project at Quantum Leap Systems. The team completes iterations, but recurring issues in collaboration and workflow continues to slwo progress and the team have not delivered anything usabel in some time. What should Dylan do next?
+Options:
+A) Perform team performance assessments
+B) Facilitate daily stand-up meetings with the team
+C) Conduct a retrospective with the team
+D) Invite real system users to the Sprint Planning session
+Answer: C
+Explanation: A retrospective is a recurring workshop where participants review work and results to improve process and product. It is a lessons learned session conducted regularly, olften at iteration end, focusing on what worked, what did not, and recommendations for future improvements. PMBOK Guide 8th Ed. Page 85, 'Lead the Team' and page 194 'Retrospectives'.
+
+id: YT-0090
+Domain: PEOPLE
+Question: Louise is leading a global software integration project at SG Tech. Team members across regions have worked through various conflicts, improved their skills and are starting to trust each other, however they currently wait for her direction before making decisions, slowing progress and creating bottlenecks. What will Louise do next?
+Options:
+A) Use autocratic decision-making with the team
+B) Apply distributed management with the team
+C) Increase team stand-ups and reporting frequency
+D) Use servant leadership with the team
+Answer: B
+Explanation: Distributed management and leadership decentralizes decision-making and authority across team members, emphasizing teamwork and empowerment. Project management responsibilities may be shared, and teams may self-organize, with facilitation roles shifting among members to suport communication, collaboration, and engagement instead of relying on a single project manager. PMBOK Guide 8th Ed. page 85 'Lead the Team', and page 168 'Distributed management and leadership'.
+
+id: YT-0091
+Domain: PEOPLE
+Question: Brian is leading a data migration project at Zendu Systems, where team members have recently come together. They challenge each other's approaches, disagreements slow progress, and priorities are frequently debated. Which stage is the team currently experiencing? 
+Options:
+A) Forming
+B) Storming
+C) Norming
+D) Performing
+Answer: B
+Explanation: Storming is a phase where the team begins addressing project work, technical decisions, and the project management approach. If members are not collaborative or open to differing perspectives, the environment can become counterproductive and hinder team performance. PMBOK Guide 8th Ed. page 85 'Lead the Team' and 211 'Tuckman ladder'
+
+id: YT-0092
+Domain: PEOPLE
+Question: You are managing a software development project at Kendra Labs. The team is distributed across different departments within the same building and using video conferencing to collaborate. Recently there have been some misunderstandings about requirements, and the team are taking too long to learn the new system. What will you do next?
+Options:
+A) Co-locate the team
+B) Conduct team-building sessions
+C) Increase the frequency of virtual meetings
+D) Create a thorough requirements documentation
+Answer: A
+Explanation: Co-location is an organizational strategy where team members are physically located together to improve communication, relationships, and productivity. It may be temporary or for the entire project and can include shared workspaces, meeting rooms, and common areas to enhance collaboration and team performance. PMBOK Guide 8th Ed. page 85, 'Lead the Team' and pages 151-152 'Co-location'
+
+id: YT-0093
+Domain: PEOPLE
+Question: At Altura Construction Group, Sydney is managing a commercial building project. A key stakeholder becomes resistant after missing several important updates about project progress. They're unable to attend key meetings and they don't read emailed reports. What will Sydney do in this situation?
+Options:
+A) Use an interactive communication approach
+B) Apply a push communication approach
+C) Use a pull communication approach
+D) Update the stakeholder engagement plan to reflect these updates
+Answer: C
+Explanation: Monitor and Control Resourcing ensures assigned physical or virtual resources are available as planned, at the right time and place, and released when no longer needed. Pull communications are used for large or complex information, requiring recipients to access content through portals, intranet sites, or repositories. PMBOK Guide 8th Ed. Page 87, 'Monitor and Control Resourcing', and page 152, 'Communication methods'.
+
+id: YT-0094
+Domain: People
+Question: Taylor, the project manager at Summit Build, hears different views form team leads during a nationwide rollout. Some say certain resources are not performing well, reporting issues and defects, while others believe performance is fine. This makes it unclear whether any action is needed. What should Taylor do?
+Options:
+A) Increase supervision of both teams to closely track their outputs
+B) Perform a root cause analysis to investigate the issue
+C) Adjust the schedule to account for upcoming inefficiencies
+D) Use control charts to review performance trends
+Answer: D
+Explanation: Monitor and Control Resourcing ensures that assigned physical or virtual resources are available as planned, at the right time and place, and released when no longer needed. Control charts are used to dtermine whether a processs is stable and performing predictably. PMBOK Guide, 8th Ed. page 87, 'Monitor and Control Resourcing' and page 158, 'Control charts'.
+
+id: YT-0095
+Domain: PROCESS
+Question: At VL Systems, Cameron the project manager, notices some future threats or impacts being raised by stakeholders within the team. There is no clear agreement on how risks will be identified, analyzed or monitored, and planning activities are beginning to slow due to the uncertainty in decision-making. What should Cameron do next?
+Options:
+A) Brainstorm risks with the project team and add the to the Risk Register
+B) Develop the risk management plan
+C) Perform qualitative risk analysis to prioritize risks
+D) Plan risk responses to reduce the uncertainty
+Answer: B
+Explanation: Plan Risk Management defines how to conduct risk management activities for a project. The process should begin when a project is conceived and should be completed early in the project. The risk management plan is a component of the project management plan and describes how risk management activities will be structued and performed. PMBOK Guide, 8th Ed. page 95-96, 'Plan Risk Management', and pages 134-136, 'Risk management plan'.
+
+
+id: YT-0096
+Domain: PROCESS
+Question: While you are working as a project manager at Apex Nova Solutions, during a workshop the team identifies several potential events that could negatively affect the project. Some team members want to move on to delivery as quickly as possible, while others are worried about the impacts of said events. What should you do next?
+Options:
+A) Document risk responses for the events
+B) Review the threats at the stage gate review
+C) Conduct a risk audit
+D) Develop the risk register
+Answer: D
+Explanation: Identify Risks involves recognizing positive and negative risks and distinguishing them from issues. It is iterative, as not all risks are known early and new risks emerge as the project evolves. A risk register record details of identified risks and outputs form risk management processes. PMBOK Guide 8th Ed. pages 96-97, 'Identify Risks', and page 137 'Risk register'.
+
+
+id: YT-0097
+Domain: PROCESS
+Question: Ryan is planning a logistics optimization project at HLT. He wants to get ahead of any impacts that could arise over the life of the project, but the team is new to the industry and will need a more structured approach. What will Ryan do next?
+Options:
+A) Conduct brainstorming sessions with the team
+B) Develop a risk register
+C) Perform a risk audit
+D) Use SWOT analysis
+Answer: D
+Explanation: SWOT analysis evaluates strengths, weaknesses, opportunities, and threats to identify risks. It considers internal strengths and weaknesses, then identifies opportunities and threats. The analysis also assesses how strengths may offset threats and whether weaknesses could limit opportunities or affect project outcomes. PMBOK Guide, 8th Ed. page 97, 'Identify Risks', and page 204 'SWOT (strengths, weaknesses, opportunities, threats) analysis'.
+
+
+id: YT-0098
+Domain: PROCESS
+Question: During planning at Venture Innovations, the project team identifies several risks that could impact cost, schedule and quality. Due to limited budget, not all risks can be addressed at the same time. What should the project manager do next?
+Options:
+A) Develop the risk register
+B) Plan risk responses
+C) Perform qualitative risk analysis
+D) Perform sensitivity analysis
+Answer: C
+Explanation: Perform Risk Analysis is an iterative process combining qualitative and quantitative analysis. Qualitative analysis evaluates risks by probability, impact, and other characteristics, while quantitative analysis may be applied as needed. Risk probability assesses likelihood, and risk impact evaluates effects on objectives such as schedule, cost, quality, or performance. PMBOK Guide 8th Ed. page 96, 'Perform Risk Analysis"
+
+
+id: YT-0099
+Domain: PROCESS
+Question: Andre, the project manager at BluePeak Telecom, identifies a risk that could delay a key deliverable. The team has different views on how to handle it. The risk cannot be fully removed, but its likelihood or impact can be reduced with the right actions. What should Andre do?
+Options:
+A) Mitigate the risk
+B) Accept the risk
+C) Transfer the risk
+D) Implement a contingency reserve
+Answer: A
+Explanation: Plan Risk Responses develops options, selects strategies, and agrees on actions to address overall and individual project risks. Risk mitigation reduces the probability or impact of threats, often more effective when done early, using actions such as simplifying processes, increasing testing, or selecting more stable sellers. PMBOK Guide 8th Ed. pages 96-97, 'Plan Risk Responses', and  pages 203-204 'Strategies for threats'.
+
+
+id: YT-0100
+Domain: PROCESS
+Question: At Silverline Infrastructure Group, Lorna is executing a highway expansion project. A planned response to a major risk requires additional work and impacts both the timeline and budget. The team is ready to proceed. What should Lorna do next?
+Options:
+A) Adjust the project schedule and budget
+B) Implement the planned response to the major risk
+C) Submit a change request
+D) Communicate the risk to project stakeholders
+Answer: C
+Explanation: Implement Risk Responses ensures agreed risk response plans are executed to address overall project risk, minimize threats, and maximize opportunities. A change request is a formal proposal to modify a document, deliverable, or baseline, and may be initiated internally or externally to the project. PMBOK Guide, 8th Ed. pages 98 and 100, 'Implement Risk Responses' and page 116, 'Change requests'.
+
+
+
+id: YT-0101
+Domain: PROCESS
+Question: Rachel is monitoring risks on a warehouse automation project at HT Authority. Several identified risks have recently occurred, costing the project a significant amount. Rachel meets with the project sponsor who asks if the project is on track and whether they have enough to cover remaining risk responses. What should Rachel do? 
+Options:
+A) Review the risk register for remaining risks
+B) Perform reserve analysis
+C) Conduct a project risk assessment
+D) Perform a risk audit
+Answer: B 
+Explanation: Monitor Risks tracks risk response implementation, identified risks, and new risks, and evaluates response effectiveness throughout the project. It ensures risk ownership is maintained. Reserve analysis evaluates remaining risk and determines whether schedule or budget reserves are sufficient for the project. PMBOK Guide, 8th Ed. pages 98 and 100, 'Monitor Risks' and page 192 'Reserve analysis'.
+
+
+id: YT-0102
+Domain: PROCESS
+Question: Evelyn has just taken over as project manager for a digital transformation project at SBG, but there are concerns about whether the initiative will deliver the expected business balue after rollout. Evelyn needs to know who is getting value from the project. What will she do next?
+Options:
+A) Review the business case
+B) Review the stakeholder classification map
+C) Review the cost-benefit analysis
+D) Review the benefits management plan
+Answer: D
+Explanation: the benefits management plan defines how project benefits will be created, maximized, and sustained. It describes when benefits will be delivered and how they will be measured. A benefit provides value to the organization, and planning begins early with identifying target benefits. PMBOK Guide 8th Ed. page 115, 'Benefits management plan'.
+
+id: YT-00103
+Domain: PROCESS
+Question: Paige is managing a medical device project at Synapse Biotech. Multiple versions of design documents are being used by different teams, causing inconsistencies and rework. Changes are not clearly tracked or controlled. Paige wants to establish control over versions and ensure proper handling of updates. Which approach should she use?
+Options:
+A) Develop the configuration management plan
+B) Create the change management plan
+C) Update the scope management plan
+D) Create and update the change log 
+Answer: A
+Explanation: The configuration management plan defines procedures to track project artifacts and control changes (e.g. version control). It describes items under configuration control and how they are identified, recorded, and updated, and how changes are reported to ensure the project's product, service, or result remains consistent and functional. PMBOK Guide, 8th Ed. page 118, 'Configuration management plan'.
+
+id: YT-0104
+Domain: PROCESS
+Question: Chloe is facilitating a requirements workshop at NR Group. The session produces a large set of ideas from multiple stakeholders, making it difficult to identify patterns and move forward. What will Chloe do next?
+Options:
+A) Use brainstorming with the team
+B) Conduct interviews with the team
+C) Use the nominal group technique
+D) Use an affinity diagram
+Answer: D
+Explanation: An affinity diagram shows large numbers of ideas classified into groups for review and analysis. Affinity diagrams can also organize potential causes of defects into groups showing the areas that should be focused on the most. PMBOK Guide, 8th Ed. page 145 'Affinity diagram'.
+
+id: YT-00105
+Domain: PROCESS
+Question: Nathan has joined a large aerospace project at WS Dynamics. As a new project manager, he is unfamiliar with internal departments and reporting lines. Key stakeholders are being missed, affecting coordination. What should Nathan do next?
+Options:
+A) Create a stakeholder register
+B) Develop a communications management plan
+C) Use an organizational breakdown structure
+D) Conduct stakeholder interviews
+Answer: C
+Explanation: An organizational breakdown structure (OBS) is a hierarchical representation of the project organization showing relationships between activities and organizational units. Unlike the WBS, which focuses on deliverables, the OBS groups work by departments or teams, allowing each unit to view its assigned project responsibilities clearly. 
+
+id: YT-0106
+Domain: PROCESS
+Question: Megan is scheduling a retail store renovation at Sideline Interiors. Flooring installation must wait until painting is fully completed, but furniture assembly can begin once paintin has started. Megan needs to define these relationships to avoid delays and rework. Which sequence best reflects this situation?
+Options:
+A) FS and SS
+B) SS and SF
+C) FS and SF
+D) FF and FS
+Answer: A
+Explanation: Precedence diagramming method constructs a schedule model using nodes to represent activities and logical relationships to show sequence. It includes dependencies such as finish-to-start, finish-to-finish, start-to-start, start-to-finish, defining how predecessor and successor activities are linked in scheduling. PMBOK Guide 8th Ed. page 185, 'Precedence diagramming method'.
+
+id: YT-0107
+Domain: PROCESS
+Question: Adrian is evaluating vendor proposals for a project. Stakeholders disagree on which supplier to choose, citing different priorities such as cost, experience, and technical capability. The current proposals are vastly different as a result, and difficult to compare. What will Adrian do next?
+Options:
+A) Perform a make-or-buy analysis
+B) Conduct a bidder conference
+C) Define source selection criteria
+D) Develop a procurement management plan
+Answer: C
+Explanation: Source selection criteria evaluate proposals to ensure the best quality and value, including capability, cost, delivery, expertise, and experience. Criteria may use scoring or weighting systems to rank sellers. For international projects, factors like local content may also be considered to support better alignment. PMBOK Guide, 8th Ed. pages 249-250, 'Source Selection Criteria'.
+
+id: YT-00108
+Domain: PROCESS
+Question: Sophie is managing a highway construction project at Delta Core Infrastructure. A contractor submits a claim for additional costs due to unexpected site conditions. Both parties want to resolve the issue quickly without involving external parties or delaying progress. What should Sophie do?
+Options:
+A) Engage a mediator
+B) Initiate negotiation with the contractor
+C) Refer the claim to arbitration
+D) Document the claim and update the issue
+Answer: B 
+Explanation: Negotiation involves direct discussions between parties to resolve disputes without third-party intervention. Negotiation is the first step in resolving a procurement dispute, followed by: Mediation, Arbitration, Dispute Reivew Boards and Litigation. PMBOK Guide 8th Ed. pages 252-253, 'Claims Administrations'.
+
+id: YT-0109
+Domain: PROCESS
+Question: Carlos is managing an e-commerce platform upgrade at VR Systems. Stakeholders continue requesting small feature additions during development, which the team implements without formal review. Timelines are slipping and costs are increasing. Carlos needs to identify what is causing this situation. What is happening on the project?
+Options:
+A) Scope validation is being performed without proper stakeholder approval
+B) The change control process is being bypassed
+C) Gold plating is occurring
+D) Scope creep is occurring
+Answer: D
+Explanation: Scope creep is the uncontrolled expansion of product or project scope without corresponding adjustments to time, cost, and resources, which can lead to schedule delays, budget overruns, and challenges in meeting project objectives. PMBOK Guide 8th Ed. Page 273 'Scope creep'´.
+
+id: YT-0110
+Domain: PROCESS
+Question: Mateo is reviewing several system upgrade proposals. Each option requires a different investment and delivers varying financial returns, so the Project Sponsor would like to prioritize using ROI:
+Proposal A: 45%
+Proposal B: 90%
+Proposal C: 135%
+Proposal D 110%
+Which should he select?
+Options: 
+A) Proposal A
+B) Proposal B
+C) Proposal C
+D) Proposal D
+Answer: C
+Explanation: Return on investment (ROI) is calculated as net gain divided by investment multiplied by 100 (to get a percentage). The higher the ROI the better.
