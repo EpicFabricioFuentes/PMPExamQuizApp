@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.fax.passyourpmpexam.core.ads.HomeBannerAd
+import com.fax.passyourpmpexam.core.designsystem.component.ErrorState
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import org.koin.androidx.compose.koinViewModel
 import java.time.LocalTime
@@ -50,6 +51,7 @@ fun HomeScreen(
         onStartDaily = onStartDaily,
         onStartQuiz = onStartQuiz,
         onStartFree = onStartFree,
+        onRetry = viewModel::onRetry,
         modifier = modifier,
     )
 }
@@ -61,6 +63,7 @@ private fun HomeContent(
     onStartDaily: () -> Unit,
     onStartQuiz: () -> Unit,
     onStartFree: () -> Unit,
+    onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -89,6 +92,15 @@ private fun HomeContent(
             )
         },
     ) { innerPadding ->
+        if (state.error != null) {
+            ErrorState(
+                message = state.error,
+                modifier = Modifier.padding(innerPadding),
+                actionLabel = "Try again",
+                onAction = onRetry,
+            )
+            return@Scaffold
+        }
         Column(
             modifier = Modifier
                 .fillMaxSize()

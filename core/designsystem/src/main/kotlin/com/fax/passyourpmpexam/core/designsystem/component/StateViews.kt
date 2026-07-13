@@ -85,3 +85,45 @@ fun EmptyState(
         }
     }
 }
+
+/**
+ * Centered error state: a [title], a supporting [message], and an optional retry action.
+ * Use this (rather than [EmptyState]) when something actually went wrong — e.g. a repository read
+ * or question-bank import failed — so a failure is not silently indistinguishable from "no data".
+ */
+@Composable
+fun ErrorState(
+    message: String,
+    modifier: Modifier = Modifier,
+    title: String = "Something went wrong",
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(PmpSpacing.safeMargin),
+        contentAlignment = Alignment.Center,
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(PmpSpacing.itemGap),
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.error,
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text = message,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            if (actionLabel != null && onAction != null) {
+                PrimaryButton(text = actionLabel, onClick = onAction)
+            }
+        }
+    }
+}

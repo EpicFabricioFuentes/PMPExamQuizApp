@@ -22,12 +22,12 @@ import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpSpacing
 import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
 
-// Placeholders — replace with real values before release (see also docs/privacy-policy.md).
-// TODO: replace with the live hosted URL once docs/privacy-policy.md is published.
-private const val PRIVACY_POLICY_URL = "https://example.com/privacy-policy"
-// TODO: replace with the real support address.
-private const val SUPPORT_EMAIL = "support@example.com"
-// TODO: replace with the published Play Store listing URL once the app ships.
+// Privacy URL + support email come from BuildConfig, populated from the git-ignored
+// secrets.properties (see secrets.properties.template). They fall back to example.com placeholders
+// until set.
+private val PRIVACY_POLICY_URL = BuildConfig.PRIVACY_POLICY_URL
+private val SUPPORT_EMAIL = BuildConfig.SUPPORT_EMAIL
+// Standard Play listing prefix; the app's package name is appended at the call site. Not per-owner.
 private const val PLAY_STORE_WEB_URL = "https://play.google.com/store/apps/details?id="
 private const val SHARE_TEXT =
     "Prepping for the PMP exam? Try PMP Prep: $PLAY_STORE_WEB_URL"

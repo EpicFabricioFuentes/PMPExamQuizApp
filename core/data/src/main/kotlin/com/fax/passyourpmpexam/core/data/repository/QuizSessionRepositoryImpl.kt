@@ -1,5 +1,6 @@
 package com.fax.passyourpmpexam.core.data.repository
 
+import com.fax.passyourpmpexam.core.common.TimeProvider
 import com.fax.passyourpmpexam.core.data.local.dao.QuestionDao
 import com.fax.passyourpmpexam.core.data.local.dao.QuizSessionDao
 import com.fax.passyourpmpexam.core.data.local.dao.SessionQuestionDao
@@ -15,6 +16,7 @@ import com.fax.passyourpmpexam.core.domain.model.QuizType
 import com.fax.passyourpmpexam.core.domain.model.SessionQuestion
 import com.fax.passyourpmpexam.core.domain.repository.DEFAULT_CERTIFICATION_ID
 import com.fax.passyourpmpexam.core.domain.repository.QuizSessionRepository
+import com.fax.passyourpmpexam.core.domain.scoring.Scorer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
@@ -25,6 +27,7 @@ class QuizSessionRepositoryImpl(
     private val sessionQuestionDao: SessionQuestionDao,
     private val questionDao: QuestionDao,
     private val json: Json,
+    private val timeProvider: TimeProvider,
 ) : QuizSessionRepository {
 
     @Serializable
@@ -32,6 +35,9 @@ class QuizSessionRepositoryImpl(
 
     override suspend fun save(session: QuizSession) {
         val config = ConfigJson(session.config.domainFilter.map { it.name })
+        // Persist the score on completed sessions so a finished quiz keeps its result across
+        // process death / history reads (in-progress sessions have no meaningful score yet).
+        val score = if (session.status == QuizStatus.COMPLETED) Scorer.score(session) else null
         sessionDao.upsert(
             QuizSessionEntity(
                 id = session.id,
@@ -42,11 +48,11 @@ class QuizSessionRepositoryImpl(
                 timeLimitMillis = session.config.type.timeLimitMillis,
                 elapsedMillis = session.elapsedMillis,
                 currentIndex = session.currentIndex,
-                scorePercent = null,
-                passed = null,
+                scorePercent = score?.percent,
+                passed = score?.passed,
                 createdAt = session.createdAt,
                 completedAt = session.completedAt,
-                updatedAt = session.createdAt,
+                updatedAt = timeProvider.nowMillis(),
                 syncState = SYNC_LOCAL_ONLY,
             ),
         )

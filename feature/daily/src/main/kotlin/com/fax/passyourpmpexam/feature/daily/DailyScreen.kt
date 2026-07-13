@@ -16,6 +16,7 @@ import com.fax.passyourpmpexam.core.designsystem.component.AnswerFeedbackHaptics
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerOptionUi
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerResultSheet
 import com.fax.passyourpmpexam.core.designsystem.component.EmptyState
+import com.fax.passyourpmpexam.core.designsystem.component.ErrorState
 import com.fax.passyourpmpexam.core.designsystem.component.LoadingState
 import com.fax.passyourpmpexam.core.designsystem.component.OptionState
 import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
@@ -37,6 +38,7 @@ fun DailyScreen(
                 state = state,
                 onOptionSelected = { viewModel.onIntent(DailyIntent.SelectOption(it)) },
                 onDone = onBack,
+                onRetry = { viewModel.onIntent(DailyIntent.Retry) },
             )
         }
     }
@@ -47,6 +49,7 @@ private fun DailyContent(
     state: DailyUiState,
     onOptionSelected: (Int) -> Unit,
     onDone: () -> Unit,
+    onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when (state) {
@@ -54,6 +57,11 @@ private fun DailyContent(
         DailyUiState.Empty -> EmptyState(
             title = "No question yet",
             message = "Your question bank is still being set up. Check back in a moment.",
+        )
+        is DailyUiState.Error -> ErrorState(
+            message = state.message,
+            actionLabel = "Try again",
+            onAction = onRetry,
         )
         is DailyUiState.Ready -> ReadyContent(state, onOptionSelected, onDone, modifier)
     }

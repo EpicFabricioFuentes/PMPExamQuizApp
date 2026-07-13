@@ -46,7 +46,7 @@ val dataModule: Module = module {
 
     single<QuestionRepository> { QuestionRepositoryImpl(get()) }
     single<AttemptRepository> { AttemptRepositoryImpl(get()) }
-    single<QuizSessionRepository> { QuizSessionRepositoryImpl(get(), get(), get(), get()) }
+    single<QuizSessionRepository> { QuizSessionRepositoryImpl(get(), get(), get(), get(), get()) }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single<StreakRepository> { StreakRepositoryImpl(get()) }
 

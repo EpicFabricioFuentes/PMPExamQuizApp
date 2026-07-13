@@ -10,6 +10,9 @@ sealed interface DailyUiState {
     /** No questions are installed (bank not yet imported / empty). */
     data object Empty : DailyUiState
 
+    /** A read failed (e.g. the local store threw); distinct from [Empty] so the user can retry. */
+    data class Error(val message: String) : DailyUiState
+
     data class Ready(
         val question: Question,
         val selectedIndex: Int?,

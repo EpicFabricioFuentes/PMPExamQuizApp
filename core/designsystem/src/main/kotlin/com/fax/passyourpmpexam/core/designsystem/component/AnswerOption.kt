@@ -99,10 +99,11 @@ private fun OptionBadge(label: String, state: OptionState) {
     val scheme = MaterialTheme.colorScheme
     when (state) {
         OptionState.CORRECT -> FilledBadge(background = PmpCorrect) {
-            Icon(Icons.Filled.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+            // The badge conveys correctness visually; label it so TalkBack announces the outcome.
+            Icon(Icons.Filled.Check, contentDescription = "Correct answer", tint = Color.White, modifier = Modifier.size(16.dp))
         }
         OptionState.INCORRECT -> FilledBadge(background = PmpIncorrect) {
-            Icon(Icons.Filled.Close, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+            Icon(Icons.Filled.Close, contentDescription = "Incorrect answer", tint = Color.White, modifier = Modifier.size(16.dp))
         }
         OptionState.SELECTED -> LetterBadge(label = label, border = scheme.primary, textColor = scheme.primary)
         OptionState.DEFAULT -> LetterBadge(label = label, border = scheme.outlineVariant, textColor = scheme.onSurfaceVariant)

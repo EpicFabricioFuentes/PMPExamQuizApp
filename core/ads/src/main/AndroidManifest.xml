@@ -3,12 +3,12 @@
 
     <application>
         <!--
-            AdMob App ID. This is Google's public SAMPLE/test app ID — safe for development.
-            Replace with the real AdMob app ID before release (and swap AdIds.BANNER_UNIT_ID too).
+            AdMob App ID, injected from ADMOB_APP_ID in secrets.properties (see the module's
+            build.gradle.kts). Falls back to Google's public SAMPLE app ID when unset.
         -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="${admobAppId}" />
     </application>
 
 </manifest>

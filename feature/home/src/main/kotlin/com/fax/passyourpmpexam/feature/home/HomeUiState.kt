@@ -10,4 +10,6 @@ data class HomeUiState(
     /** The user's cross-mode daily target. */
     val dailyGoal: Int = DailyGoal.DEFAULT,
     val questionCount: Int = 0,
+    /** Non-null when the hub's data streams failed; the screen offers a retry. */
+    val error: String? = null,
 )

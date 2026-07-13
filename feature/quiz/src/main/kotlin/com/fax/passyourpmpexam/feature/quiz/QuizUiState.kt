@@ -12,6 +12,9 @@ sealed interface QuizUiState {
     /** No questions installed. */
     data object Empty : QuizUiState
 
+    /** Loading the pool / saved session failed; distinct from [Empty] so the user can retry. */
+    data class Error(val message: String) : QuizUiState
+
     /** A saved in-progress session was found on launch; offer to resume or discard it. */
     data class ResumePrompt(val session: QuizSession) : QuizUiState
 

@@ -1,7 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
 }
+
+// Legal/support values are loaded from the git-ignored secrets.properties at the repo root (see
+// secrets.properties.template). Absent it, they fall back to the example.com placeholders so the
+// repo still builds; set real values before release.
+val secretsFile = rootProject.file("secrets.properties")
+val secrets = Properties().apply {
+    if (secretsFile.exists()) secretsFile.inputStream().use { load(it) }
+}
+fun secret(key: String, default: String): String = secrets.getProperty(key) ?: default
 
 android {
     namespace = "com.fax.passyourpmpexam.feature.settings"
@@ -11,6 +22,17 @@ android {
 
     defaultConfig {
         minSdk = 26
+
+        buildConfigField(
+            "String",
+            "PRIVACY_POLICY_URL",
+            "\"${secret("PRIVACY_POLICY_URL", "https://example.com/privacy-policy")}\"",
+        )
+        buildConfigField(
+            "String",
+            "SUPPORT_EMAIL",
+            "\"${secret("SUPPORT_EMAIL", "support@example.com")}\"",
+        )
     }
 
     compileOptions {
@@ -19,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

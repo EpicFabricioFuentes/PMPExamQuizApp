@@ -2,7 +2,7 @@
 
 An **offline-first** Android app for studying toward the **PMP® (Project Management Professional)** certification. Practice with a bundled question bank, take timed mock exams, build a daily study streak, and track progress across the three PMP exam domains — no account, no network required.
 
-> Status: version **1.0** (`versionCode 1`), in active development. See [Roadmap / placeholders](#roadmap--known-placeholders).
+> Status: version **2026.1.0** (`versionCode 1`). Production hardening (release signing, R8, splash, crash reporting, error handling, and unit + instrumented tests) is done; the remaining pre-launch steps are your own credentials/assets. See [Releasing](#releasing) and [Roadmap](#roadmap--remaining-work).
 
 ---
 
@@ -51,8 +51,8 @@ An **offline-first** Android app for studying toward the **PMP® (Project Manage
 | Serialization | kotlinx.serialization JSON `1.11.0` |
 | Background work | WorkManager `2.11.2` (daily reminder) |
 | Ads / consent | Google Mobile Ads `25.4.0` + UMP `4.0.0` |
-| Crash/analytics | Firebase (Crashlytics + Analytics) — declared |
-| Testing | `kotlin-test` (JUnit4), coroutines-test, Turbine |
+| Crash/analytics | Firebase (Crashlytics + Analytics) — wired, opt-in via `app/google-services.json` |
+| Testing | `kotlin-test` (JUnit4), coroutines-test, Turbine; instrumented: Room + Compose UI tests |
 
 **SDK levels:** `minSdk 26`, `targetSdk 37`, `compileSdk 37`.
 
@@ -113,7 +113,31 @@ Or open the project in Android Studio and run the **app** configuration.
 ```bash
 ./gradlew test                    # all JVM unit tests
 ./gradlew :feature:quiz:testDebugUnitTest
+./gradlew connectedDebugAndroidTest   # instrumented tests (needs a device/emulator)
 ```
+
+---
+
+## Releasing
+
+The repo builds and runs out of the box with safe placeholder/test values. To cut a real release you
+supply your own credentials and assets — none of which are committed:
+
+1. **Per-owner config** — `cp secrets.properties.template secrets.properties`, then fill in your real
+   `ADMOB_APP_ID`, `ADMOB_BANNER_UNIT_ID`, `PRIVACY_POLICY_URL`, and `SUPPORT_EMAIL`. The file is
+   git-ignored; absent it, the build falls back to Google's public **test** ad IDs and `example.com`
+   placeholders. (These values aren't secret — they ship in the APK — but are kept out of this public
+   repo so forks don't build with the maintainer's ad IDs.)
+2. **Signing** — `cp keystore.properties.template keystore.properties`, create a release keystore, and
+   point the properties at it. Without it, release builds are simply unsigned.
+3. **Crash reporting** — drop `app/google-services.json` in to activate Firebase Crashlytics/Analytics
+   (the `google-services`/`crashlytics` plugins auto-apply only when the file is present).
+4. **Privacy policy** — host `docs/privacy-policy.md` at a public URL (required by Play + UMP consent
+   because ads are enabled) and set `PRIVACY_POLICY_URL`.
+5. **Version** — bump `versionCode` in `app/build.gradle.kts` before each store upload.
+
+Then build a **signed, minified** release (`:app:assembleRelease` / `bundleRelease`) and verify R8
+didn't break serialization or Room. `app/proguard-rules.pro` holds the kotlinx.serialization keep rules.
 
 ---
 
@@ -122,23 +146,34 @@ Or open the project in Android Studio and run the **app** configuration.
 Unit tests use `kotlin-test` (JUnit4), `kotlinx-coroutines-test`, and Turbine.
 
 - **`:core:domain`** — `ScorerTest`, `QuestionSelectorTest`, `DailyQuestionSelectorTest`, `StreakCalculatorTest` (pure logic).
+- **`:core:data`** — `MappersTest`, `ConvertersTest`, `BankImporterTest` (idempotency + version-bump import).
 - **`:core:notifications`** — `ReminderTimingTest`.
-- **Feature ViewModels** — `DailyViewModelTest`, `FreeViewModelTest`, `QuizViewModelTest`, `SettingsViewModelTest`.
+- **Feature ViewModels** — `HomeViewModelTest`, `DailyViewModelTest`, `FreeViewModelTest`, `QuizViewModelTest`, `SettingsViewModelTest` (incl. error-path/retry coverage).
+
+Instrumented tests (`src/androidTest/`, run on a device/emulator):
+
+- **`:core:data`** — `PmpDaoTest` (real Room round-trips, `CASCADE` delete, FK enforcement) and `MigrationTest` (`MigrationTestHelper` against the exported schema).
+- **`:feature:daily` / `:feature:quiz`** — Compose smoke tests for the daily-question and take-a-quiz flows.
 
 > Note: Android modules must use `libs.kotlin.test` (which maps to `kotlin-test-junit`) rather than `kotlin("test")`, because AGP 9's built-in Kotlin doesn't apply the standalone Kotlin plugin.
 
 ---
 
-## Roadmap / known placeholders
+## Roadmap / remaining work
 
-The following are intentionally stubbed and must be addressed before a production release:
+Production hardening is complete (see [Releasing](#releasing)). What's left before a store launch is
+**your** credentials/assets, plus longer-term enhancements:
 
-- **Practice tab** — the bottom-nav *Practice* destination is a placeholder screen.
-- **AdMob IDs** — the banner unit ID and AdMob application ID are Google's public **test** IDs.
-- **Privacy Policy URL** — currently `https://example.com/privacy-policy` (see `docs/privacy-policy.md`).
-- **Inter font** — the design system specifies Inter, but the app currently falls back to the platform default until the font assets are added.
-- **Question bank** — the seed bank contains **9 questions** (3 per domain) at `bankVersion 1`; it's meant to grow.
-- **Sync seams** — `Attempt`/`QuizSession` entities carry `syncState`/`updatedAt` fields that are local-only for now.
+**Before you can ship** (all covered in [Releasing](#releasing)):
+- Fill `secrets.properties` with real AdMob IDs, privacy-policy URL, and support email.
+- Add a release keystore (`keystore.properties`) and `app/google-services.json`.
+- Host the privacy policy and bump `versionCode`.
+
+**Future enhancements** (deliberately deferred, not blockers):
+- **Question bank growth** — currently **139 questions** at `bankVersion 6`; can keep growing (bump `bankVersion` to re-import).
+- **Cloud sync** — `Attempt`/`QuizSession` carry `syncState`/`updatedAt` seams that are local-only for now.
+- **Localization / i18n** — strings are currently inline English.
+- **`build-logic` convention plugins** — the catalog declares `pmp.*` plugin aliases that no module applies yet; modules use catalog aliases directly.
 
 ---
 

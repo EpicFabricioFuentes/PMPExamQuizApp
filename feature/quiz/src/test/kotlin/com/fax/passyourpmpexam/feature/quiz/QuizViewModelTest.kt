@@ -144,6 +144,21 @@ class QuizViewModelTest {
         assertEquals("s1", resumed.session.id)
     }
 
+    @Test
+    fun poolReadFailureEmitsErrorAndRetryRecovers() = runTest(dispatcher) {
+        questions.questions = (0 until 5).map { question("q$it") }
+        questions.failOnGetAll = true
+
+        val vm = viewModel()
+        advanceUntilIdle()
+        assertTrue(vm.state.value is QuizUiState.Error)
+
+        questions.failOnGetAll = false
+        vm.onIntent(QuizIntent.Retry)
+        advanceUntilIdle()
+        assertTrue(vm.state.value is QuizUiState.Setup)
+    }
+
     private fun question(id: String, correctIndex: Int = 0) = Question(
         id = id,
         certificationId = "PMP",
@@ -162,7 +177,11 @@ private object FakeTimeProvider : TimeProvider {
 }
 
 private class FakeQuestionRepository(var questions: List<Question> = emptyList()) : QuestionRepository {
-    override suspend fun getAll(certificationId: String): List<Question> = questions
+    var failOnGetAll = false
+    override suspend fun getAll(certificationId: String): List<Question> {
+        if (failOnGetAll) throw RuntimeException("read failed")
+        return questions
+    }
     override suspend fun getById(id: String): Question? = questions.firstOrNull { it.id == id }
     override suspend fun count(): Int = questions.size
     override suspend fun upsertAll(questions: List<Question>) {
