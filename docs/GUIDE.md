@@ -182,6 +182,8 @@ Every feature module follows the **same five-file shape**. Learn it once and eve
 
 **Effects/navigation:** there is no separate one-shot event channel. Navigation is done via **lambdas passed into the screen** (`onBack`, `onStartQuiz`, …); transient UI concerns (dialogs, expand toggles) use local `remember { mutableStateOf(...) }`.
 
+**Error handling:** repository reads are wrapped in `try/catch`; failures surface as an error state (an `Error` branch on the sealed `UiState`s, or an `error` field on the flat data-class states) rendered with `ErrorState` + a retry `Intent` — so a failure is never silently indistinguishable from "no data".
+
 ### Worked example — Quiz (the richest MVI screen)
 
 `feature/quiz/.../`
@@ -298,7 +300,7 @@ app/src/main/assets/banks/pmp.json     { bankVersion, certificationId, questions
 - **`Color.kt`** — full light + dark M3 palettes (brand primary violet `0xFF4200D6`). Semantic `PmpCorrect` / `PmpIncorrect` (green/red) are reserved strictly for answer feedback.
 - **`Type.kt`** — `PmpTypography` built on the **Inter** font family (`core/designsystem/src/main/res/font/inter_*.ttf`).
 - **`Dimens.kt`** — `PmpSpacing` on a 4px grid (`gridUnit 4`, `itemGap 12`, `safeMargin 16`, `basePadding 24`, `touchTargetMin 48`).
-- **Shared components** — `PmpTopBar`, `PrimaryButton`, `QuestionCard`, `AnswerOption` / `AnswerFeedback` / `AnswerResultSheet`, `CircularScoreRing`, and `StateViews` (`LoadingState`, `EmptyState`). These give Daily, Quiz, and Free an identical question-answering UX.
+- **Shared components** — `PmpTopBar`, `PrimaryButton`, `QuestionCard`, `AnswerOption` / `AnswerFeedback` / `AnswerResultSheet`, `CircularScoreRing`, and `StateViews` (`LoadingState`, `EmptyState`, `ErrorState`). These give Daily, Quiz, and Free an identical question-answering UX. `ErrorState` (a retry-able failure state, distinct from `EmptyState`) is wired into every study screen.
 
 The design derives from a Stitch design system; the reference mocks and tokens live under `stitch_pmp_prep_mobile_design_system/`.
 
@@ -311,24 +313,30 @@ The design derives from a Stitch design system; the reference mocks and tokens l
 - **Determinism is injected.** `FakeTimeProvider`, a fixed `IdGenerator`, and a seeded `Random(0)` make time, IDs, and question selection reproducible — so ViewModels and engines are tested with **no Android, no Room, no Robolectric**.
 - **Where tests live:**
   - Domain engines (the meatiest tests): `core/domain/src/test/.../{scoring,selection,daily,streak}/`.
-  - Feature ViewModels: `feature/*/src/test/...` (Quiz, Daily, Free, Settings).
+  - Feature ViewModels: `feature/*/src/test/...` (Home, Quiz, Daily, Free, Settings), including error-path/retry coverage.
+  - Data layer: `core/data/src/test/...` — `MappersTest`, `ConvertersTest`, `BankImporterTest`.
   - Notifications timing: `core/notifications/src/test/...`.
-  - Instrumentation (`src/androidTest/`) is mostly default scaffolding today — real Room/Compose UI tests aren't written yet.
+- **Instrumented tests** (`src/androidTest/`, run on a device/emulator via `connectedDebugAndroidTest`):
+  - `:core:data` — `PmpDaoTest` (real Room round-trips, `CASCADE` delete, FK enforcement) and `MigrationTest`, which stands up `MigrationTestHelper` against the exported schema (only v1 exists, so it validates the plumbing; a `migrate1To2` template is ready for the first schema change).
+  - `:feature:daily` / `:feature:quiz` — Compose smoke tests for the daily-question and take-a-quiz flows (fake-backed ViewModels, no Koin). They poll with `waitUntil` rather than `waitForIdle` because the quiz timer updates state every second.
 
 ---
 
-## 13. Known placeholders & gotchas
+## 13. Release config & remaining work
 
-Things that look done but aren't quite — worth knowing before you file a bug:
+Production hardening is done. What's left is per-owner config and longer-term enhancements.
 
-- **Practice tab** is only partially built out.
-- **AdMob** uses Google's public **test** ad unit IDs.
-- The privacy-policy URL points at **`example.com`**.
-- The **question bank is a small seed** (~9 questions, `bankVersion: 1`).
-- **Sync fields are local-only** (`syncState = "LOCAL_ONLY"`) — no cloud sync exists yet.
-- `QuizSessionRepositoryImpl.save` currently always writes `scorePercent = null` / `passed = null` on the session row (score is derived, not persisted there).
-- `README.md` mentions `targetSdk 36`, but the build actually uses **37**.
-- The version catalog **declares** convention plugins (`pmp.android.library`, etc.) and Firebase/`google-services` entries that **no module currently applies** — there is no `build-logic` composite build. Modules apply catalog plugin aliases directly.
+**Per-owner config (git-ignored — set before shipping):**
+- **`secrets.properties`** (copy from `secrets.properties.template`) supplies the real `ADMOB_APP_ID`, `ADMOB_BANNER_UNIT_ID`, `PRIVACY_POLICY_URL`, and `SUPPORT_EMAIL`. Absent it, the build falls back to Google's public **test** ad IDs and `example.com` placeholders. Wiring: the app ID is a manifest placeholder set in `:app`; the unit ID is `:core:ads` `BuildConfig`; the URLs are `:feature:settings` `BuildConfig`. These aren't secrets (they ship in the APK) — they're externalized so forks of this **public** repo don't build with the maintainer's ad IDs.
+- **`keystore.properties`** (from `keystore.properties.template`) + a release keystore enable release signing; absent, release builds are unsigned.
+- **`app/google-services.json`** activates Firebase Crashlytics/Analytics — the `google-services`/`crashlytics` plugins auto-apply only when it's present.
+- **`versionCode`** is still `1` in `app/build.gradle.kts` — bump before each store upload.
+
+**Gotchas & deferred work:**
+- **Sync fields are local-only** (`syncState = "LOCAL_ONLY"`) — no cloud sync exists yet; the seams are documented in `Repositories.kt`.
+- The `Outcome`/`AppError` types in `:core:common` are **unused** — error handling uses per-`UiState` error branches instead. Safe to delete if you don't plan to adopt them.
+- The version catalog **declares** convention plugins (`pmp.android.library`, etc.) that **no module currently applies** — there is no `build-logic` composite build. Modules apply catalog plugin aliases directly.
+- The question bank is currently **139 questions at `bankVersion 6`**; bump `bankVersion` in `pmp.json` to trigger a re-import.
 
 ---
 

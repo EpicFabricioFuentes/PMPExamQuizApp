@@ -46,23 +46,32 @@ class QuizViewModel(
     private var timerJob: Job? = null
 
     init {
+        load()
+    }
+
+    private fun load() {
         viewModelScope.launch {
-            pool = questionRepository.getAll()
-            if (pool.isEmpty()) {
-                _state.value = QuizUiState.Empty
-                return@launch
+            _state.value = QuizUiState.Loading
+            try {
+                pool = questionRepository.getAll()
+                if (pool.isEmpty()) {
+                    _state.value = QuizUiState.Empty
+                    return@launch
+                }
+                // Same-process restore (config change / VM recreation) via SavedStateHandle.
+                val savedId = savedStateHandle.get<String>(KEY_SESSION_ID)
+                val restored = savedId?.let { quizSessionRepository.getById(it) }
+                if (restored != null && restored.status == QuizStatus.IN_PROGRESS) {
+                    enterInProgress(restored)
+                    return@launch
+                }
+                // Cold start after process death: offer to resume a persisted in-progress session.
+                val resumable = quizSessionRepository.getLatestByStatus(QuizStatus.IN_PROGRESS)
+                _state.value =
+                    if (resumable != null) QuizUiState.ResumePrompt(resumable) else QuizUiState.Setup(DEFAULT_TYPE)
+            } catch (t: Throwable) {
+                _state.value = QuizUiState.Error(LOAD_ERROR_MESSAGE)
             }
-            // Same-process restore (config change / VM recreation) via SavedStateHandle.
-            val savedId = savedStateHandle.get<String>(KEY_SESSION_ID)
-            val restored = savedId?.let { quizSessionRepository.getById(it) }
-            if (restored != null && restored.status == QuizStatus.IN_PROGRESS) {
-                enterInProgress(restored)
-                return@launch
-            }
-            // Cold start after process death: offer to resume a persisted in-progress session.
-            val resumable = quizSessionRepository.getLatestByStatus(QuizStatus.IN_PROGRESS)
-            _state.value =
-                if (resumable != null) QuizUiState.ResumePrompt(resumable) else QuizUiState.Setup(DEFAULT_TYPE)
         }
     }
 
@@ -78,6 +87,7 @@ class QuizViewModel(
             QuizIntent.Submit -> submit()
             QuizIntent.Restart -> restart()
             QuizIntent.ExitToSetup -> exitToSetup()
+            QuizIntent.Retry -> load()
         }
     }
 
@@ -243,5 +253,6 @@ class QuizViewModel(
         val DEFAULT_TYPE = QuizType.SHORT_10
         const val TICK_MILLIS = 1_000L
         const val KEY_SESSION_ID = "quiz_session_id"
+        const val LOAD_ERROR_MESSAGE = "We couldn't load your quiz. Please try again."
     }
 }

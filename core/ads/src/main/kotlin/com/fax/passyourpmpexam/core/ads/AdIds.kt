@@ -1,10 +1,10 @@
 package com.fax.passyourpmpexam.core.ads
 
 /**
- * Ad unit IDs. Currently Google's public TEST banner unit — always safe to load and never bills.
- * Replace [BANNER_UNIT_ID] with the real AdMob banner unit ID before release (see the AdMob app ID
- * in this module's AndroidManifest.xml).
+ * Ad unit IDs. Sourced from [BuildConfig], which the module's build.gradle.kts populates from
+ * `secrets.properties` (falling back to Google's public TEST banner unit — always safe to load and
+ * never bills). Set ADMOB_BANNER_UNIT_ID + ADMOB_APP_ID in secrets.properties before release.
  */
 object AdIds {
-    const val BANNER_UNIT_ID: String = "ca-app-pub-3940256099942544/6300978111"
+    val BANNER_UNIT_ID: String = BuildConfig.ADMOB_BANNER_UNIT_ID
 }

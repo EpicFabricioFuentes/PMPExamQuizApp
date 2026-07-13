@@ -12,10 +12,17 @@
         android:roundIcon="@mipmap/studying_cat_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.PassYourPMPExam">
+
+        <!-- Reported crashes are disabled in debug builds via the manifestPlaceholder. Inert until
+             app/google-services.json is present and the Firebase plugins are applied. -->
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${crashlyticsCollectionEnabled}" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.PassYourPMPExam"
+            android:theme="@style/Theme.PassYourPMPExam.Starting"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

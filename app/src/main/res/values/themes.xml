@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.PassYourPMPExam" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Post-splash application theme. Day/night is provided by resource qualifiers (see
+         values-night/themes.xml); the Compose PmpTheme drives the actual UI colors, so this only
+         supplies a matching pre-Compose window background to avoid a light/dark flash. -->
+    <style name="Theme.PassYourPMPExam" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+
+    <!-- Cold-start splash (androidx core-splashscreen). Applied to MainActivity in the manifest;
+         installSplashScreen() hands off to postSplashScreenTheme once content is ready. -->
+    <style name="Theme.PassYourPMPExam.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/studying_cat_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.PassYourPMPExam</item>
+    </style>
 </resources>

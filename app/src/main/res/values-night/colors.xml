@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark window background, matching the Compose dark surface. -->
+    <color name="window_background">#FF141218</color>
+    <!-- Brand violet stays consistent behind the splash in dark mode. -->
+    <color name="splash_background">#FF4200D6</color>
+</resources>

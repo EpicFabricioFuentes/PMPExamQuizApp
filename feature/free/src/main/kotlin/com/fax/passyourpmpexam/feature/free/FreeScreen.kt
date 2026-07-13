@@ -24,6 +24,7 @@ import com.fax.passyourpmpexam.core.designsystem.component.AnswerFeedbackHaptics
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerOptionUi
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerResultSheet
 import com.fax.passyourpmpexam.core.designsystem.component.EmptyState
+import com.fax.passyourpmpexam.core.designsystem.component.ErrorState
 import com.fax.passyourpmpexam.core.designsystem.component.LoadingState
 import com.fax.passyourpmpexam.core.designsystem.component.OptionState
 import com.fax.passyourpmpexam.core.designsystem.component.QuestionCard
@@ -83,6 +84,11 @@ private fun FreeContent(
         )
 
         when {
+            state.error != null -> ErrorState(
+                message = state.error,
+                actionLabel = "Try again",
+                onAction = { onIntent(FreeIntent.Retry) },
+            )
             state.loading -> LoadingState(label = "Loading questions…")
             state.question == null -> EmptyState(
                 title = "No matches",

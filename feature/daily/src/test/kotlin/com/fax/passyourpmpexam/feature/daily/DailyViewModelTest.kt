@@ -83,6 +83,22 @@ class DailyViewModelTest {
     }
 
     @Test
+    fun readFailureEmitsErrorAndRetryRecovers() = runTest(dispatcher) {
+        questions.questions = listOf(question("q0"), question("q1"), question("q2"))
+        questions.failOnGetAll = true
+
+        val vm = viewModel()
+        advanceUntilIdle()
+        assertTrue(vm.state.value is DailyUiState.Error)
+
+        // Recovering condition + retry re-runs the load and reaches a normal state.
+        questions.failOnGetAll = false
+        vm.onIntent(DailyIntent.Retry)
+        advanceUntilIdle()
+        assertTrue(vm.state.value is DailyUiState.Ready)
+    }
+
+    @Test
     fun answeringCorrectlyRecordsAttemptUpdatesStreakAndMarksDay() = runTest(dispatcher) {
         questions.questions = listOf(question("only", correctIndex = 2))
 
@@ -145,7 +161,11 @@ private class FakeTimeProvider(private val today: Long, private val millis: Long
 }
 
 private class FakeQuestionRepository(var questions: List<Question> = emptyList()) : QuestionRepository {
-    override suspend fun getAll(certificationId: String): List<Question> = questions
+    var failOnGetAll = false
+    override suspend fun getAll(certificationId: String): List<Question> {
+        if (failOnGetAll) throw RuntimeException("read failed")
+        return questions
+    }
     override suspend fun getById(id: String): Question? = questions.firstOrNull { it.id == id }
     override suspend fun count(): Int = questions.size
     override suspend fun upsertAll(questions: List<Question>) {

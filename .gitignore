@@ -41,6 +41,11 @@ lint/
 *.keystore
 keystore.properties
 
+# Per-owner release config: real AdMob IDs + legal URLs (not secret — they ship in the APK —
+# but kept out of the public repo so forks don't build with the maintainer's ad IDs).
+# See secrets.properties.template.
+secrets.properties
+
 # =========================
 # Local configuration
 # =========================

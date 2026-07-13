@@ -34,10 +34,24 @@ class FreeViewModel(
     private val queue = ArrayDeque<Question>()
 
     init {
+        load()
+    }
+
+    private fun load() {
         viewModelScope.launch {
-            pool = questionRepository.getAll()
-            refillQueue()
-            _state.value = _state.value.copy(loading = false, question = nextFromQueue())
+            _state.value = _state.value.copy(loading = true, error = null)
+            try {
+                pool = questionRepository.getAll()
+                queue.clear()
+                refillQueue()
+                _state.value = _state.value.copy(
+                    loading = false,
+                    question = nextFromQueue(),
+                    error = null,
+                )
+            } catch (t: Throwable) {
+                _state.value = _state.value.copy(loading = false, error = LOAD_ERROR_MESSAGE)
+            }
         }
     }
 
@@ -46,6 +60,7 @@ class FreeViewModel(
             is FreeIntent.ToggleDomain -> toggleDomain(intent.domain)
             is FreeIntent.SelectOption -> selectOption(intent.index)
             FreeIntent.Next -> advance()
+            FreeIntent.Retry -> load()
         }
     }
 
@@ -110,5 +125,9 @@ class FreeViewModel(
     private fun nextFromQueue(): Question? {
         if (queue.isEmpty()) refillQueue()
         return queue.removeFirstOrNull()
+    }
+
+    private companion object {
+        const val LOAD_ERROR_MESSAGE = "We couldn't load practice questions. Please try again."
     }
 }

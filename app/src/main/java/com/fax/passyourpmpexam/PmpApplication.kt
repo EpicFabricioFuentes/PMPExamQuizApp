@@ -11,6 +11,7 @@ import com.fax.passyourpmpexam.feature.home.homeModule
 import com.fax.passyourpmpexam.feature.free.freeModule
 import com.fax.passyourpmpexam.feature.quiz.quizModule
 import com.fax.passyourpmpexam.feature.settings.settingsModule
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -20,6 +21,7 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class PmpApplication : Application(), KoinComponent {
 
@@ -29,7 +31,8 @@ class PmpApplication : Application(), KoinComponent {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger()
+            // Verbose DI logging only in debug builds; silence it in release.
+            androidLogger(if (BuildConfig.DEBUG) Level.INFO else Level.NONE)
             androidContext(this@PmpApplication)
             modules(
                 dataModule,
@@ -45,10 +48,21 @@ class PmpApplication : Application(), KoinComponent {
         // The Mobile Ads SDK is initialized by ConsentManager once UMP consent permits ad requests
         // (see MainActivity#onCreate), so it is not started here unconditionally.
 
-        // Seed / update the bundled question bank into Room off the main thread.
+        // Seed / update the bundled question bank into Room off the main thread. A failure here
+        // (asset parse/validation, or a Room write error) must not crash the app: the study
+        // screens surface their own empty/error states. Log it and report a non-fatal so the
+        // failure is visible in Crashlytics rather than silently swallowed.
         applicationScope.launch {
-            val imported = bankImporter.importIfNeeded()
-            Log.i(TAG, "Bank import complete: $imported question(s) imported")
+            try {
+                val imported = bankImporter.importIfNeeded()
+                if (BuildConfig.DEBUG) {
+                    Log.i(TAG, "Bank import complete: $imported question(s) imported")
+                }
+            } catch (t: Throwable) {
+                Log.e(TAG, "Question bank import failed", t)
+                // Guarded: Crashlytics is inert unless google-services.json wired Firebase up.
+                runCatching { FirebaseCrashlytics.getInstance().recordException(t) }
+            }
         }
     }
 

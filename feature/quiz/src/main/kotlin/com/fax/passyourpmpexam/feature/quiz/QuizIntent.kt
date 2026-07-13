@@ -15,4 +15,7 @@ sealed interface QuizIntent {
 
     /** Abandon the in-progress quiz and return to the setup screen (back arrow while answering). */
     data object ExitToSetup : QuizIntent
+
+    /** Reload the pool / saved session after an error state. */
+    data object Retry : QuizIntent
 }

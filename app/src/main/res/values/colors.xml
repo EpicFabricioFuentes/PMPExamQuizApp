@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Pre-Compose window background (light). Matches the Compose light surface so there is no
+         flash between the splash and the first Compose frame; overridden in values-night. -->
+    <color name="window_background">#FFFDFBFF</color>
+    <!-- Brand violet used behind the splash icon (same in light and dark). -->
+    <color name="splash_background">#FF4200D6</color>
 </resources>

@@ -11,4 +11,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.room) apply false
+    // Firebase — put the plugins on the classpath here; :app applies them conditionally
+    // (only when app/google-services.json exists) so credential-less builds still work.
+    alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.firebase.crashlytics) apply false
 }

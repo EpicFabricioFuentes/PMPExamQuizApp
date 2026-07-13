@@ -35,27 +35,33 @@ class DailyViewModel(
 
     private fun load() {
         viewModelScope.launch {
-            val pool = questionRepository.getAll()
-            val today = timeProvider.todayEpochDay()
-            val question = DailyQuestionSelector.pick(pool, today)
-            if (question == null) {
-                _state.value = DailyUiState.Empty
-                return@launch
+            _state.value = DailyUiState.Loading
+            try {
+                val pool = questionRepository.getAll()
+                val today = timeProvider.todayEpochDay()
+                val question = DailyQuestionSelector.pick(pool, today)
+                if (question == null) {
+                    _state.value = DailyUiState.Empty
+                    return@launch
+                }
+                val alreadyCompleted = settingsRepository.getDailyLastAnsweredEpochDay() == today
+                _state.value = DailyUiState.Ready(
+                    question = question,
+                    selectedIndex = null,
+                    answered = alreadyCompleted,
+                    isCorrect = null,
+                    alreadyCompletedToday = alreadyCompleted,
+                )
+            } catch (t: Throwable) {
+                _state.value = DailyUiState.Error(LOAD_ERROR_MESSAGE)
             }
-            val alreadyCompleted = settingsRepository.getDailyLastAnsweredEpochDay() == today
-            _state.value = DailyUiState.Ready(
-                question = question,
-                selectedIndex = null,
-                answered = alreadyCompleted,
-                isCorrect = null,
-                alreadyCompletedToday = alreadyCompleted,
-            )
         }
     }
 
     fun onIntent(intent: DailyIntent) {
         when (intent) {
             is DailyIntent.SelectOption -> submit(intent.index)
+            DailyIntent.Retry -> load()
         }
     }
 
@@ -85,5 +91,9 @@ class DailyViewModel(
             streakRepository.set(StreakCalculator.onActivity(streakRepository.get(), today))
             settingsRepository.setDailyLastAnsweredEpochDay(today)
         }
+    }
+
+    private companion object {
+        const val LOAD_ERROR_MESSAGE = "We couldn't load today's question. Please try again."
     }
 }

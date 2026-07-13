@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dark variant of the post-splash application theme (dark framework parent + dark window
+         background). The .Starting splash theme has no night variant; it references DayNight
+         color/style resources, so it resolves correctly in both modes. -->
+    <style name="Theme.PassYourPMPExam" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+</resources>

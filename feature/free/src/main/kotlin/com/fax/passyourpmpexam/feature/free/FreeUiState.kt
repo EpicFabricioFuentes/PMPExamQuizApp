@@ -14,6 +14,8 @@ data class FreeUiState(
     val answered: Boolean = false,
     val isCorrect: Boolean? = null,
     val loading: Boolean = true,
+    /** Non-null when the question pool failed to load; the screen offers a retry. */
+    val error: String? = null,
 ) {
     val availableDomains: List<Domain> = Domain.entries
 }

@@ -53,6 +53,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.fax.passyourpmpexam.core.designsystem.component.AnswerOptionUi
 import com.fax.passyourpmpexam.core.designsystem.component.CircularScoreRing
 import com.fax.passyourpmpexam.core.designsystem.component.EmptyState
+import com.fax.passyourpmpexam.core.designsystem.component.ErrorState
 import com.fax.passyourpmpexam.core.designsystem.component.LoadingState
 import com.fax.passyourpmpexam.core.designsystem.component.OptionState
 import com.fax.passyourpmpexam.core.designsystem.component.PmpTopBar
@@ -131,6 +132,11 @@ fun QuizScreen(
                 QuizUiState.Empty -> EmptyState(
                     title = "No questions yet",
                     message = "Your question bank is still being set up. Check back in a moment.",
+                )
+                is QuizUiState.Error -> ErrorState(
+                    message = s.message,
+                    actionLabel = "Try again",
+                    onAction = { onIntent(QuizIntent.Retry) },
                 )
                 is QuizUiState.ResumePrompt -> ResumePromptContent(s, onIntent)
                 is QuizUiState.Setup -> SetupContent(s, onIntent)

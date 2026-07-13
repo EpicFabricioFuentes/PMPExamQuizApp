@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-   Sample data extraction rules file; uncomment and customize as necessary.
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Backup / transfer rules (API 31+).
    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
-   for details.
+
+   User progress that is cheap and safe to restore (streaks, daily goal, theme, reminder,
+   first-run + consent flags) lives in DataStore and is included by default.
+
+   The Room database (pmp.db) is EXCLUDED because:
+     - the question bank is regenerable on first launch from a bundled JSON asset, and
+     - backing up a live SQLite/WAL file via auto-backup risks a corrupt restore.
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include .../>
-        <exclude .../>
-        -->
+        <exclude domain="database" path="pmp.db" />
+        <exclude domain="database" path="pmp.db-wal" />
+        <exclude domain="database" path="pmp.db-shm" />
     </cloud-backup>
-    <!--
     <device-transfer>
-        <include .../>
-        <exclude .../>
+        <exclude domain="database" path="pmp.db" />
+        <exclude domain="database" path="pmp.db-wal" />
+        <exclude domain="database" path="pmp.db-shm" />
     </device-transfer>
-    -->
 </data-extraction-rules>
