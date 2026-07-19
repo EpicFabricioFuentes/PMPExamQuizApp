@@ -25,8 +25,8 @@ import com.fax.passyourpmpexam.core.designsystem.theme.PmpTheme
 // Privacy URL + support email come from BuildConfig, populated from the git-ignored
 // secrets.properties (see secrets.properties.template). They fall back to example.com placeholders
 // until set.
-private val PRIVACY_POLICY_URL = BuildConfig.PRIVACY_POLICY_URL
-private val SUPPORT_EMAIL = BuildConfig.SUPPORT_EMAIL
+private const val PRIVACY_POLICY_URL = BuildConfig.PRIVACY_POLICY_URL
+private const val SUPPORT_EMAIL = BuildConfig.SUPPORT_EMAIL
 // Standard Play listing prefix; the app's package name is appended at the call site. Not per-owner.
 private const val PLAY_STORE_WEB_URL = "https://play.google.com/store/apps/details?id="
 private const val SHARE_TEXT =

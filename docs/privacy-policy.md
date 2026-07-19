@@ -7,12 +7,11 @@
   feature/settings/.../SettingsScreen.kt with the live URL, and paste the same URL into the
   Play Console listing + Data safety form.
 
-  TODO before publishing: fill in the [contact email] and [effective date] placeholders below.
 -->
 
 # Privacy Policy — Pass Your PMP Exam
 
-**Effective date:** [effective date — TODO]
+**Effective date:** July 14, 2026
 
 This Privacy Policy explains how the **Pass Your PMP Exam** app ("the app", "we") handles
 information. The app is a free, offline-first PMP® exam-preparation quiz app for Android. Please
@@ -25,6 +24,7 @@ read it alongside the [Google Play Terms of Service](https://play.google.com/abo
 - The app shows ads through **Google AdMob**, which may collect device and advertising information
   as described below. You control ad personalization through the consent prompt shown on first
   launch.
+- The app may use **Firebase Crashlytics and Analytics** if enabled by the developer (see below).
 - Uninstalling the app removes all data the app stored on your device.
 
 ## Information the app itself collects
@@ -68,14 +68,29 @@ device. This is handled entirely on-device; no reminder data is sent anywhere. R
 
 ## Analytics and crash reporting
 
-The app does **not** include analytics or crash-reporting services and does not collect usage
-statistics.
+The app may use **Firebase Crashlytics** for crash reporting and **Firebase Analytics** for
+aggregate usage statistics. These services are **not active by default** — they only function when
+the developer has provided a Firebase configuration file (`google-services.json`) and built a
+release. When active, Firebase may collect:
+
+- Device model, OS version, and crash stack traces (Crashlytics).
+- Non-personally identifiable usage events and sessions (Analytics).
+
+Firebase data is governed by [Google's Privacy Policy](https://policies.google.com/privacy) and
+[Firebase's privacy and security documentation](https://firebase.google.com/support/privacy). You
+may opt out of Analytics collection by running the app with the **Analytics-free** setting if
+available, or by uninstalling.
 
 ## Third parties
 
-The only third-party service the app uses is **Google AdMob** (Google LLC), described above. We do
-not sell or share your information with any other third parties, because we do not collect personal
-information ourselves.
+The app uses the following third-party services:
+
+- **Google AdMob** (Google LLC) — advertising, described above.
+- **Firebase Crashlytics & Analytics** (Google LLC) — crash reporting and analytics, optional as
+  described above.
+
+We do not sell or share your personal information with any other third parties, because we do not
+collect personal information ourselves.
 
 ## Data retention and deletion
 
@@ -95,7 +110,7 @@ We may update this policy from time to time. Material changes will be reflected 
 
 ## Contact
 
-If you have questions about this policy, contact: **[contact email — TODO]**
+If you have questions about this policy, contact: **ffuentes@ixnec.mx**
 
 ---
 
