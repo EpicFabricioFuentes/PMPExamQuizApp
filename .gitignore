@@ -75,3 +75,8 @@ Thumbs.db
 # =========================
 *.log
 *.hprof
+
+# =========================
+# Firebase Configuration
+# =========================
+google-services.json
